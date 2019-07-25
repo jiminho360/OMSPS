@@ -16,7 +16,10 @@ class Nursery extends Model
     {
         return $this->belongsTo(Student::class, 'student_id');
     }
-
+    public static function getStudents($year)
+    {
+        return DB::select('SELECT * FROM students WHERE (admission_year -'.$year.') = 0 ORDER BY first_name ASC');
+    }
     public static function getReport()
     {
         return Nursery::select('student_id', 'id', 'mathematics', 'reading_and_writing', 'english', 'art_and_craft', DB::raw('AVG(mathematics + reading_and_writing + english + art_and_craft)/4 AS average'))
@@ -28,17 +31,19 @@ class Nursery extends Model
 
     public static function avgMath($term)
     {
-        return Nursery::where('term',$term)->avg('mathematics');
+        return Nursery::where('term', $term)->avg('mathematics');
         //SELECT AVG(mathematics) FROM `nursery` where term = 1
     }
+
     public static function avgEng($term)
     {
-        return Nursery::where('term',$term)->avg('english');
+        return Nursery::where('term', $term)->avg('english');
         //SELECT AVG(english) FROM `nursery` where term = 1
     }
+
     public static function avgRW($term)
     {
-        return Nursery::where('term',$term)->avg('reading_and_writing');
+        return Nursery::where('term', $term)->avg('reading_and_writing');
         //SELECT AVG(reading_and_writing) FROM `nursery` where term = 1
     }
 
@@ -48,19 +53,21 @@ class Nursery extends Model
         //SELECT AVG(art_and_craft) FROM `nursery` where term = 1
     }
 
- public static function maxMath($term)
+    public static function maxMath($term)
     {
-        return Nursery::where('term',$term)->max('mathematics');
+        return Nursery::where('term', $term)->max('mathematics');
         //SELECT MAX(mathematics) FROM `nursery` WHERE term = 1
     }
+
     public static function maxEng($term)
     {
-        return Nursery::where('term',$term)->max('english');
+        return Nursery::where('term', $term)->max('english');
         //SELECT MAX(english) FROM `nursery` WHERE term = 1
     }
+
     public static function maxRW($term)
     {
-        return Nursery::where('term',$term)->max('reading_and_writing');
+        return Nursery::where('term', $term)->max('reading_and_writing');
         //SELECT MAX(reading_and_writing) FROM `nursery` WHERE term = 1
     }
 

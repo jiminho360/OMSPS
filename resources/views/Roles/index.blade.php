@@ -1,12 +1,14 @@
 @extends('layouts.app')
-@section('title','Register Employees')
+
+
+@section('title','Roles List')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Employees List</h2>
+                <h2>Users and their roles</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
@@ -20,35 +22,21 @@
                     <thead>
                     <tr>
                         <th>Full Name</th>
-                        <th>Age</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Physical Address</th>
-                        <th>Employee Type</th>
-                        <th>Gender</th>
-                        <th>Nationality</th>
-                        <th>Religion</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
+
                     </thead>
                     <tbody>
-                    @foreach($Employees as $Employee)
+                    @foreach($roles as $role)
                         <tr>
-                            <td class="desc_name">{{$Employee->first_name." ".$Employee->middle_name." ".$Employee->surname}}</td>
-                            <?php $Age_one = date('Y',strtotime($Employee->birth_date));
-                            $Age_two = date('Y')?>
-                            <td>{{$Age_two - $Age_one." Years"}}</td>
-                            <td>{{$Employee->Email}}</td>
-                            <td>{{$Employee->phone}}</td>
-                            <td>{{$Employee->Address}}</td>
-                            <td>{{$Employee->userType->name}}</td>
-                            <td>{{$Employee->gender}}</td>
-                            <td>{{$Employee->nationality->name}}</td>
-                            <td>{{$Employee->religion->name}}</td>
+                            <td class="desc_name">{{$role->user_id->first_name." ".$role->user_id->middle_name." ".$role->user_id->surname}}</td>
+                            <td>{{$role->role_id->name}}</td>
 
                             <td>
-                                <a href="{{url('Employees/edit/'.$Employee->id)}}" class="edit-btn"> Edit</a> |
-                                <a href="{{url('Employees/delete/'.$Employee->id)}}" class="delete-btn"> Delete</a>
+                                <a href="{{url('users/edit/'.$role->id)}}" class="edit-btn"> Edit</a> |
+                                <a href="{{url('users/delete/'.$role->id)}}" class="delete-btn"> Delete</a>
+
                             </td>
                         </tr>
                     @endforeach
@@ -62,13 +50,13 @@
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('Employees/store')}}" method="post">
+                <form action="{{url('users/store')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong>Create Employee</strong></h4>
+                        <h4 class="modal-title"><strong>Create User</strong></h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
@@ -91,23 +79,23 @@
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="Email">Email</label>
-                                <input class="form-control input-sm" id="Email" name="Email" type="Email" required>
+                                <label class="control-label" for="email">Email</label>
+                                <input class="form-control input-sm" id="email" name="email" type="email" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="phone">Phone Number</label>
                                 <input class="form-control input-sm" id="phone" name="phone" type="text" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="Address">Physical Address</label>
-                                <input class="form-control input-sm" id="Address" name="Address" type="text" required>
+                                <label class="control-label" for="address">Physical Address</label>
+                                <input class="form-control input-sm" id="address" name="address" type="text" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
                                 <label for="gender" class="control-label">Gender</label>
-                                <select class="form-control dd_select" id="gender" name="gender" required style="width: 100%">
+                                <select class="form-control" id="gender" name="gender" required style="width: 100%">
                                     <option value="">---</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
@@ -116,7 +104,7 @@
 
                             <div class="col-lg-4 col-md-4">
                                 <label for="user_type" class="control-label">User Type</label>
-                                <select class="form-control dd_select" id="user_type" name="user_type" required
+                                <select class="form-control" id="user_type" name="user_type" required
                                         style="width: 100%">
                                     <option value="">----</option>
                                     @foreach($user_types as $user_type)
@@ -170,15 +158,15 @@
 
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('Employees/update')}}" method="post">
+                <form action="{{url('users/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
-                        <button type="button"  class="close" data-dismiss="modal" aria-label="Close"><span
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong> Edit Employee</strong></h4>
+                        <h4 class="modal-title"><strong> Edit Users</strong></h4>
                     </div>
                     <div class="modal-body">
 
@@ -246,4 +234,4 @@
         });
 
     </script>
-@endsection
+@stop

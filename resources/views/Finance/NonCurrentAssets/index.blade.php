@@ -78,7 +78,7 @@
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="depreciation_value">Depreciation Value</label>
                                 <input class="form-control input-sm" id="depreciation_value" name="depreciation_value"
-                                       type="text" required>
+                                       type="text">
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="date">Date</label>

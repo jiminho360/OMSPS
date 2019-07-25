@@ -10,12 +10,137 @@
             <div class="x_title">
                 <h2>Standard 1 Report</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    <a href="{{url('Std1/download_p')}}" class="btn btn-info btn-sm" ><i class="fa fa-plus-circle"></i> Print
-                    </a>
+                    <form action="{{url('Std1/download_p')}}" method="post">
+                        @csrf
+                        <div class="row" style="width: 100%">
+                            <div class="col-md-8">
+                                <label for="student_id" class="control-label">Student Name:</label>
+                                <select class="form-control" id="student_id" name="student_id"
+                                        style="width: 100%">
+                                    <option value="">Choose the name here! </option>
+                                    @foreach($students as $student)
+                                        <option
+                                                value="{{$student->id}}">{{$student->first_name." ".$student->last_name." ".$student->surname}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-4" style="margin-top:8%">
+                                <button type="submit" class="btn btn-info btn-sm"><i class="fa fa-plus-circle" ></i> Print
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </ul>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
+                <style>
+                    td {
+                        padding: 4px;
+                    }
+                </style>
+
+                <img src="{{asset('asset/images/new.png')}}" style="margin-left: 22%; margin-top: 10px">
+                <table style="width: 100%;border-collapse: collapse" border="1">
+                    <tr>
+                        <td>Type of Examination: <span style="color: red; font-weight: bolder">MID TERM EXAMINATION</span></td>
+                        <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
+                    </tr>
+                    <tr>
+                        <td>Pupils full  Name: ...............................................................</td>
+                        <td>Admission Year: .......................</td>
+                    </tr>
+                    <tr>
+                        <td>Class: .......................</td>
+                        <td>Number of Puplis in a class: ...........</td>
+                    </tr>
+                    <tr>
+                        <td>Closing Day (if applicable): .......................</td>
+                        <td>Opening Day (if applicable): .......................</td>
+                    </tr>
+
+                </table><br><br>
+
+                <table style="width:99.8%; border-collapse:collapse" border="1" >
+                    <tr>
+                        <th>S/N</th>
+                        <th WIDTH="15%">ITEM</th>
+                        <th>Mathematics</th>
+                        <th>Reading</th>
+                        <th>Writing</th>
+                        <th>Science</th>
+                        <th>AGGREGATE</th>
+                        <th>AVERAGE</th>
+                    </tr>
+                    <tr>
+                        <td><b>1</b></td>
+                        <td><b>Subject top score %</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>2</b></td>
+                        <td><b>Class average</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>3</b></td>
+                        <td><b>Pupil's score</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><b>4</b></td>
+                        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong>........... <strong>Class roster (Wanafunzi darasani):</strong>.............</td>
+
+                    </tr>
+                    <tr>
+                        <td><b>5</b></td>
+                        <td colspan="7"><strong>Class teacher's comments (Maelezo ya mwalimu wa darasa):</strong>
+                            ................................................................................................................................................................................
+                            ................................................................................................................................................................................
+
+                            <br>
+                            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> ..................................
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><b>6</b></td>
+                        <td colspan="7"><strong>Headteacher's comments (Maelezo ya Mwalimu Mkuu):</strong>
+                            ................................................................................................................................................................................
+                            ................................................................................................................................................................................
+                            <br>
+                            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> ..................................
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><b>7</b></td>
+                        <td colspan="7"><strong>Parent's acknowledgement and comments (Maelezo ya mzazi):</strong>
+                            ................................................................................................................................................................................
+                            ................................................................................................................................................................................
+                            <br>
+                            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> ..................................
+                        </td>
+
+                    </tr>
+
+
+                </table>
 
             </div>
         </div>

@@ -20,10 +20,8 @@ class Student extends Model
     {
         return $this->belongsTo(Nationality::class, 'nationality_id');
     }
-
     public static function getStudents($year)
     {
         return DB::select('SELECT * FROM students WHERE (admission_year -'.$year.') = 0 ORDER BY first_name ASC');
     }
-
 }

@@ -25,22 +25,20 @@
                         <th>Total Amount</th>
                         <th>Paid Amount</th>
                         <th>Unpaid Amount</th>
-                        <th>Year_id</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($payments as $payment)
                         <tr>
-                            <td class="desc_name">{{$payment->first_name." ".$payment->last_name." ".$payment->surname}}</td>
+                            <td class="desc_name">{{$payment->people->first_name." ".$payment->people->last_name}}</td>
                             <td>{{$payment->total_amount}}</td>
                             <td>{{$payment->paid_amount}}</td>
                             <td>{{$payment->unpaid_amount}}</td>
-                            <td>{{$payment->year_id}}</td>
 
                             <td>
-                                <a href="{{url('students/edit/'.$student->id)}}" class="edit-btn"> Edit</a> |
-                                <a href="{{url('students/delete/'.$student->id)}}" class="delete-btn"> Delete</a>
+                                <a href="{{url('Payment/edit/'.$payment->id)}}" class="edit-btn"> Edit</a> |
+                                <a href="{{url('Payment/delete/'.$payment->id)}}" class="delete-btn"> Delete</a>
 
                             </td>
                         </tr>
@@ -53,9 +51,9 @@
 
     <!-- Create Modal -->
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <form action="{{url('students/store')}}" method="post">
+                <form action="{{url('Payment/store')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -65,41 +63,31 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="first_name" class="control-label">First Name</label>
-                                <input class="form-control input-sm" id="first_name" name="first_name"
-                                       type="text" required>
+                            <div class="col-md-6">
+                                <label for="student_Id" class="control-label">Student Name</label>
+                                <select class="form-control dd_select" id="student_Id" name="student_Id" required
+                                        style="width: 100%">
+                                    <option value="">----</option>
+                                    @foreach($students as $student)
+                                        <option value="{{$student->id}}">{{$student->first_name." ".$student->last_name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="last_name">Last Name</label>
-                                <input class="form-control input-sm" id="last_name" name="last_name"
-                                       type="text" required>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="surname">Surname</label>
-                                <input class="form-control input-sm" id="surname" name="surname"
-                                       type="text" required>
+                            <div class="col-md-6">
+                                <label class="control-label" for="Total_amount">Total_amount</label>
+                                <input class="form-control input-sm" id="Total_amount" name="Total_amount" type="text" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="Total_amount">Total_amount</label>
-                                <input class="form-control input-sm" id="Total_amount" name="Total_amount" type="text" required>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
+
+                            <div class="col-md-6">
                                 <label class="control-label" for="Paid_amount">Paid_amount</label>
                                 <input class="form-control input-sm" id="Paid_amount" name="Paid_amount" type="text" required>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-md-6">
                                 <label class="control-label" for="Unpaid_amount">Unpaid_amount</label>
                                 <input class="form-control input-sm" id="Unpaid_amount" name="Unpaid_amount" type="text" required>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="Year_id">Year_id</label>
-                                <input class="form-control input-sm" id="Year_id" name="Year_id" type="text" required>
                             </div>
                         </div>
 

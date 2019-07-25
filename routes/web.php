@@ -2,17 +2,18 @@
 
 
 use Illuminate\Support\Facades\Route;
-
-Route::get('/', function () {
-    return view('login');
-});
-
+//
+//Route::get('/', function () {
+//    return view('login');
+//});
+//
+//Route::get('/','');
 
 //Dashboard
 Route::get('Dashboard','AuthenticationController@homepage');
 
 //Authentication
-Route::get('login','AuthenticationController@loginIndex');
+Route::get('/','AuthenticationController@loginIndex');
 Route::post('login','AuthenticationController@login');
 Route::get('welcome','AuthenticationController@homepage');
 
@@ -49,6 +50,7 @@ Route::get('nationalities/edit/{id}','nationalitiesController@edit');
 
 //Students Payment Records
 Route::get('Payment', 'PaymentsController@index');
+Route::post('Payment/store', 'PaymentsController@store');
 
 //Students
 Route::get('Students', 'StudentsController@index');
@@ -60,9 +62,6 @@ Route::get('Students/delete/{id}','StudentsController@destroy');
 //Results
 Route::get('Academic','ReportController@Academic');
 Route::get('Financial','ReportController@Financial');
-
-//PDF
-Route::get('pdf', 'PdfController@pdf');
 
 //Employees
 Route::get('RegEmployee','EmployeeController@Index');
@@ -121,13 +120,13 @@ Route::post('Std7/update','Grades\StdSevenController@update');
 
 //=========================Reports PDF Printing=======================
 Route::post('nursery/download_p','Reports\Grades\NurseryController@downloadPdf');
-Route::get('Std1/download_p','Reports\Grades\StdOneController@downloadPdf');
-Route::get('Std2/download_p','Reports\Grades\StdTwoController@downloadPdf');
-Route::get('Std3/download_p','Reports\Grades\StdThreeController@downloadPdf');
-Route::get('Std4/download_p','Reports\Grades\StdFourController@downloadPdf');
-Route::get('Std5/download_p','Reports\Grades\StdFiveController@downloadPdf');
-Route::get('Std6/download_p','Reports\Grades\StdSixController@downloadPdf');
-Route::get('Std7/download_p','Reports\Grades\StdSevenController@downloadPdf');
+Route::post('Std1/download_p','Reports\Grades\StdOneController@downloadPdf');
+Route::post('Std2/download_p','Reports\Grades\StdTwoController@downloadPdf');
+Route::post('Std3/download_p','Reports\Grades\StdThreeController@downloadPdf');
+Route::post('Std4/download_p','Reports\Grades\StdFourController@downloadPdf');
+Route::post('Std5/download_p','Reports\Grades\StdFiveController@downloadPdf');
+Route::post('Std6/download_p','Reports\Grades\StdSixController@downloadPdf');
+Route::post('Std7/download_p','Reports\Grades\StdSevenController@downloadPdf');
 
 Route::get('IncomeStatement','Reports\Finance\IncomeController@index');
 Route::get('IncomeStatement/download_p','Reports\Finance\IncomeController@downloadPdf');

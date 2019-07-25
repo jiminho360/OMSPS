@@ -14,7 +14,7 @@ class NurseryController extends Controller
     {
         $items = Nursery::getReport();
         $current_year = date('Y');
-        $students = Student::getStudents($current_year);
+        $students = Nursery::getStudents($current_year);
 
         return view('Reports.Grades.Nursery.index', compact('items', 'students'));
     }
@@ -23,7 +23,9 @@ class NurseryController extends Controller
     public function downloadPdf(Request $request)
     {
 
-        $results = Nursery::find($request->student_id);
+        $results = Nursery::where('student_id',$request->student_id)->first();
+
+
         $student = Student::find($request->student_id);
 
         $positions = Nursery::getReport();

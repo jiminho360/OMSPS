@@ -2,11 +2,27 @@
     td {
         padding: 4px;
     }
+    th.rotate {
+        height: 140px;
+        white-space: nowrap;
+        width: 70%;
+    }
+
+    div {
+        transform:
+                translate(-9px, 0px)
+                rotate(-90deg);
+        width: 30px;
+        height: 12px;
+    }
+    .mmm{
+        width: 50%;
+    }
 </style>
 
-<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 10%">
+<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">
 
-<table style="width: 100%;border-collapse: collapse; margin-top: -5%" border="1">
+<table style="width: 102.8%; margin-top:-2%; border-collapse: collapse" border="1">
     <tr>
         <td>Type of Examination: <span style="color: red; font-weight: bolder">MID TERM EXAMINATION</span></td>
         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
@@ -26,19 +42,19 @@
 
 </table><br><br>
 
-<table style="width:100%; border-collapse:collapse" border="1" >
-    <tr>
-        <th>S/N</th>
-        <th>ITEM</th>
-        <th>Mathematics</th>
-        <th>English</th>
-        <th>Kiswahili</th>
-        <th>Science&Tech</th>
-        <th>Civics&Moral</th>
-        <th>Social Studies</th>
-        <th>Vocational Skills</th>
-        <th>AGGREGATE</th>
-        <th>AVERAGE</th>
+<table class="mmm" style="margin-top:-3.5%; border-collapse:collapse;" border="1" >
+    <tr >
+        <th class="rotate" width="10%"><div style="margin-top:10%"><span>S/N</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>ITEM</span></div></th>
+        <th class="rotate" style="width: 2%"><div style="margin-top: 10%"><span>Math</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>English</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>Kiswahili</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>Science&Tech</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>Civics&Moral</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>S/Studies</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span data-width="2%">V/Skills</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span >AGGREG</span></div></th>
+        <th class="rotate"><div style="margin-top: 10%"><span>AVERAGE</span></div></th>
     </tr>
     <tr>
         <td><b>1</b></td>
@@ -79,6 +95,10 @@
         <td></td>
         <td></td>
     </tr>
+
+</table>
+
+<table class="mmm" style="width: 102.8%;margin-top:0.2%; border-collapse:collapse" border="1" >
     <tr>
         <td><b>4</b></td>
         <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong>........... <strong>Class roster (Wanafunzi darasani):</strong>.............</td>
@@ -115,6 +135,4 @@
         </td>
 
     </tr>
-
-
 </table>

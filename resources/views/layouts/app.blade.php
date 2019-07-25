@@ -159,6 +159,7 @@
                                     <li><a href="{{url('Religions')}}">Religions</a></li>
                                     <li><a href="{{url('nationalities')}}">Nationalities</a></li>
                                     <li><a href="{{url('UserTypes')}}">User Types</a></li>
+                                    <li><a href="{{url('UserRole')}}">User Roles</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -9,11 +9,6 @@
     <div class="x_panel">
         <div class="x_title">
             <h2>Standard 1 Results</h2>
-            <ul class="nav navbar-right panel_toolbox">
-                <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
-                        class="fa fa-plus-circle"></i> Add New
-                </button>
-            </ul>
             <div class="clearfix"></div>
         </div>
         <div class="x_content">

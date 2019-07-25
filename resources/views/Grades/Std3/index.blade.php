@@ -28,8 +28,6 @@
                         <th>Kiswahili</th>
                         <th>Science&Technology</th>
                         <th>Civics&Moral</th>
-                        <th>Social Studies</th>
-                        <th>Vocational Skills</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -43,12 +41,11 @@
                             <td>{{$item->Kiswahili}}</td>
                             <td>{{$item->Science_and_Technology}}</td>
                             <td>{{$item->Civics_and_Moral}}</td>
-                            <td>{{$item->Social_Studies}}</td>
-                            <td>{{$item->Vocational_Skills}}</td>
+
                             <td>
                                 <a href="{{url('Std3/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Std3/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
-
+                                <a href="{{url('Std3/show/'.$item->id)}}" class="btn-white"> View</a>
                             </td>
                         </tr>
                     @endforeach

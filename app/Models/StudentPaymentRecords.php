@@ -10,4 +10,10 @@ class StudentPaymentRecord extends Model
     use SoftDeletes;
     protected $table = 'students_payment_records';
     public $guarded = [];
+
+    public function people()
+    {
+        return $this->belongsTo(Student::class,'student_Id');
+    }
+
 }

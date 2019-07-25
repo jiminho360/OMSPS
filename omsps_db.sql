@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 13, 2019 at 08:37 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.10
+-- Generation Time: Jul 25, 2019 at 12:40 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -907,6 +907,13 @@ CREATE TABLE `students_payment_records` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `students_payment_records`
+--
+
+INSERT INTO `students_payment_records` (`id`, `student_Id`, `total_amount`, `paid_amount`, `unpaid_amount`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 100000, 80000, 20000, 1, '2019-07-25 07:27:39', '2019-07-25 07:27:39', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1426,7 +1433,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students_payment_records`
 --
 ALTER TABLE `students_payment_records`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subject`

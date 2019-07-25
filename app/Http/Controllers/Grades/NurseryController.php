@@ -19,7 +19,7 @@ class NurseryController extends Controller
         $lesson = [['value' => 'mathematics', 'text' => 'Mathematics'], ['value' => 'reading_and_writing', 'text' => 'Reading & Writing'], ['value' => 'english', 'text' => 'English'], ['value' => 'art_and_craft', 'text' => 'Art & Craft']];
         $term = [['value' => '1', 'text' => 'First'], ['value' => '2', 'text' => 'Second'], ['value' => '3', 'text' => 'Third'], ['value' => '4', 'text' => 'Fourth']];
 
-        $students = Student::getStudents($current_year);
+        $students = Nursery::getStudents($current_year);
 
         return view('Grades.nursery.index', compact('items', 'students', 'lesson', 'term'));
     }
@@ -54,7 +54,7 @@ class NurseryController extends Controller
     {
         $item = Nursery::find($id);
         $current_year = date('Y');
-        $students = Student::getStudents($current_year);
+        $students = Nursery::getStudents($current_year);
         $lesson = [['value' => 'mathematics', 'text' => 'Mathematics'], ['value' => 'reading_and_writing', 'text' => 'Reading & Writing'], ['value' => 'english', 'text' => 'English'], ['value' => 'art_and_craft', 'text' => 'Art & Craft']];
         $term = [['value' => '1', 'text' => 'First'], ['value' => '2', 'text' => 'Second'], ['value' => '3', 'text' => 'Third'], ['value' => '4', 'text' => 'Fourth']];
 

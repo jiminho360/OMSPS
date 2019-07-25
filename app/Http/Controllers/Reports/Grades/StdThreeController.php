@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Reports\Grades;
 
 use App\Models\Grades\Std3;
+use App\models\Student;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +16,22 @@ class StdThreeController extends Controller
 
         return view('Reports.Grades.Std3.index',compact('items'));
     }
-    public function downloadPdf()
+    public function downloadPdf(Request $request)
     {
+
+        $results = Std3::find($request->student_id);
+        $student = Std3::find($request->student_id);
+
+        $positions = Std3::getReport();
+
+        $studentPosition = 0;
+
+        foreach ($positions as $key=>$position) {
+            if($position->student_id == $request->student_id){
+                $studentPosition = $key+1;
+            }
+        }
+
 
         PDF::setOptions(
             [
@@ -28,7 +43,7 @@ class StdThreeController extends Controller
 
         $varDet = "Standard 3 Report";
 
-        $pdf = PDF::loadView('Reports.Grades.Std3.report');
+        $pdf = PDF::loadView('Reports.Grades.Std3.report', compact('results', 'student','studentPosition'));
         return $pdf->download($varDet . '.pdf');
     }
 }

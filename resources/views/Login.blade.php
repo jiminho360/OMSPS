@@ -42,7 +42,7 @@
             <button>
                 <span>Log In</span>
             </button>
-            {{--<span id="error">{{$errorMsg}}</span>--}}
+            <span id="error">{{$errorMsg}}</span>
         </form>
     </div>
 
