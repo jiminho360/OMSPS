@@ -27,7 +27,6 @@ class NurseryController extends Controller
 
 
         $student = Student::find($request->student_id);
-
         $positions = Nursery::getReport();
 
         $studentPosition = 0;

@@ -51,6 +51,12 @@ class StdThreeController extends Controller
         return Redirect::back()->with('success', 'Successfully Added a Mark');
     }
 
+    public function show($id)
+    {
+        $item = Std3::find($id);
+        return view('Grades.Std3.show', compact('item'));
+    }
+
     public function edit($id)
     {
 

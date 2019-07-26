@@ -69,7 +69,7 @@ class StdSevenController extends Controller
     public function show($id)
     {
         $item = Std7::find($id);
-        return view('Grades.Std4.show', compact('item'));
+        return view('Grades.Std7.show', compact('item'));
     }
 
     public function update()

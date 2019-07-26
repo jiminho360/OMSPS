@@ -12,6 +12,7 @@ class StdTwoController extends Controller
 {
     public function index()
     {
+        $items = Std2::getReport();
         $current_year = date('Y');
         $students = Std2::getStudents($current_year);
         return view('Reports.Grades.Std2.index',compact('items','students'));

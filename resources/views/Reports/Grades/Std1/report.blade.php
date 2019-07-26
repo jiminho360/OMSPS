@@ -22,17 +22,17 @@
 
 <img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">
 
-<table style="width: 100%; margin-top:-2%; border-collapse: collapse" border="1">
+<table style="width: 103.2%; margin-top:-2%; border-collapse: collapse" border="1">
     <tr>
         <td>Type of Examination: <span style="color: red; font-weight: bolder">MID TERM EXAMINATION</span></td>
         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
     </tr>
     <tr>
         <td>Pupils Full Name: <span style="color: red; font-weight: bolder">{{$student->first_name." ".$student->last_name." ".$student->surname}}</span></td>
-        <td>Admission Number: .......................</td>
+        <td>Admission Year:<span style="color: red; font-weight: bolder">{{" ".$student->admission_year}}</span></td>
     </tr>
     <tr>
-        <td>Class: <span style="color: red; font-weight: bolder">Standard One</span></td>
+        <td>Class: <span style="color: red; font-weight: bolder">Standard I</span></td>
         @php  $currentYear = date('Y'); @endphp
         <td>Number of Pupils in a class: <span style="color: red; font-weight: bolder">{{count(\App\models\Student::getStudents($currentYear))}}</span></td>
     </tr>
@@ -77,10 +77,10 @@
     <tr>
         <td><b>3</b></td>
         <td><b>Pupil's score</b></td>
-        @php $sub1 = $results->mathematics;$sub2 = $results->reading_and_writing; $sub3 = $results->english;
+        @php $sub1 = $results->Mathematics;$sub2 = $results->reading_and_writing; $sub3 = $results->english;
         $sub4 = $results->art_and_craft;
         @endphp
-        <td class="centered">{{$results->mathematics}}</td>
+        <td class="centered">{{$results->Mathematics}}</td>
         <td class="centered">{{$results->Reading}}</td>
         <td class="centered">{{$results->Writing}}</td>
         <td class="centered">{{$results->Science}}</td>
@@ -89,7 +89,8 @@
     </tr>
     <tr>
         <td><b>4</b></td>
-        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong>........... <strong>Class roster (Wanafunzi darasani):</strong>.............</td>
+        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong><span style="color:red;font-weight: bolder">{{" ".$studentPosition."     "}}</span><strong>
+                Class roster (Wanafunzi darasani):</strong>  <span style="color: red; font-weight: bolder">{{count(\App\models\Student::getStudents($currentYear))}}</span></td>
 
     </tr>
     <tr>
@@ -99,7 +100,7 @@
             ................................................................................................................................................................................
 
             <br>
-            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> ..................................
+            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> .................................
         </td>
 
     </tr>
@@ -109,7 +110,7 @@
             ................................................................................................................................................................................
             ................................................................................................................................................................................
             <br>
-            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> ..................................
+            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> .................................
         </td>
 
     </tr>
@@ -119,7 +120,7 @@
             ................................................................................................................................................................................
             ................................................................................................................................................................................
             <br>
-            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> ..................................
+            <b>Name:</b> .....................................................<b>Signature:</b> .............................................. <b>Date:</b> .................................
         </td>
 
     </tr>

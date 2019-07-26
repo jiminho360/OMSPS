@@ -53,11 +53,11 @@
                         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
                     </tr>
                     <tr>
-                        <td>Pupils full Name: <span style="color: red; font-weight: bolder">.................</span></td>
+                        <td>Pupils Full Name: <span>.................</span></td>
                         <td>Admission Year: .......................</td>                    </tr>
                     <tr>
                         <td>Class: <span style="color: red; font-weight: bolder">Nursery</span></td>
-                        <td>Number of Pupils in a class: <span style="color: red; font-weight: bolder">............</span></td>
+                        <td>Number of Pupils in a class: <span>............</span></td>
                     </tr>
                     <tr>
                         <td>Closing Day (if applicable): .......................</td>
@@ -67,7 +67,7 @@
                 </table
                 ><br><br>
 
-                <table style="width:99.8%; border-collapse:collapse" border="1" id="table">
+                <table style="width:99.8%; border-collapse:collapse; margin-top:-5%" border="1" id="table">
                     <tr>
                         <th>S/N</th>
                         <th>ITEM</th>

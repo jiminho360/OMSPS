@@ -5,7 +5,6 @@
         <th>Mathematics</th>
         <td>{{$item->Mathematics}}</td>
     </tr>
-
     <tr>
         <th>English</th>
         <td>{{$item->English}}</td>
@@ -17,28 +16,20 @@
         <th>Science</th>
         <td>{{$item->Science}}</td>
         <th>ICT</th>
-        <td>{{$item->ICT}}</td>
+        <td>{{$item->Civics_and_Moral}}</td>
     </tr>
 
     <tr>
         <th>PDS</th>
-        <td>{{$item->PDS}}</td>
+        <td>{{$item->Social_Studies}}</td>
         <th>History</th>
-        <td>{{$item->History}}</td>
+        <td>{{$item->Vocational_Skills}}</td>
     </tr>
-
     <tr>
         <th>Geography</th>
-        <td>{{$item->Geography}}</td>
+        <td>{{$item->Social_Studies}}</td>
         <th>Civics</th>
-        <td>{{$item->Civics}}</td>
-    </tr>
-
-    <tr>
-        <th>Vocational_Skills</th>
         <td>{{$item->Vocational_Skills}}</td>
-        <td></td>
-        <td></td>
     </tr>
 </table>
 

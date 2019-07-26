@@ -9,14 +9,14 @@
 
 <img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">
 
-<table style="width: 100%;border-collapse: collapse" border="1">
+<table style="width: 105%;border-collapse: collapse" border="1">
     <tr>
         <td>Type of Examination: <span style="color: red; font-weight: bolder">MID TERM EXAMINATION</span></td>
         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
     </tr>
     <tr>
         <td>Pupils Full Name: <span style="color: red; font-weight: bolder">{{$student->first_name." ".$student->last_name." ".$student->surname}}</span></td>
-        <td>Admission Year: .......................</td>    </tr>
+        <td>Admission Year: <span style="color: red; font-weight: bolder">{{$student->admission_year}}</span></td>    </tr>
     <tr>
         <td>Class: <span style="color: red; font-weight: bolder">Nursery</span></td>
       @php  $currentYear = date('Y'); @endphp
@@ -30,7 +30,7 @@
 </table
 ><br><br>
 
-<table style="width:105%; border-collapse:collapse" border="1" id="table">
+<table style="width:105%; border-collapse:collapse; margin: 0; padding: 0;" border="1" id="table">
     <tr>
         <th>S/N</th>
         <th>ITEM</th>
@@ -77,7 +77,7 @@
     <br/><br/>
     <tr>
         <td><b>4</b></td>
-        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani): </strong><span style="color:red;font-weight: bolder">{{" ".$studentPosition." "}}</span><strong>Class
+        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani): </strong><span style="color:red;font-weight: bolder">{{" ".$studentPosition." "}}</span><strong>   Class
                 roster (Wanafunzi darasani):  <span style="color: red; font-weight: bolder">{{count(\App\models\Student::getStudents($currentYear))}}</span></strong>
         </td>
 

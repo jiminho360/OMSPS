@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2019 at 12:40 PM
+-- Generation Time: Jul 26, 2019 at 04:34 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -105,7 +105,7 @@ INSERT INTO `current_liabilities` (`id`, `name`, `value`, `date`, `created_at`, 
 
 CREATE TABLE `drawings` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(30) NOT NULL,
   `value` int(15) NOT NULL,
   `date` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -118,7 +118,8 @@ CREATE TABLE `drawings` (
 --
 
 INSERT INTO `drawings` (`id`, `name`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Vacation', 100000, '2019-05-06', '2019-07-10 11:01:58', '2019-07-10 08:01:58', NULL);
+(1, 'Vacation', 100000, '2019-05-06', '2019-07-10 11:01:58', '2019-07-10 08:01:58', NULL),
+(2, 'Withdraw Cash for house rent', 200000, '2019-07-07', '2019-07-25 11:14:48', '2019-07-25 08:14:48', NULL);
 
 -- --------------------------------------------------------
 
@@ -176,7 +177,8 @@ CREATE TABLE `equities` (
 --
 
 INSERT INTO `equities` (`id`, `name`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Peter Kibala', 15000, '2019-04-15', '2019-07-10 11:09:02', '2019-07-10 08:08:51', NULL);
+(1, 'Peter Kibala', 15000, '2019-04-15', '2019-07-10 11:09:02', '2019-07-10 08:08:51', NULL),
+(2, 'Aboubakary', 60000, '2019-07-09', '2019-07-25 08:12:40', '2019-07-25 08:12:40', NULL);
 
 -- --------------------------------------------------------
 
@@ -199,7 +201,9 @@ CREATE TABLE `expenses` (
 --
 
 INSERT INTO `expenses` (`id`, `Name`, `Value`, `Date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Water', 30000, '2019-01-16', '2019-07-11 13:11:32', '2019-07-11 10:11:32', NULL);
+(1, 'Water Bill', 30000, '2019-01-16', '2019-07-25 11:19:04', '2019-07-25 08:19:04', NULL),
+(2, 'Electricity Bill', 15000, '2019-07-08', '2019-07-25 08:19:17', '2019-07-25 08:19:17', NULL),
+(3, 'Salary', 500000, '2019-06-11', '2019-07-25 08:20:19', '2019-07-25 08:20:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -239,7 +243,8 @@ CREATE TABLE `indirect_incomes` (
 --
 
 INSERT INTO `indirect_incomes` (`id`, `event`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Graduation', 700000, '2018-11-06', '2019-07-11 13:14:10', '2019-07-11 10:13:56', NULL);
+(1, 'Graduation', 700000, '2018-11-06', '2019-07-11 13:14:10', '2019-07-11 10:13:56', NULL),
+(2, 'Discount Received', 50000, '2019-06-10', '2019-07-25 08:20:43', '2019-07-25 08:20:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -298,7 +303,7 @@ CREATE TABLE `non_current_assets` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(20) NOT NULL,
   `cost` int(15) NOT NULL,
-  `depreciation_value` int(15) NOT NULL,
+  `depreciation_value` int(15) DEFAULT NULL,
   `date` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -310,7 +315,8 @@ CREATE TABLE `non_current_assets` (
 --
 
 INSERT INTO `non_current_assets` (`id`, `name`, `cost`, `depreciation_value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Computers', 10000000, 7000000, '2005-03-09', '2019-07-11 12:10:20', '2019-07-11 09:07:52', NULL);
+(1, 'Computers', 10000000, 7000000, '2005-03-09', '2019-07-11 12:10:20', '2019-07-11 09:07:52', NULL),
+(2, 'Tables', 40000, NULL, '2019-06-01', '2019-07-25 08:22:36', '2019-07-25 08:22:36', NULL);
 
 -- --------------------------------------------------------
 
@@ -333,7 +339,8 @@ CREATE TABLE `non_current_liabilities` (
 --
 
 INSERT INTO `non_current_liabilities` (`id`, `name`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'CRDB LOAN', 20000000, '2010-03-04', '2019-07-08 10:49:04', '2019-07-08 10:49:04', NULL);
+(1, 'CRDB LOAN', 20000000, '2010-03-04', '2019-07-08 10:49:04', '2019-07-08 10:49:04', NULL),
+(2, 'Mortgage Loans', 50000, '2019-06-04', '2019-07-25 08:23:11', '2019-07-25 08:23:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -503,7 +510,8 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `name`, `value_of_sales`, `sales_date`, `returns_date`, `value_of_returns`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Sweater', 10000, '2019-07-03', NULL, NULL, '2019-07-11 13:09:30', '2019-07-11 10:09:30', NULL);
+(1, 'School Uniform', 10000, '2019-07-03', NULL, NULL, '2019-07-25 11:23:28', '2019-07-25 08:23:28', NULL),
+(2, 'Text Books', 3000, '2019-06-29', NULL, NULL, '2019-07-25 08:23:47', '2019-07-25 08:23:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -1277,7 +1285,7 @@ ALTER TABLE `current_liabilities`
 -- AUTO_INCREMENT for table `drawings`
 --
 ALTER TABLE `drawings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -1289,13 +1297,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `equities`
 --
 ALTER TABLE `equities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -1307,7 +1315,7 @@ ALTER TABLE `fees`
 -- AUTO_INCREMENT for table `indirect_incomes`
 --
 ALTER TABLE `indirect_incomes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `inventories`
@@ -1325,13 +1333,13 @@ ALTER TABLE `nationalities`
 -- AUTO_INCREMENT for table `non_current_assets`
 --
 ALTER TABLE `non_current_assets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `non_current_liabilities`
 --
 ALTER TABLE `non_current_liabilities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `nursery`
@@ -1379,7 +1387,7 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `standard_1`
