@@ -16,11 +16,11 @@
                             <div class="col-md-8">
                                 <label for="student_id" class="control-label">Student Name:</label>
                                 <select class="form-control" id="student_id" name="student_id"
-                                        style="width: 100%">
+                                        style="width: 100%" required>
                                     <option value="">Choose the name here! </option>
-                                    {{--@foreach($students as $student)--}}
-                                    {{--<option value="{{$student->id}}">{{$student->first_name." ".$student->last_name." ".$student->surname}}</option>--}}
-                                    {{--@endforeach--}}
+                                    @foreach($students as $student)
+                                    <option value="{{$student->id}}">{{$student->first_name." ".$student->last_name." ".$student->surname}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4" style="margin-top:8%">
@@ -46,11 +46,11 @@
                         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
                     </tr>
                     <tr>
-                        <td>Pupils full  Name: ...............................................................</td>
+                        <td>Pupils Full  Name: ...............................................................</td>
                         <td>Admission Year: .......................</td>
                     </tr>
                     <tr>
-                        <td>Class: .......................</td>
+                        <td>Class: <span style="color: red; font-weight: bolder">Standard VI</span></td>
                         <td>Number of Puplis in a class: ...........</td>
                     </tr>
                     <tr>
@@ -68,16 +68,22 @@
                         <th>Mathematics</th>
                         <th>English</th>
                         <th>Kiswahili</th>
-                        <th>Science&Tech</th>
-                        <th>Civics&Moral</th>
-                        <th>Social Studies</th>
-                        <th>Vocational Skills</th>
+                        <th>Science</th>
+                        <th>ICT</th>
+                        <th>PDS</th>
+                        <th>History</th>
+                        <th>Geography</th>
+                        <th>Civics</th>
+                        <th>V/Skills</th>
                         <th>AGGREGATE</th>
                         <th>AVERAGE</th>
                     </tr>
                     <tr>
                         <td><b>1</b></td>
                         <td><b>Subject top score %</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -100,6 +106,9 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td><b>3</b></td>
@@ -113,15 +122,18 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td><b>4</b></td>
-                        <td colspan="10"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong>........... <strong>Class roster (Wanafunzi darasani):</strong>.............</td>
+                        <td colspan="13"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong>........... <strong>Class roster (Wanafunzi darasani):</strong>.............</td>
 
                     </tr>
                     <tr>
                         <td><b>5</b></td>
-                        <td colspan="10"><strong>Class teacher's comments (Maelezo ya mwalimu wa darasa):</strong>
+                        <td colspan="13"><strong>Class teacher's comments (Maelezo ya mwalimu wa darasa):</strong>
                             ................................................................................................................................................................................
                             ................................................................................................................................................................................
 
@@ -132,7 +144,7 @@
                     </tr>
                     <tr>
                         <td><b>6</b></td>
-                        <td colspan="10"><strong>Headteacher's comments (Maelezo ya Mwalimu Mkuu):</strong>
+                        <td colspan="13"><strong>Headteacher's comments (Maelezo ya Mwalimu Mkuu):</strong>
                             ................................................................................................................................................................................
                             ................................................................................................................................................................................
                             <br>
@@ -142,7 +154,7 @@
                     </tr>
                     <tr>
                         <td><b>7</b></td>
-                        <td colspan="10"><strong>Parent's acknowledgement and comments (Maelezo ya mzazi):</strong>
+                        <td colspan="13"><strong>Parent's acknowledgement and comments (Maelezo ya mzazi):</strong>
                             ................................................................................................................................................................................
                             ................................................................................................................................................................................
                             <br>

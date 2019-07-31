@@ -16,7 +16,7 @@
                             <div class="col-md-8">
                                 <label for="student_id" class="control-label">Student Name:</label>
                                 <select class="form-control" id="student_id" name="student_id"
-                                        style="width: 100%">
+                                        style="width: 100%" required>
                                     <option value="">Choose the name here! </option>
                                     @foreach($students as $student)
                                         <option
@@ -47,11 +47,11 @@
                         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
                     </tr>
                     <tr>
-                        <td>Pupils full  Name: ...............................................................</td>
+                        <td>Pupils Full  Name: ...............................................................</td>
                         <td>Admission Year: .......................</td>
                     </tr>
                     <tr>
-                        <td>Class: .......................</td>
+                        <td>Class: <span style="color: red; font-weight: bolder">Standard II</span></td>
                         <td>Number of Puplis in a class: ...........</td>
                     </tr>
                     <tr>
@@ -61,14 +61,14 @@
 
                 </table><br><br>
 
-                <table style="width:99.8%; border-collapse:collapse" border="1" >
+                <table style="width:99.8%; border-collapse:collapse; margin-top:-1%" border="1" >
                     <tr>
                         <th>S/N</th>
                         <th WIDTH="15%">ITEM</th>
                         <th>Mathematics</th>
-                        <th>Reading&Writing</th>
-                        <th>English</th>
-                        <th>Art&Craft</th>
+                        <th>Reading</th>
+                        <th>Writing</th>
+                        <th>Science</th>
                         <th>AGGREGATE</th>
                         <th>AVERAGE</th>
                     </tr>

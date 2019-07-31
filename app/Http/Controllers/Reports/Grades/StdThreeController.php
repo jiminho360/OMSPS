@@ -13,14 +13,16 @@ class StdThreeController extends Controller
     public function index()
     {
         $items = Std3::getReport();
+        $current_year = date('Y');
+        $students = Std3::getStudents($current_year);
 
-        return view('Reports.Grades.Std3.index',compact('items'));
+        return view('Reports.Grades.Std3.index',compact('items','students'));
     }
     public function downloadPdf(Request $request)
     {
+        $results = Std3::where('student_id',$request->student_id)->first();
 
-        $results = Std3::find($request->student_id);
-        $student = Std3::find($request->student_id);
+        $student = Student::find($request->student_id);
 
         $positions = Std3::getReport();
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Reports\Grades;
 
 use App\Models\Grades\Std7;
+use App\models\Student;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,12 +13,24 @@ class StdSevenController extends Controller
     public function index()
     {
         $items = Std7::getReport();
+        $current_year = date('Y');
+        $students = Std7::getStudents($current_year);
 
-        return view('Reports.Grades.Std7.index',compact('items'));
+        return view('Reports.Grades.Std7.index',compact('items','students'));
     }
-    public function downloadPdf()
+    public function downloadPdf(Request $request)
     {
+        $results = Std7::where('student_id',$request->student_id)->first();
+        $student = Student::find($request->student_id);
+        $positions = Std7::getReport();
 
+        $studentPosition = 0;
+
+        foreach ($positions as $key=>$position) {
+            if($position->student_id == $request->student_id){
+                $studentPosition = $key+1;
+            }
+        }
         PDF::setOptions(
             [
                 'defaultPaperSize' => 'a4',
@@ -28,7 +41,7 @@ class StdSevenController extends Controller
 
         $varDet = "Standard 7 Report";
 
-        $pdf = PDF::loadView('Reports.Grades.Std7.report');
+        $pdf = PDF::loadView('Reports.Grades.Std7.report',compact('results','student','studentPosition'));
         return $pdf->download($varDet . '.pdf');
     }
 }

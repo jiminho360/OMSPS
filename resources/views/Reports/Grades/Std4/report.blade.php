@@ -28,12 +28,13 @@
         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
     </tr>
     <tr>
-        <td>Pupils full  Name: ...............................................................</td>
-        <td>Admission Number: .......................</td>
+        <td>Pupils Full  Name:<span style="color: red; font-weight: bolder">{{$student->first_name." ".$student->last_name." ".$student->surname}}</span></td>
+        <td>Admission Number:<span style="color: red; font-weight: bolder">{{" ".$student->admission_year}}</span></td>
     </tr>
     <tr>
-        <td>Class: .......................</td>
-        <td>Number of Puplis in a class: ...........</td>
+        <td>Class: <span style="color: red; font-weight: bolder">Standard IV</span></td>
+        @php  $currentYear = date('Y'); @endphp
+        <td>Number of Pupils in a class: <span style="color: red; font-weight: bolder">{{count(\App\models\Student::getStudents($currentYear))}}</span></td>
     </tr>
     <tr>
         <td>Closing Day (if applicable): .......................</td>
@@ -59,41 +60,45 @@
     <tr>
         <td><b>1</b></td>
         <td><b>Subject top score %</b></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{$max1 = \App\Models\Grades\Std4::maxMath($results->term)}}</td>
+        <td class="centered">{{$max2 = \App\Models\Grades\Std4::maxEng($results->term)}}</td>
+        <td class="centered">{{$max3 = \App\Models\Grades\Std4::maxKis($results->term)}}</td>
+        <td class="centered">{{$max4 = \App\Models\Grades\Std4::maxScTec($results->term)}}</td>
+        <td class="centered">{{$max4 = \App\Models\Grades\Std4::maxCivMor($results->term)}}</td>
+        <td class="centered">{{$max4 = \App\Models\Grades\Std4::maxSs($results->term)}}</td>
+        <td class="centered">{{$max4 = \App\Models\Grades\Std4::maxVS($results->term)}}</td>
+        <td class="centered">{{$max5 = $max1 + $max2 + $max3 + $max4}}</td>
+        <td class="centered">{{$max5/4}}</td>
     </tr>
     <tr>
         <td><b>2</b></td>
         <td><b>Class average</b></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td class="centered">{{$avg1 =\App\Models\Grades\Std4::avgMath($results->term)}}</td>
+        <td class="centered">{{$avg2 =\App\Models\Grades\Std4::avgEng($results->term)}}</td>
+        <td class="centered">{{$avg3 =\App\Models\Grades\Std4::avgKis($results->term)}}</td>
+        <td class="centered">{{$avg4 =\App\Models\Grades\Std4::avgScTec($results->term)}}</td>
+        <td class="centered">{{$avg4 =\App\Models\Grades\Std4::avgCivMor($results->term)}}</td>
+        <td class="centered">{{$avg4 =\App\Models\Grades\Std4::avgSs($results->term)}}</td>
+        <td class="centered">{{$avg4 =\App\Models\Grades\Std4::avgVS($results->term)}}</td>
+        <td class="centered">{{$avg5 = $avg1 + $avg2 + $avg3 + $avg4}}</td>
+        <td class="centered">{{$avg5/4}}</td>
     </tr>
     <tr>
         <td><b>3</b></td>
         <td><b>Pupil's score</b></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        @php $sub1 = $results->Mathematics;$sub2 = $results->English; $sub3 = $results->Kiswahili;
+        $sub4 = $results->Science_and_Technology;$sub5 = $results->Civics_and_Moral;
+        $sub6 = $results->Social_Studies;$sub7 = $results->Vocational_Skills;
+        @endphp
+        <td class="centered">{{$results->Mathematics}}</td>
+        <td class="centered">{{$results->English}}</td>
+        <td class="centered">{{$results->Kiswahili}}</td>
+        <td class="centered">{{$results->Science_and_Technology}}</td>
+        <td class="centered">{{$results->Civics_and_Moral}}</td>
+        <td class="centered">{{$results->Social_Studies}}</td>
+        <td class="centered">{{$results->Vocational_Skills}}</td>
+        <td class="centered">{{$resultAll = $sub1+$sub2+$sub3+$sub4+$sub5+$sub6+$sub7}}</td>
+        <td class="centered">{{$resultAll/7}}</td>
     </tr>
 
 </table>
@@ -101,7 +106,8 @@
 <table class="mmm" style="width: 102.8%;margin-top:0.2%; border-collapse:collapse" border="1" >
     <tr>
         <td><b>4</b></td>
-        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong>........... <strong>Class roster (Wanafunzi darasani):</strong>.............</td>
+        <td colspan="7"><strong>Pupil's class position (Nafasi aliyoshika darasani):</strong><span style="color:red;font-weight: bolder">{{" ".$studentPosition." "}}</span>
+            <strong>Class roster (Wanafunzi darasani):</strong><span style="color: red; font-weight: bolder">{{count(\App\models\Student::getStudents($currentYear))}}</span></td>
 
     </tr>
     <tr>

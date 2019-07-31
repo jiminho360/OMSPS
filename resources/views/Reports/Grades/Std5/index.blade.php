@@ -16,11 +16,11 @@
                             <div class="col-md-8">
                                 <label for="student_id" class="control-label">Student Name:</label>
                                 <select class="form-control" id="student_id" name="student_id"
-                                        style="width: 100%">
+                                        style="width: 100%" required>
                                     <option value="">Choose the name here! </option>
-                                    {{--@foreach($students as $student)--}}
-                                    {{--<option value="{{$student->id}}">{{$student->first_name." ".$student->last_name." ".$student->surname}}</option>--}}
-                                    {{--@endforeach--}}
+                                    @foreach($students as $student)
+                                    <option value="{{$student->id}}">{{$student->first_name." ".$student->last_name." ".$student->surname}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4" style="margin-top:8%">
@@ -46,11 +46,11 @@
                         <td>Month & Year: <span style="color: red; font-weight: bolder">{{date('M Y')}}</span></td>
                     </tr>
                     <tr>
-                        <td>Pupils full  Name: ...............................................................</td>
+                        <td>Pupils Full  Name: ...............................................................</td>
                         <td>Admission Year: .......................</td>
                     </tr>
                     <tr>
-                        <td>Class: .......................</td>
+                        <td>Class: <span style="color: red; font-weight: bolder">Standard V</span></td>
                         <td>Number of Puplis in a class: ...........</td>
                     </tr>
                     <tr>
