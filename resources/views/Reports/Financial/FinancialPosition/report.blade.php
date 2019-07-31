@@ -3,8 +3,8 @@
         padding: 4px;
     }
 </style>
-<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 10%; margin-top: 10px">
-<center><h1 style="margin-top: -2%">Financial Position Report</h1></center>
+<img src="{{asset('asset/images/new.png')}}" style="margin-left: 10%; margin-top: -3%"><br>
+<center><h1>Financial Position Report</h1></center>
 <hr>
 <table style="width: 100%;border-collapse: collapse" border="">
     <tr>
