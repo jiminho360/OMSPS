@@ -15,6 +15,7 @@ Route::get('Dashboard','AuthenticationController@homepage');
 //Authentication
 Route::get('/','AuthenticationController@loginIndex');
 Route::post('login','AuthenticationController@login');
+Route::get('logout','AuthenticationController@logout');
 Route::get('welcome','AuthenticationController@homepage');
 
 

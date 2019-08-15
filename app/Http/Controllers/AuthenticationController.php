@@ -39,6 +39,12 @@ class AuthenticationController extends Controller
 
     }
 
+    public function logout()
+    {
+        $errorMsg = "Login Please to Continue.........";
+        return view('Login', compact('errorMsg'));
+    }
+
     public function homepage()
     {
         $current_year = date('Y');

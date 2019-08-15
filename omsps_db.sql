@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2019 at 04:34 PM
+-- Generation Time: Aug 15, 2019 at 10:51 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -34,6 +34,7 @@ CREATE TABLE `carriages` (
   `inward_value` int(15) DEFAULT NULL,
   `outward_value` int(15) DEFAULT NULL,
   `date` date NOT NULL,
+  `year_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -43,11 +44,11 @@ CREATE TABLE `carriages` (
 -- Dumping data for table `carriages`
 --
 
-INSERT INTO `carriages` (`id`, `name`, `inward_value`, `outward_value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Chairs', 12000, NULL, '2019-07-02', '2019-07-09 11:11:16', '2019-07-09 08:10:41', NULL),
-(2, 'Tables', NULL, 10000, '2019-02-05', '2019-07-07 15:38:56', '2019-07-07 15:38:56', NULL),
-(3, 'm,iji', 3, 2, '2019-07-05', '2019-07-09 12:09:21', '2019-07-09 09:09:21', '2019-07-09 09:09:21'),
-(4, 'Nams', 23, 23, '2019-07-03', '2019-07-09 12:09:22', '2019-07-09 09:09:22', '2019-07-09 09:09:22');
+INSERT INTO `carriages` (`id`, `name`, `inward_value`, `outward_value`, `date`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Chairs', 10000, NULL, '2019-07-02', 1, '2019-08-15 07:20:07', '2019-08-15 04:20:07', NULL),
+(2, 'Tables', NULL, 10000, '2019-02-05', 1, '2019-08-03 10:08:05', '2019-07-07 15:38:56', NULL),
+(3, 'm,iji', 3, 2, '2019-07-05', 1, '2019-08-03 10:08:09', '2019-07-09 09:09:21', '2019-07-09 09:09:21'),
+(4, 'Nams', 23, 23, '2019-07-03', 1, '2019-08-03 10:08:14', '2019-07-09 09:09:22', '2019-07-09 09:09:22');
 
 -- --------------------------------------------------------
 
@@ -203,7 +204,8 @@ CREATE TABLE `expenses` (
 INSERT INTO `expenses` (`id`, `Name`, `Value`, `Date`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Water Bill', 30000, '2019-01-16', '2019-07-25 11:19:04', '2019-07-25 08:19:04', NULL),
 (2, 'Electricity Bill', 15000, '2019-07-08', '2019-07-25 08:19:17', '2019-07-25 08:19:17', NULL),
-(3, 'Salary', 500000, '2019-06-11', '2019-07-25 08:20:19', '2019-07-25 08:20:19', NULL);
+(3, 'Salary', 500000, '2019-06-11', '2019-07-25 08:20:19', '2019-07-25 08:20:19', NULL),
+(4, 'Bus Fee', 100, '2019-08-14', '2019-08-14 22:00:09', '2019-08-14 17:41:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -233,6 +235,7 @@ CREATE TABLE `indirect_incomes` (
   `event` varchar(20) NOT NULL,
   `value` int(15) NOT NULL,
   `date` date NOT NULL,
+  `year_id` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -242,9 +245,9 @@ CREATE TABLE `indirect_incomes` (
 -- Dumping data for table `indirect_incomes`
 --
 
-INSERT INTO `indirect_incomes` (`id`, `event`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Graduation', 700000, '2018-11-06', '2019-07-11 13:14:10', '2019-07-11 10:13:56', NULL),
-(2, 'Discount Received', 50000, '2019-06-10', '2019-07-25 08:20:43', '2019-07-25 08:20:43', NULL);
+INSERT INTO `indirect_incomes` (`id`, `event`, `value`, `date`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Graduation', 700000, '2018-11-06', 1, '2019-07-11 13:14:10', '2019-07-11 10:13:56', NULL),
+(2, 'Discount Received', 50000, '2019-06-10', 1, '2019-07-25 08:20:43', '2019-07-25 08:20:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -258,6 +261,7 @@ CREATE TABLE `inventories` (
   `opening_value` int(15) NOT NULL,
   `closing_date` date NOT NULL,
   `closing_value` int(15) NOT NULL,
+  `year_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -267,8 +271,8 @@ CREATE TABLE `inventories` (
 -- Dumping data for table `inventories`
 --
 
-INSERT INTO `inventories` (`id`, `opening_date`, `opening_value`, `closing_date`, `closing_value`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '2018-07-08', 2000000, '2019-07-08', 1000000, '2019-07-11 11:57:33', '2019-07-11 08:57:33', NULL);
+INSERT INTO `inventories` (`id`, `opening_date`, `opening_value`, `closing_date`, `closing_value`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, '2018-07-08', 1000000, '2019-07-08', 1000000, 1, '2019-08-15 07:19:05', '2019-08-15 04:19:05', NULL);
 
 -- --------------------------------------------------------
 
@@ -414,12 +418,21 @@ CREATE TABLE `purchases` (
   `name` varchar(20) NOT NULL,
   `purchases_date` date NOT NULL,
   `purchases_value` int(15) NOT NULL,
-  `purchase_return_date` date NOT NULL,
-  `purchase_return_value` int(15) NOT NULL,
+  `purchase_return_date` date DEFAULT NULL,
+  `purchase_return_value` int(15) NOT NULL DEFAULT '0',
+  `year_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`id`, `name`, `purchases_date`, `purchases_value`, `purchase_return_date`, `purchase_return_value`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Tables', '2019-08-06', 250000, '0000-00-00', 0, 1, '2019-08-03 09:56:13', '0000-00-00 00:00:00', NULL),
+(2, 'Computer', '2019-08-27', 1500000, '2019-08-31', 1000000, 1, '2019-08-03 09:56:19', '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -499,7 +512,7 @@ CREATE TABLE `sales` (
   `value_of_sales` int(15) NOT NULL,
   `sales_date` date NOT NULL,
   `returns_date` date DEFAULT NULL,
-  `value_of_returns` int(15) DEFAULT NULL,
+  `value_of_returns` int(15) DEFAULT '0',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -510,8 +523,12 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `name`, `value_of_sales`, `sales_date`, `returns_date`, `value_of_returns`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'School Uniform', 10000, '2019-07-03', NULL, NULL, '2019-07-25 11:23:28', '2019-07-25 08:23:28', NULL),
-(2, 'Text Books', 3000, '2019-06-29', NULL, NULL, '2019-07-25 08:23:47', '2019-07-25 08:23:47', NULL);
+(1, 'School Uniform', 10000, '2019-07-03', NULL, 3000, '2019-08-03 09:35:51', '2019-07-25 08:23:28', NULL),
+(2, 'Text Books', 3000, '2019-06-29', NULL, 0, '2019-08-03 08:42:53', '2019-07-25 08:23:47', NULL),
+(3, 'Backpacks', 200000, '2019-08-05', NULL, 0, '2019-08-15 07:41:37', '2019-08-15 04:41:37', NULL),
+(4, 'Matress', 500000, '2019-08-12', NULL, 0, '2019-08-15 07:16:43', '2019-08-15 04:16:43', NULL),
+(5, 'Exercise Books', 20000, '2019-07-15', NULL, 0, '2019-08-15 07:16:50', '2019-08-15 04:16:50', NULL),
+(6, 'Notebooks & Notepads', 70000, '2019-06-10', '2019-08-04', 20000, '2019-08-15 04:41:09', '2019-08-15 04:41:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -853,7 +870,7 @@ INSERT INTO `students` (`id`, `first_name`, `last_name`, `surname`, `gender`, `r
 (35, 'Aisha', 'Ramadhani', 'Rashidi', 'Female', 2, '2005-11-14', 1, 'Goba', 2016, NULL, '0000/00001', 1, '2019-05-20 19:26:02', '2019-05-20 19:26:02', NULL),
 (36, 'Alpha', 'Geofrey', 'Yobwa', 'Male', 1, '2005-11-10', 1, 'Kariakoo', 2016, NULL, '0000/00001', 1, '2019-05-20 19:30:06', '2019-05-20 19:30:06', NULL),
 (37, 'Geofrey', 'Abdul', 'Rajabu', 'Male', 2, '2006-08-08', 1, 'Kimara', 2016, NULL, '0000/00001', 1, '2019-05-20 19:36:44', '2019-05-20 19:36:44', NULL),
-(38, 'Adam', 'William', 'Wlson', 'Male', 1, '2007-02-19', 1, 'Mwenge', 2016, NULL, '0000/00001', 1, '2019-05-20 19:38:30', '2019-05-20 19:38:30', NULL),
+(38, 'Adam', 'William', 'Wlson', 'Male', 1, '2007-02-19', 1, 'Ubungo', 2016, NULL, '0000/00001', 1, '2019-05-20 19:38:30', '2019-08-04 05:38:50', NULL),
 (39, 'Jelson', 'Geofrey', 'Charles', 'Male', 1, '2006-06-12', 1, 'Kibamba', 2016, NULL, '0000/00001', 1, '2019-05-20 19:39:46', '2019-05-20 19:39:46', NULL),
 (40, 'Rahim', 'Omary', 'Wahure', 'Male', 2, '2007-08-07', 1, 'Mbezi', 2016, NULL, '0000/00001', 1, '2019-05-20 19:40:47', '2019-05-20 19:40:47', NULL),
 (41, 'Zulpha', 'Twalib', 'Mteleke', 'Female', 2, '2005-05-23', 1, 'Kawe', 2015, NULL, '0000/00001', 1, '2019-05-24 09:35:23', '2019-05-24 09:36:01', NULL),
@@ -1030,7 +1047,8 @@ INSERT INTO `years` (`id`, `name`, `status`, `created_at`, `updated_at`, `delete
 -- Indexes for table `carriages`
 --
 ALTER TABLE `carriages`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `year_id` (`year_id`);
 
 --
 -- Indexes for table `current_assets`
@@ -1082,13 +1100,15 @@ ALTER TABLE `fees`
 -- Indexes for table `indirect_incomes`
 --
 ALTER TABLE `indirect_incomes`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `year_id` (`year_id`);
 
 --
 -- Indexes for table `inventories`
 --
 ALTER TABLE `inventories`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `year_id` (`year_id`);
 
 --
 -- Indexes for table `nationalities`
@@ -1132,7 +1152,8 @@ ALTER TABLE `permission_role`
 -- Indexes for table `purchases`
 --
 ALTER TABLE `purchases`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `year_id` (`year_id`);
 
 --
 -- Indexes for table `religions`
@@ -1303,7 +1324,7 @@ ALTER TABLE `equities`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `fees`
@@ -1363,7 +1384,7 @@ ALTER TABLE `permission_role`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `religions`
@@ -1387,7 +1408,7 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `standard_1`
@@ -1472,6 +1493,12 @@ ALTER TABLE `years`
 --
 
 --
+-- Constraints for table `carriages`
+--
+ALTER TABLE `carriages`
+  ADD CONSTRAINT `carriages_ibfk_1` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
+
+--
 -- Constraints for table `employees`
 --
 ALTER TABLE `employees`
@@ -1481,11 +1508,29 @@ ALTER TABLE `employees`
   ADD CONSTRAINT `employees_ibfk_4` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
 
 --
+-- Constraints for table `indirect_incomes`
+--
+ALTER TABLE `indirect_incomes`
+  ADD CONSTRAINT `indirect_incomes_ibfk_1` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
+
+--
+-- Constraints for table `inventories`
+--
+ALTER TABLE `inventories`
+  ADD CONSTRAINT `inventories_ibfk_1` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
+
+--
 -- Constraints for table `nursery`
 --
 ALTER TABLE `nursery`
   ADD CONSTRAINT `nursery_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
   ADD CONSTRAINT `nursery_ibfk_2` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
+
+--
+-- Constraints for table `purchases`
+--
+ALTER TABLE `purchases`
+  ADD CONSTRAINT `purchases_ibfk_1` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
 
 --
 -- Constraints for table `role_user`
