@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('Dashboard','AuthenticationController@homepage');
 
 //Authentication
-Route::get('/','AuthenticationController@loginIndex');
+Route::get('/','AuthenticationController@loginIndex')->name('login');
 Route::post('login','AuthenticationController@login');
 Route::get('logout','AuthenticationController@logout');
-Route::get('welcome','AuthenticationController@homepage');
 
+Route::middleware('auth')->group(function ()
+{
+Route::get('welcome','AuthenticationController@homepage');
 
 //Users
 Route::get('users','UsersController@index');
@@ -224,6 +226,13 @@ Route::post('NonCurrentLiabilities/update','Finance\NonCurrentLiabilitiesControl
 Route::get('NonCurrentLiabilities/delete/{id}','Finance\NonCurrentLiabilitiesController@destroy');
 
 
+Route::get('Purchases','Finance\PurchasesController@index');
+Route::post('Purchases/store','Finance\PurchasesController@store');
+Route::get('Purchases/edit/{id}','Finance\PurchasesController@edit');
+Route::post('Purchases/update','Finance\PurchasesController@update');
+Route::get('Purchases/delete/{id}','Finance\PurchasesController@destroy');
+
+
 Route::get('Sales','Finance\SalesController@index');
 Route::post('Sales/store','Finance\SalesController@store');
 Route::get('Sales/edit/{id}','Finance\SalesController@edit');
@@ -241,3 +250,4 @@ Route::get('grades/ajax/5', 'Grades\StdFiveController@getMarks');
 Route::get('grades/ajax/6', 'Grades\StdSixController@getMarks');
 Route::get('grades/ajax/7', 'Grades\StdSevenController@getMarks');
 
+});

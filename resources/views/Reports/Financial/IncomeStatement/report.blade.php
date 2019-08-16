@@ -161,7 +161,8 @@
             <td></td>
             <td align="right"><b style="color: red">{{$expense->Value." /="}}</b></td>
             <td></td>@endforeach
-            <td align="right"><b style="color: red">{{$expense->sum('Value')." /="}}</b></td>
+            <td align="right"><b style="color: red">{{$expenses_sum." /="}}</b></td>
+            {{--$expense->sum('Value')--}}
         </tr>
 
         <tr>
@@ -169,7 +170,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td align="right"><b style="color: red">{{$net - $expense->sum('Value')." /="}}</b></td>
+            <td align="right"><b style="color: red">{{$net + $expenses_sum." /="}}</b></td>
         </tr>
 </table>
 

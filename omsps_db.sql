@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 15, 2019 at 10:51 AM
+-- Generation Time: Aug 16, 2019 at 07:14 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -45,7 +45,7 @@ CREATE TABLE `carriages` (
 --
 
 INSERT INTO `carriages` (`id`, `name`, `inward_value`, `outward_value`, `date`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Chairs', 10000, NULL, '2019-07-02', 1, '2019-08-15 07:20:07', '2019-08-15 04:20:07', NULL),
+(1, 'Chairs', NULL, NULL, '2019-07-02', 1, '2019-08-15 11:33:13', '2019-08-15 08:33:13', NULL),
 (2, 'Tables', NULL, 10000, '2019-02-05', 1, '2019-08-03 10:08:05', '2019-07-07 15:38:56', NULL),
 (3, 'm,iji', 3, 2, '2019-07-05', 1, '2019-08-03 10:08:09', '2019-07-09 09:09:21', '2019-07-09 09:09:21'),
 (4, 'Nams', 23, 23, '2019-07-03', 1, '2019-08-03 10:08:14', '2019-07-09 09:09:22', '2019-07-09 09:09:22');
@@ -272,7 +272,7 @@ CREATE TABLE `inventories` (
 --
 
 INSERT INTO `inventories` (`id`, `opening_date`, `opening_value`, `closing_date`, `closing_value`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '2018-07-08', 1000000, '2019-07-08', 1000000, 1, '2019-08-15 07:19:05', '2019-08-15 04:19:05', NULL);
+(1, '2018-01-01', 0, '2019-07-08', 12408, 1, '2019-08-15 09:48:58', '2019-08-15 06:48:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -319,8 +319,8 @@ CREATE TABLE `non_current_assets` (
 --
 
 INSERT INTO `non_current_assets` (`id`, `name`, `cost`, `depreciation_value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Computers', 10000000, 7000000, '2005-03-09', '2019-07-11 12:10:20', '2019-07-11 09:07:52', NULL),
-(2, 'Tables', 40000, NULL, '2019-06-01', '2019-07-25 08:22:36', '2019-07-25 08:22:36', NULL);
+(1, 'Furnitures', 96420, 1000, '2005-03-09', '2019-08-15 10:54:50', '2019-08-15 07:54:50', NULL),
+(2, 'Motor Vehicles', 17000, 406, '2019-06-01', '2019-08-15 11:01:09', '2019-08-15 08:01:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -431,8 +431,8 @@ CREATE TABLE `purchases` (
 --
 
 INSERT INTO `purchases` (`id`, `name`, `purchases_date`, `purchases_value`, `purchase_return_date`, `purchase_return_value`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Tables', '2019-08-06', 250000, '0000-00-00', 0, 1, '2019-08-03 09:56:13', '0000-00-00 00:00:00', NULL),
-(2, 'Computer', '2019-08-27', 1500000, '2019-08-31', 1000000, 1, '2019-08-03 09:56:19', '0000-00-00 00:00:00', NULL);
+(1, 'Tables', '2019-08-06', 118352, '2018-08-06', 53520, 1, '2019-08-15 11:26:28', '2019-08-15 08:26:28', NULL),
+(2, 'Computer', '2019-08-27', 90000, '2019-08-31', 35000, 1, '2019-08-15 11:25:09', '2019-08-15 08:25:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -523,12 +523,8 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id`, `name`, `value_of_sales`, `sales_date`, `returns_date`, `value_of_returns`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'School Uniform', 10000, '2019-07-03', NULL, 3000, '2019-08-03 09:35:51', '2019-07-25 08:23:28', NULL),
-(2, 'Text Books', 3000, '2019-06-29', NULL, 0, '2019-08-03 08:42:53', '2019-07-25 08:23:47', NULL),
-(3, 'Backpacks', 200000, '2019-08-05', NULL, 0, '2019-08-15 07:41:37', '2019-08-15 04:41:37', NULL),
-(4, 'Matress', 500000, '2019-08-12', NULL, 0, '2019-08-15 07:16:43', '2019-08-15 04:16:43', NULL),
-(5, 'Exercise Books', 20000, '2019-07-15', NULL, 0, '2019-08-15 07:16:50', '2019-08-15 04:16:50', NULL),
-(6, 'Notebooks & Notepads', 70000, '2019-06-10', '2019-08-04', 20000, '2019-08-15 04:41:09', '2019-08-15 04:41:09', NULL);
+(1, 'Text Books', 155626, '2019-05-14', '2019-07-20', 63400, '2019-08-15 09:42:48', '2019-08-15 06:42:48', NULL),
+(2, 'School Uniform', 184950, '2019-07-17', '2019-08-15', 86600, '2019-08-15 09:43:21', '2019-08-15 06:43:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -1001,6 +997,7 @@ CREATE TABLE `users` (
   `nationality_id` int(10) UNSIGNED NOT NULL,
   `religion_id` int(10) UNSIGNED NOT NULL,
   `year_id` int(10) UNSIGNED NOT NULL,
+  `remember_token` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1010,10 +1007,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `middle_name`, `surname`, `gender`, `birth_date`, `address`, `email`, `phone`, `password`, `profile_picture`, `user_type`, `nationality_id`, `religion_id`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Onest', 'Paul', 'Kilenga', 'Male', '1994-03-31', 'Changanyikeni', 'onestpaul8@gmail.com', 714451236, '$2y$10$rDyEYnmhKoxnMpklx8Htz.jZji.T2cWZ5xY9vojiNNK.CGJkeKh6C', '0000/00001', 1, 1, 1, 1, '2019-04-14 12:33:01', '2019-04-14 12:33:01', NULL),
-(2, 'James', 'Paul', 'Kilenga', 'Male', '1999-02-04', 'Sinza', 'jimmy@gmail.com', 714235689, '$2y$10$Fxsh.Al17yUAW7bIyfnlk.LeAniNHXab3X.Yns/aFpNEGqAAU5ndC', '0000/00001', 2, 1, 1, 1, '2019-04-17 17:50:55', '2019-04-18 00:50:55', NULL),
-(3, 'Muhili', 'Chacha', 'Ngutunyi', 'Female', '1989-06-07', 'ubungo', 'Muhili@gmail.com', 768532367, '$2y$10$tI9o2tIUUrofJ0k3Fo6duOoajoaup3CQm7sUYVeoz/DyVKgWO3sTe', '0000/00001', 1, 1, 1, 1, '2019-05-16 10:26:11', '2019-05-16 10:26:11', NULL);
+INSERT INTO `users` (`id`, `first_name`, `middle_name`, `surname`, `gender`, `birth_date`, `address`, `email`, `phone`, `password`, `profile_picture`, `user_type`, `nationality_id`, `religion_id`, `year_id`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Onest', 'Paul', 'Kilenga', 'Male', '1994-03-31', 'Changanyikeni', 'onestpaul8@gmail.com', 714451236, '$2y$10$rDyEYnmhKoxnMpklx8Htz.jZji.T2cWZ5xY9vojiNNK.CGJkeKh6C', '0000/00001', 1, 1, 1, 1, NULL, '2019-04-14 12:33:01', '2019-04-14 12:33:01', NULL),
+(2, 'James', 'Paul', 'Kilenga', 'Male', '1999-02-04', 'Sinza', 'jimmy@gmail.com', 714235689, '$2y$10$Fxsh.Al17yUAW7bIyfnlk.LeAniNHXab3X.Yns/aFpNEGqAAU5ndC', '0000/00001', 2, 1, 1, 1, '4hh1gEiNWfzDOCOT9d7ciaZNnIDt4eX61Bc2nkDpTwZHUOWBypvh16Fmn2zp', '2019-08-16 04:54:14', '2019-04-18 00:50:55', NULL),
+(3, 'Muhili', 'Chacha', 'Ngutunyi', 'Female', '1989-06-07', 'ubungo', 'Muhili@gmail.com', 768532367, '$2y$10$tI9o2tIUUrofJ0k3Fo6duOoajoaup3CQm7sUYVeoz/DyVKgWO3sTe', '0000/00001', 1, 1, 1, 1, NULL, '2019-05-16 10:26:11', '2019-05-16 10:26:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -1408,7 +1405,7 @@ ALTER TABLE `role_user`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `standard_1`

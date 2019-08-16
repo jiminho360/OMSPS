@@ -14,6 +14,7 @@ use App\models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 
 class AuthenticationController extends Controller
 {
@@ -41,8 +42,8 @@ class AuthenticationController extends Controller
 
     public function logout()
     {
-        $errorMsg = "Login Please to Continue.........";
-        return view('Login', compact('errorMsg'));
+        Auth::logout();
+        return Redirect::to('/');
     }
 
     public function homepage()

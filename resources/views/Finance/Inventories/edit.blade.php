@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-md-4">
         <label for="opening_date" class="control-label">Opening Date</label>
         <input class="form-control input-sm datePicker" id="opening_date" name="opening_date" value="{{$Inventory->opening_date}}"
-               type="text" required>
+               type="text">
     </div>
     <div class="col-lg-4 col-md-4">
         <label for="opening_value" class="control-label">Opening Value</label>

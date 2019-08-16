@@ -1,64 +1,179 @@
-<style>
-    td {
-        padding: 4px;
-    }
-</style>
+<html>
+<head>
+    <title></title>
+    <style>
+        td {
+            padding: 4px;
+        }
+        #1{
+            position: absolute;
+            width: 9%;
+            top: 35%;
+            left: 91%;
+            color: black;
+        }
+        #2{
+            position: absolute;
+            width: 9%;
+            top: 55%;
+            left: 71%;
+            color: black;
+        }
+        #3{
+            position: absolute;
+            width: 9%;
+            top: 60%;
+            left: 90%;
+            color: black;
+        }
+        #4{
+            position: absolute;
+            width: 9%;
+            top: 66%;
+            left: 90%;
+            color: black;
+        }
+        #5{
+            position: absolute;
+            width: 9%;
+            top: 49%;
+            left: 71%;
+            color: black;
+        }
+    </style>
+
+</head>
+<body>
 <img src="{{asset('asset/images/new.png')}}" style="margin-left: 10%; margin-top: -3%"><br>
-<center><h1>Financial Position Report</h1></center>
+<center><h1 style="margin: 0;padding: 0">Financial Position Report</h1></center>
 <hr>
-<table style="width: 100%;border-collapse: collapse" border="">
+<hr id="1">
+<hr id="2">
+<hr id="3">
+<hr id="4">
+<hr id="5">
+
+<table style="width: 100%;border-collapse: collapse">
+    <tr><td><b style="color: red">Assets:</b></td></tr>
     <tr>
-        <td><b>NonCurrent Assets:</b></td>    </tr>
-    <tr>
-        <td><b>Sales............................................................................................................................................. 2000/=</b></td>
+        <td><b>Non Current Asset:</b></td>
+        <td></td>
+        <td></td>
     </tr>
+    @foreach($Non_Current_Assets as $Non_Current_Asset)
     <tr>
-        <td><b>Depreciation................................................................................................................................ 2000/=</b><b>2000/=</b></td>
-    </tr>
-    <tr>
-        <td><b>Sales............................................................................................................................................. 2000/=</b></td>
-    </tr>
-    <tr>
-        <td><b>Depreciation................................................................................................................................ 2000/=</b><b>2000/=</b></td>
+        <td><b>{{$Non_Current_Asset->name}}</b></td>
+        <td></td>
+        <td align="right"><b style="color: red">{{$Non_Current_Asset->cost}}</b></td>
+        <td></td>@endforeach
+        <td align="right"><b style="color: red">{{$Non_Current_Assets_sum}}</b></td>
     </tr>
 
     <tr>
-        <td><b>Current Assets:</b></td>    </tr>
-    <tr>
-        <td><b>Bank............................................................................................................................................. 2000/=</b></td>
+        <td>
+            <b>Net Sales</b>
+        </td>
+        <td colspan="3"></td>
+        <td align="right"><b style="color: red">..............</b></td>
+
     </tr>
     <tr>
-        <td><b>Cash............................................................................................................................................. 2000/=</b></td>
+        <td></td>
     </tr>
     <tr>
-        <td><b>Account Receivable.................................................................................................................... 2000/=</b><b>2000/=</b></td>
+        <td colspan="5"><b>Cost of Sales:</b></td>
     </tr>
     <tr>
-        <td><hr style="width: 8%; margin-left: 89%"><b>Total Assets............................................................................................................................................. 2000/=</b></td>
+        <td width="30%"><b>Opening Inventory</b></td>
+        <td colspan="2"></td>
+        <td align="right"><b style="color: red">..............</b></td>
+        <td></td>
     </tr>
     <tr>
-        <td><b>Current Liabilities:</b></td>    </tr>
-    <tr>
-        <td><b>Bank Overdraft.......................................................................................................................... 2000/=</b></td>
+        <td><b>Purchases</b></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+        <td></td>
+        <td></td>
     </tr>
     <tr>
-        <td><b>Account Payable......................................................................................................................... 2000/=</b></td>
+        <td><b>Purchases Returns</b></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+        <td  align="right"><b style="color: red">..............</b></td>
+        <td></td>
     </tr>
     <tr>
-        <td><b>Account Receivable.................................................................................................................... 2000/=</b><b>2000/=</b></td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td  align="right"><b style="color: red">..............</b></td>
+        <td></td>
     </tr>
     <tr>
-        <td><b>NonCurrent Liabilities:</b></td>    </tr>
-    <tr>
-        <td>Bank Overdraft.......................................................................................................................... 2000/=</td>
+        <td><b>Carriage Inward</b></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+        <td></td>
     </tr>
     <tr>
-        <td>Account Payable......................................................................................................................... 2000/=</td>
+        <td><b>Goods available for Sales</b></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+        <td></td>
     </tr>
     <tr>
-        <td>Account Receivable.................................................................................................................... <b>2000/=</b><b>2000/=</b></td>
+        <td><b>Ending Inventory</b></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+        <td align="right"><b style="color: red">..............</b></td>
     </tr>
     <tr>
-        <td><hr style="width: 8%; margin-left: 89%"><b>Total Assets............................................................................................................................................. 2000/=</b></td>
+        <td><b>Gross Profit</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
     </tr>
-</table><br>
+    <tr>
+        <td><b>Indirect Income</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+    </tr>
+    <tr>
+        <td><b>Total Revenue</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+    </tr>
+    <tr>
+        <td colspan="4"><b>Expenses:</b></td>
+    </tr>
+    {{--@foreach($expenses as $expense)--}}
+    <tr>
+        <td><b>Expense Name</b></td>
+        <td></td>
+        <td align="right"><b style="color: red">Expense Values</b></td>
+        <td></td>{{--@endforeach--}}
+        <td align="right"><b style="color: red">Expense Sum</b></td>
+    </tr>
+
+    <tr>
+        <td><b>Net Income/Profit</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td align="right"><b style="color: red">..............</b></td>
+    </tr>
+</table>
+
+</body>
+
+</html>

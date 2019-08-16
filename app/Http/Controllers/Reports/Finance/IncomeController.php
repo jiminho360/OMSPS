@@ -54,6 +54,7 @@ class IncomeController extends Controller
         $params['ending_inventory'] = $ending_inventory;
         $params['indirect'] = $indirect;
         $params['expenses'] = $expenses;
+        $params['expenses_sum'] = $expenses_sum;
 
         PDF::setOptions(
             [

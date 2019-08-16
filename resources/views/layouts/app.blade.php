@@ -119,6 +119,7 @@
                                     <li><a href="{{url('Inventories')}}">Inventories</a></li>
                                     <li><a href="{{url('NoncurrentAssets')}}">NonCurrent Assets</a></li>
                                     <li><a href="{{url('NoncurrentLiabilities')}}">NonCurrent Liabilities</a></li>
+                                    <li><a href="{{url('Purchases')}}">Purchases</a></li>
                                     <li><a href="{{url('Sales')}}">Sales</a></li>
                                 </ul>
                             </li>

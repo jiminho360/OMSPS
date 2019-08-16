@@ -9,7 +9,7 @@ class Purchase extends Model
 {
     use SoftDeletes;
 
-    public $guarded = [];
+    public $guarded = ['Purchase_id'];
 
     public static function getPurchase($year_id)
     {

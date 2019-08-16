@@ -9,4 +9,10 @@ class current_liabilities extends Model
 {
     use softDeletes;
     public $guarded = ['CurrentLiability_id'];
+
+    public static function sumLiabilities()
+    {
+        return self::all()->sum('value');
+    }
+
 }

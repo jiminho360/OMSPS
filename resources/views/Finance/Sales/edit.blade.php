@@ -12,12 +12,12 @@
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="sales_date">Sales Date</label>
-        <input class="form-control input-sm" id="sales_date" name="sales_date" autocomplete="off" value="{{$Sale->sales_date}}"
+        <input class="form-control input-sm datePicker" id="sales_date" name="sales_date" autocomplete="off" value="{{$Sale->sales_date}}"
                type="text" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="returns_date">Returns Date</label>
-        <input class="form-control input-sm" id="returns_date" name="returns_date" autocomplete="off" value="{{$Sale->returns_date}}"
+        <input class="form-control input-sm datePicker" id="returns_date" name="returns_date" autocomplete="off" value="{{$Sale->returns_date}}"
                type="text">
     </div>
     <div class="col-lg-4 col-md-4">

@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 
-@section('title','Sales')
+@section('title','Purchases')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Sales List</h2>
+                <h2>Purchases List</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
@@ -23,10 +23,10 @@
                     <tr>
                         <th>S/N</th>
                         <th>Name</th>
-                        <th>Value Of Sales</th>
-                        <th>Sales Date</th>
-                        <th>Returns Date</th>
-                        <th>Value Of Returns</th>
+                        <th>Purchases Date</th>
+                        <th>Purchases Value</th>
+                        <th>Purchases Return Date</th>
+                        <th>Purchases Return Value</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -35,13 +35,13 @@
                         <tr>
                             <td>{{$key+1}}</td>
                             <td class="desc_name">{{$item->name}}</td>
-                            <td>{{$item->value_of_sales}}</td>
-                            <td>{{$item->sales_date}}</td>
-                            <td>{{$item->returns_date}}</td>
-                            <td>{{$item->value_of_returns}}</td>
+                            <td>{{$item->purchases_date}}</td>
+                            <td>{{$item->purchases_value}}</td>
+                            <td>{{$item->purchase_return_date}}</td>
+                            <td>{{$item->purchase_return_value}}</td>
                             <td>
-                                <a href="{{url('Sales/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
-                                <a href="{{url('Sales/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
+                                <a href="{{url('Purchases/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
+                                <a href="{{url('Purchases/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
@@ -57,13 +57,13 @@
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('Sales/store')}}" method="post">
+                <form action="{{url('Purchases/store')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong>Add Sale</strong></h4>
+                        <h4 class="modal-title"><strong>Add Purchases</strong></h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
@@ -73,23 +73,23 @@
                                        type="text" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="value_of_sales">Value Of Sales</label>
-                                <input class="form-control input-sm" id="value_of_sales" name="value_of_sales"
+                                <label class="control-label" for="purchases_date">Purchases Date</label>
+                                <input class="form-control input-sm datePicker" id="purchases_date" name="purchases_date"
                                        type="text" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="sales_date">Sales Date</label>
-                                <input class="form-control input-sm datePicker" id="sales_date" name="sales_date" type="text"
+                                <label class="control-label" for="purchases_value">Purchases Value</label>
+                                <input class="form-control input-sm" id="purchases_value" name="purchases_value" type="text"
                                        required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="returns_date">Returns Date</label>
-                                <input class="form-control input-sm datePicker" id="returns_date" name="returns_date" type="text"
-                                       >
+                                <label class="control-label" for="purchase_return_date">Purchases Return Date</label>
+                                <input class="form-control input-sm datePicker" id="purchase_return_date" name="purchase_return_date" type="text"
+                                >
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="value_of_returns">Value Of Returns</label>
-                                <input class="form-control input-sm" id="value_of_returns" name="value_of_returns"
+                                <label class="control-label" for="purchase_return_value">Purchases Return Value</label>
+                                <input class="form-control input-sm" id="purchase_return_value" name="purchase_return_value"
                                        type="text" >
                             </div>
                         </div>
@@ -111,13 +111,13 @@
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('Sales/update')}}" method="post">
+                <form action="{{url('Purchases/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong> Edit Sales</strong></h4>
+                        <h4 class="modal-title"><strong> Edit Purchases</strong></h4>
                     </div>
                     <div class="modal-body">
 
