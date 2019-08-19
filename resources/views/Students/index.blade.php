@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 
-@section('title','Students List')
+@section('title','Pupils List')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Students List</h2>
+                <h2>Pupils List</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
@@ -66,7 +66,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong>Create Student</strong></h4>
+                        <h4 class="modal-title"><strong>Create Pupil</strong></h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
@@ -170,7 +170,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong> Edit students</strong></h4>
+                        <h4 class="modal-title"><strong> Edit Pupil</strong></h4>
                     </div>
                     <div class="modal-body">
 

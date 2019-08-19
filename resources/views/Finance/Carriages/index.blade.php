@@ -37,7 +37,7 @@
                             <td>{{$item->inward_value}}</td>
                             <td>{{$item->outward_value}}</td>
                             <td>{{$item->date}}</td>
-                            <td>
+                            <td style="width: 8%">
                                 <a href="{{url('Carriages/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Carriages/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 

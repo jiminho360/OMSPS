@@ -33,13 +33,13 @@
                     <tbody>
                     @foreach($items as $key=>$item)
                         <tr>
-                            <td>{{$key+1}}</td>
+                            <td style="width:2%">{{$key+1}}</td>
                             <td class="desc_name">{{$item->name}}</td>
                             <td>{{$item->value_of_sales}}</td>
                             <td>{{$item->sales_date}}</td>
                             <td>{{$item->returns_date}}</td>
                             <td>{{$item->value_of_returns}}</td>
-                            <td>
+                            <td style="width: 10%">
                                 <a href="{{url('Sales/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Sales/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 

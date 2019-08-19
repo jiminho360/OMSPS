@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 
-@section('title','Students Payments Records')
+@section('title','Pupils Payments Records')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Students Payments Records</h2>
+                <h2>Pupils Payments Records</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
@@ -21,7 +21,7 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Student Name</th>
+                        <th>Pupil Name</th>
                         <th>Total Amount</th>
                         <th>Paid Amount</th>
                         <th>Unpaid Amount</th>
@@ -59,12 +59,12 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong>Create Student Payment Record</strong></h4>
+                        <h4 class="modal-title"><strong>Create Pupil Payment Record</strong></h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <label for="student_Id" class="control-label">Student Name</label>
+                                <label for="student_Id" class="control-label">Pupil Name</label>
                                 <select class="form-control dd_select" id="student_Id" name="student_Id" required
                                         style="width: 100%">
                                     <option value="">----</option>
@@ -105,15 +105,15 @@
 
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <form action="{{url('students/update')}}" method="post">
+                <form action="{{url('Payment/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong> Edit Students Payment Record </strong></h4>
+                        <h4 class="modal-title"><strong> Edit Pupil Payment Record </strong></h4>
                     </div>
                     <div class="modal-body">
 

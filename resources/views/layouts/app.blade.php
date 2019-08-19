@@ -43,7 +43,8 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="{{url('Dashboard')}}" class="site_title"><i class="fa fa-graduation-cap"></i> <span>OMSPS</span></a>
+                    <a href="{{url('Dashboard')}}" class="site_title"><i class="fa fa-graduation-cap"></i>
+                        <span>OMSPS</span></a>
                 </div>
                 <div class="clearfix"></div>
                 <!-- menu profile quick info -->
@@ -65,36 +66,39 @@
                         <ul class="nav side-menu">
                             <li><a href="{{url('Dashboard')}}"><i class="fa fa-home"></i> Dashboard</a>
                             </li>
-                            <li><a><i class="fa fa-group"></i>Employees<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('RegEmployee')}}">Register Employee</a></li>
-                                </ul>
-                            </li>
-                            <li><a><i class="fa fa-graduation-cap"></i> Students <span
-                                        class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('Students')}}">Register Student</a></li>
-                                    <li><a href="{{url('Payment')}}">Students Payment Records</a></li>
-                                </ul>
-                            </li>
 
-                            <li><a><i class="fa fa-star"></i> Grades <span
-                                            class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('Nursery')}}">Nursery</a></li>
-                                    <li><a href="{{url('Std1')}}">Standard 1</a></li>
-                                    <li><a href="{{url('Std2')}}">Standard 2</a></li>
-                                    <li><a href="{{url('Std3')}}">Standard 3</a></li>
-                                    <li><a href="{{url('Std4')}}">Standard 4</a></li>
-                                    <li><a href="{{url('Std5')}}">Standard 5</a></li>
-                                    <li><a href="{{url('Std6')}}">Standard 6</a></li>
-                                    <li><a href="{{url('Std7')}}">Standard 7</a></li>
-                                </ul>
-                            </li>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher') || \Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                                <li><a><i class="fa fa-group"></i>Employees<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{url('RegEmployee')}}">Register Employee</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-graduation-cap"></i> Pupils <span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{url('Students')}}">Register Pupils</a></li>
+                                        <li><a href="{{url('Payment')}}">Pupils Payment Records</a></li>
+                                    </ul>
+                                </li>
+                            @endif
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('teacher')|| \Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                                <li><a><i class="fa fa-star"></i> Grades <span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{url('Nursery')}}">Nursery</a></li>
+                                        <li><a href="{{url('Std1')}}">Standard 1</a></li>
+                                        <li><a href="{{url('Std2')}}">Standard 2</a></li>
+                                        <li><a href="{{url('Std3')}}">Standard 3</a></li>
+                                        <li><a href="{{url('Std4')}}">Standard 4</a></li>
+                                        <li><a href="{{url('Std5')}}">Standard 5</a></li>
+                                        <li><a href="{{url('Std6')}}">Standard 6</a></li>
+                                        <li><a href="{{url('Std7')}}">Standard 7</a></li>
+                                    </ul>
+                                </li>
 
-                            <li><a><i class="fa fa-folder-open"></i> Results <span
-                                        class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
+                                <li><a><i class="fa fa-folder-open"></i> Results <span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
                                         <li><a href="{{url('rslt-nursery')}}">Nursery</a></li>
                                         <li><a href="{{url('rslt-std_one')}}">Standard I</a></li>
                                         <li><a href="{{url('rslt-std_two')}}">Standard II</a></li>
@@ -103,69 +107,73 @@
                                         <li><a href="{{url('rslt-std_five')}}">Standard V</a></li>
                                         <li><a href="{{url('rslt-std_six')}}">Standard VI</a></li>
                                         <li><a href="{{url('rslt-std_seven')}}">Standard VII</a></li>
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-file-archive-o"></i>Academic Reports<span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{url('rpt-nursery')}}">Nursery</a></li>
+                                        <li><a href="{{url('rpt-std_one')}}">Standard I</a></li>
+                                        <li><a href="{{url('rpt-std_two')}}">Standard II</a></li>
+                                        <li><a href="{{url('rpt-std_three')}}">Standard III</a></li>
+                                        <li><a href="{{url('rpt-std_four')}}">Standard IV</a></li>
+                                        <li><a href="{{url('rpt-std_five')}}">Standard V</a></li>
+                                        <li><a href="{{url('rpt-std_six')}}">Standard VI</a></li>
+                                        <li><a href="{{url('rpt-std_seven')}}">Standard VII</a></li>
+                                    </ul>
+                                </li>
+                            @endif
 
-                            <li><a><i class="fa fa-money"></i> Finance <span
-                                            class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('Carriages')}}">Carriages</a></li>
-                                    <li><a href="{{url('CurrentAssets')}}">Current Assets</a></li>
-                                    <li><a href="{{url('CurrentLiabilities')}}">Current Liabilities</a></li>
-                                    <li><a href="{{url('Drawings')}}">Drawings</a></li>
-                                    <li><a href="{{url('Equity')}}">Equity</a></li>
-                                    <li><a href="{{url('Expenses')}}">Expenses</a></li>
-                                    <li><a href="{{url('IndirectIncome')}}">Indirect Income</a></li>
-                                    <li><a href="{{url('Inventories')}}">Inventories</a></li>
-                                    <li><a href="{{url('NoncurrentAssets')}}">NonCurrent Assets</a></li>
-                                    <li><a href="{{url('NoncurrentLiabilities')}}">NonCurrent Liabilities</a></li>
-                                    <li><a href="{{url('Purchases')}}">Purchases</a></li>
-                                    <li><a href="{{url('Sales')}}">Sales</a></li>
-                                </ul>
-                            </li>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier')|| \Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                                <li><a><i class="fa fa-money"></i> Finance <span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{url('Capital')}}">Capitals</a></li>
+                                        <li><a href="{{url('Carriages')}}">Carriages</a></li>
+                                        <li><a href="{{url('CurrentAssets')}}">Current Assets</a></li>
+                                        <li><a href="{{url('CurrentLiabilities')}}">Current Liabilities</a></li>
+                                        <li><a href="{{url('Drawings')}}">Drawings</a></li>
+                                        <li><a href="{{url('Equity')}}">Equity</a></li>
+                                        <li><a href="{{url('Expenses')}}">Expenses</a></li>
+                                        <li><a href="{{url('IndirectIncome')}}">Indirect Income</a></li>
+                                        <li><a href="{{url('Inventories')}}">Inventories</a></li>
+                                        <li><a href="{{url('NoncurrentAssets')}}">NonCurrent Assets</a></li>
+                                        <li><a href="{{url('NoncurrentLiabilities')}}">NonCurrent Liabilities</a></li>
+                                        <li><a href="{{url('Purchases')}}">Purchases</a></li>
+                                        <li><a href="{{url('Sales')}}">Sales</a></li>
+                                        <li><a href="{{url('Fees')}}">Fees</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-file-archive-o"></i>Financial Reports<span
+                                                class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{url('IncomeStatement')}}">Income Statement Report</a></li>
+                                        <li><a href="{{url('FinancialPosition')}}">Financial Position Report</a></li>
+                                    </ul>
+                                </li>
+                            @endif
 
-                            <li><a><i class="fa fa-file-archive-o"></i>Academic Reports<span
-                                        class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('rpt-nursery')}}">Nursery</a></li>
-                                    <li><a href="{{url('rpt-std_one')}}">Standard I</a></li>
-                                    <li><a href="{{url('rpt-std_two')}}">Standard II</a></li>
-                                    <li><a href="{{url('rpt-std_three')}}">Standard III</a></li>
-                                    <li><a href="{{url('rpt-std_four')}}">Standard IV</a></li>
-                                    <li><a href="{{url('rpt-std_five')}}">Standard V</a></li>
-                                    <li><a href="{{url('rpt-std_six')}}">Standard VI</a></li>
-                                    <li><a href="{{url('rpt-std_seven')}}">Standard VII</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a><i class="fa fa-file-archive-o"></i>Financial Reports<span
-                                            class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('IncomeStatement')}}">Income Statement Report</a></li>
-                                    <li><a href="{{url('FinancialPosition')}}">Financial Position Report</a></li>
-                                </ul>
-                            </li>
-
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                                <div class="menu_section">
+                                    <h3>General Settings</h3>
+                                    <ul class="nav side-menu">
+                                        <li><a><i class="fa fa-cog"></i> Settings <span
+                                                        class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="{{url('users')}}">Users</a></li>
+                                                <li><a href="{{url('years')}}">Years</a></li>
+                                                <li><a href="{{url('Religions')}}">Religions</a></li>
+                                                <li><a href="{{url('nationalities')}}">Nationalities</a></li>
+                                                <li><a href="{{url('UserTypes')}}">User Types</a></li>
+                                                {{--<li><a href="{{url('UserRole')}}">User Roles</a></li>--}}
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            @endif
                         </ul>
                     </div>
-                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
-                    <div class="menu_section">
-                        <h3>General Settings</h3>
-                        <ul class="nav side-menu">
-                            <li><a><i class="fa fa-cog"></i> Settings <span
-                                        class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{url('users')}}">Users</a></li>
-                                    <li><a href="{{url('years')}}">Years</a></li>
-                                    <li><a href="{{url('Religions')}}">Religions</a></li>
-                                    <li><a href="{{url('nationalities')}}">Nationalities</a></li>
-                                    <li><a href="{{url('UserTypes')}}">User Types</a></li>
-                                    {{--<li><a href="{{url('UserRole')}}">User Roles</a></li>--}}
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    @endif
+
                 </div>
                 <!-- /sidebar menu -->
                 <!-- /menu footer buttons -->
@@ -187,7 +195,7 @@
             </div>
         </div>
 
-    <!-- top navigation -->
+        <!-- top navigation -->
         <div class="top_nav">
             <div class="nav_menu">
                 <nav>
@@ -209,13 +217,13 @@
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
                                 {{--<li><a href="javascript:;"> Profile</a></li>--}}
                                 {{--<li>--}}
-                                    {{--<a href="javascript:;">--}}
-                                        {{--<span class="badge bg-red pull-right">50%</span>--}}
-                                        {{--<span>Settings</span>--}}
-                                    {{--</a>--}}
+                                {{--<a href="javascript:;">--}}
+                                {{--<span class="badge bg-red pull-right">50%</span>--}}
+                                {{--<span>Settings</span>--}}
+                                {{--</a>--}}
                                 {{--</li>--}}
                                 <li><a href="{{url('logout')}}"><i
-                                            class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                                class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -291,10 +299,10 @@
 @yield('Scripts')
 {{--<!-- footer content --><br><br>--}}
 {{--<footer>--}}
-    {{--<div class="pull-right">--}}
-        {{--Online School Management System Created by <a href="{{url('Dashboard')}}">OMSPS Project Team</a>--}}
-    {{--</div>--}}
-    {{--<div class="clearfix"></div>--}}
+{{--<div class="pull-right">--}}
+{{--Online School Management System Created by <a href="{{url('Dashboard')}}">OMSPS Project Team</a>--}}
+{{--</div>--}}
+{{--<div class="clearfix"></div>--}}
 {{--</footer>--}}
 {{--<!-- /footer content -->--}}
 </body>

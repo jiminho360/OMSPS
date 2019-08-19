@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 
-@section('title','CurrentLiabilities')
+@section('title','Fees')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Current Liabilities List</h2>
+                <h2>Fees List</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
@@ -21,23 +21,20 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>S/N</th>
-                        <th>Name</th>
-                        <th>Value</th>
-                        <th>date</th>
+                        <th>Grade</th>
+                        <th>Amount</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($items as $key=>$item)
+                    @foreach($Fees as $key=>$Fee)
                         <tr>
-                            <td style="width: 2%">{{$key+1}}</td>
-                            <td class="desc_name">{{$item->name}}</td>
-                            <td>{{$item->value}}</td>
-                            <td>{{$item->date}}</td>
-                            <td style="width: 10%">
-                                <a href="{{url('CurrentLiabilities/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
-                                <a href="{{url('CurrentLiabilities/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
+                            <td>{{$key+1}}</td>
+                            <td class="desc_name">{{$Fee->grade}}</td>
+                            <td>{{$Fee->amount}}</td>
+                            <td style="width: 8%">
+                                <a href="{{url('Fees/edit/'.$Fee->id)}}" class="edit-btn"> Edit</a> |
+                                <a href="{{url('Fees/delete/'.$Fee->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
@@ -53,30 +50,25 @@
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('CurrentLiabilities/store')}}" method="post">
+                <form action="{{url('Fees/store')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong>Add Liability</strong></h4>
+                        <h4 class="modal-title"><strong>Create Fee</strong></h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
-                                <label for="name" class="control-label">Name</label>
-                                <input class="form-control input-sm" id="name" name="name"
+                                <label for="grade" class="control-label">Grade</label>
+                                <input class="form-control input-sm" id="grade" name="grade"
                                        type="text" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="value">Value</label>
-                                <input class="form-control input-sm" id="value" name="value"
-                                       type="text" required>
-                            </div>
-                            <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="date">Date</label>
-                                <input class="form-control input-sm datePicker" id="date" name="date" type="text"
-                                       required>
+                                <label class="control-label" for="amount">Amount</label>
+                                <input class="form-control input-sm" id="amount" name="amount"
+                                       type="text" >
                             </div>
                         </div>
                     </div>
@@ -92,18 +84,17 @@
         </div>
     </div>
     <!---End of Create Modal-->
-
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('CurrentLiabilities/update')}}" method="post">
+                <form action="{{url('Fees/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong> Edit Liability</strong></h4>
+                        <h4 class="modal-title"><strong> Edit Fee</strong></h4>
                     </div>
                     <div class="modal-body">
 
@@ -171,4 +162,4 @@
         });
 
     </script>
-@stop
+@endsection

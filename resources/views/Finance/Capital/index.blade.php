@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 
-@section('title','CurrentLiabilities')
+@section('title','Capitals')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Current Liabilities List</h2>
+                <h2>Capital List</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
@@ -22,9 +22,8 @@
                     <thead>
                     <tr>
                         <th>S/N</th>
-                        <th>Name</th>
                         <th>Value</th>
-                        <th>date</th>
+                        <th>Date</th>
                         <th>Actions</th>
                     </tr>
                     </thead>
@@ -32,12 +31,11 @@
                     @foreach($items as $key=>$item)
                         <tr>
                             <td style="width: 2%">{{$key+1}}</td>
-                            <td class="desc_name">{{$item->name}}</td>
-                            <td>{{$item->value}}</td>
+                            <td class="desc_name">{{$item->value}}</td>
                             <td>{{$item->date}}</td>
                             <td style="width: 10%">
-                                <a href="{{url('CurrentLiabilities/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
-                                <a href="{{url('CurrentLiabilities/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
+                                <a href="{{url('Capital/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
+                                <a href="{{url('Capital/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
@@ -53,21 +51,17 @@
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('CurrentLiabilities/store')}}" method="post">
+                <form action="{{url('Capital/store')}}" method="post">
+                    @csrf
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong>Add Liability</strong></h4>
+                        <h4 class="modal-title"><strong>Add Capital</strong></h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
-                            <div class="col-lg-4 col-md-4">
-                                <label for="name" class="control-label">Name</label>
-                                <input class="form-control input-sm" id="name" name="name"
-                                       type="text" required>
-                            </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="value">Value</label>
                                 <input class="form-control input-sm" id="value" name="value"
@@ -97,13 +91,13 @@
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <form action="{{url('CurrentLiabilities/update')}}" method="post">
+                <form action="{{url('Capital/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">×</span>
                         </button>
-                        <h4 class="modal-title"><strong> Edit Liability</strong></h4>
+                        <h4 class="modal-title"><strong> Edit Capital</strong></h4>
                     </div>
                     <div class="modal-body">
 

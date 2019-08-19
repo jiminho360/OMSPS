@@ -31,7 +31,7 @@ class StudentsController extends Controller
         $result = Student::create($data);
 
         if ($result) {
-            return Redirect::back()->with('success', 'Student Successfully Created');
+            return Redirect::back()->with('success', 'Pupil Successfully Created');
         } else {
             return Redirect::back()->with('errors', 'Sorry An Error Occurred');
         }
@@ -54,7 +54,7 @@ class StudentsController extends Controller
         $result = $student->update($data);
 
         if ($result) {
-            return Redirect::back()->with('success', 'Student Successfully Updated');
+            return Redirect::back()->with('success', 'Pupil Successfully Updated');
         } else {
             return Redirect::back()->with('errors', 'Sorry An Error Occurred');
         }
@@ -65,7 +65,7 @@ class StudentsController extends Controller
         $student = Student::find($id);
         $student->delete();
 
-        return Redirect::back()->with('success', 'Successfully Deleted');
+        return Redirect::back()->with('success', 'Pupil Successfully Deleted');
     }
 
 }

@@ -28,6 +28,32 @@ class PaymentsController extends Controller
         }
 
     }
+    public function edit($id)
+    {
+        $Payment = StudentPaymentRecord::find($id);
+        $students = Student::all();
+//        dd($Payment->people->first_name);
+        return view('Payment.edit', compact('Payment','students'));
+
+    }
+
+    public function update()
+    {
+        $data = Input::all();
+
+        $Payment = StudentPaymentRecord::find($data['Payment_id']);
+        $Payment->update($data);
+
+        return Redirect::back()->with('success', 'Payment Successfully Updated');
+
+    }
+    public function destroy($id)
+    {
+        $Payment = StudentPaymentRecord::find($id);
+        $Payment->delete();
+
+        return Redirect::back()->with('success','Payment Successfully Deleted');
+    }
 }
 
 

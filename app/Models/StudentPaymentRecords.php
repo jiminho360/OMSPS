@@ -9,7 +9,7 @@ class StudentPaymentRecord extends Model
 {
     use SoftDeletes;
     protected $table = 'students_payment_records';
-    public $guarded = [];
+    public $guarded = ['Payment_id'];
 
     public function people()
     {

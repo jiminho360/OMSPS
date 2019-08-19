@@ -5,40 +5,19 @@
         td {
             padding: 4px;
         }
-        #1{
-            position: absolute;
-            width: 9%;
-            top: 35%;
-            left: 91%;
+        #1 {
             color: black;
+            width: 50%;
+            margin:0 1% 0 50%;
         }
-        #2{
-            position: absolute;
-            width: 9%;
-            top: 55%;
-            left: 71%;
+        #2 {
             color: black;
+            width: 50%;
+            margin:0 1% 0 50%;
         }
-        #3{
-            position: absolute;
-            width: 9%;
-            top: 60%;
-            left: 90%;
-            color: black;
-        }
-        #4{
-            position: absolute;
-            width: 9%;
-            top: 66%;
-            left: 90%;
-            color: black;
-        }
-        #5{
-            position: absolute;
-            width: 9%;
-            top: 49%;
-            left: 71%;
-            color: black;
+        #date {
+            margin-top: 70%;
+            margin-left: 25%;
         }
     </style>
 
@@ -46,32 +25,33 @@
 <body>
 <img src="{{asset('asset/images/new.png')}}" style="margin-left: 10%; margin-top: -3%"><br>
 <center><h1 style="margin: 0;padding: 0">Income Statement Report</h1></center>
+<span id="date"><b style="color:black">Income Statement for the Year Ended as at: <span style="color: red">31 June {{date('Y')}}</span></b></span>
 <hr>
-<hr id="1">
-<hr id="2">
-<hr id="3">
-<hr id="4">
-<hr id="5">
-
 <table style="width: 100%;border-collapse: collapse">
     <tr>
         <td><b>Revenue/Sales</b></td>
         <td colspan="3">
         </td>
-        <td align="right"><b style="color: red">{{$total_sales."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($total_sales)."/="}}</b></td>
     </tr>
     <tr>
         <td><b>Sales Returns</b></td>
         <td colspan="3">
         </td>
-        <td align="right"><b style="color: red">{{$total_returns."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($total_returns)."/="}}</b></td>
+    </tr>
+    <tr>
+        <td colspan="4"></td>
+        <td>
+            <hr id="1">
+        </td>
     </tr>
     <tr>
         <td>
             <b>Net Sales</b>
         </td>
         <td colspan="3"></td>
-        <td align="right"><b style="color: red">{{($net_sales = $total_sales-$total_returns)."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($net_sales = $total_sales-$total_returns)."/="}}</b></td>
 
     </tr>
     <tr>
@@ -85,72 +65,96 @@
     <tr>
         <td width="30%"><b>Opening Inventory</b></td>
         <td colspan="2"></td>
-        <td align="right"><b style="color: red">{{$opening_inventory."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($opening_inventory)."/="}}</b></td>
         <td></td>
     </tr>
     <tr>
         <td><b>Purchases</b></td>
         <td></td>
-        <td align="right"><b style="color: red">{{$purchases."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($purchases)."/="}}</b></td>
         <td></td>
         <td></td>
     </tr>
     <tr>
         <td><b>Purchases Returns</b></td>
         <td></td>
-        <td align="right"><b style="color: red">{{$purchaseReturn."/="}}</b></td>
-        <td  align="right"><b style="color: red">{{" ".($sumReturn = $purchases-$purchaseReturn)."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($purchaseReturn)."/="}}</b></td>
+        <td  align="right"><b style="color: red">{{" ".App\Helpers\General::moneyFormat($sumReturn = $purchases-$purchaseReturn)."/="}}</b></td>
         <td></td>
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <td>
+            <hr id="2">
+        </td>
     </tr>
     <tr>
 
         <td></td>
         <td></td>
         <td></td>
-        <td  align="right"><b style="color: red">{{" ".($answer=$opening_inventory + $sumReturn)."/="}}</b></td>
+        <td  align="right"><b style="color: red">{{" ".App\Helpers\General::moneyFormat($answer=$opening_inventory + $sumReturn)."/="}}</b></td>
         <td></td>
     </tr>
     <tr>
         <td><b>Carriage Inward</b></td>
         <td></td>
         <td></td>
-        <td align="right"><b style="color: red">{{$inward_value."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($inward_value)."/="}}</b></td>
         <td></td>
-    </tr><hr style="width: 9%; margin-left: 90%; margin-bottom: -3%">
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <td>
+            <hr id="2">
+        </td>
+    </tr>
     <tr>
         <td><b>Goods available for Sales</b></td>
         <td></td>
         <td></td>
-        <td align="right"><b style="color: red">{{($g_available = $answer + $inward_value)."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($g_available = $answer + $inward_value)."/="}}</b></td>
         <td></td>
     </tr>
     <tr>
         <td><b>Ending Inventory</b></td>
         <td></td>
         <td></td>
-        <td align="right"><b style="color: red">{{$ending_inventory."/="}}</b></td>
-        <td align="right"><b style="color: red">{{( $available_inv = $g_available - $ending_inventory)."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($ending_inventory)."/="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat( $available_inv = $g_available - $ending_inventory)."/="}}</b></td>
+    </tr>
+    <tr>
+        <td colspan="4"></td>
+        <td>
+            <hr id="1">
+        </td>
     </tr>
     <tr>
         <td><b>Gross Profit</b></td>
         <td></td>
         <td></td>
         <td></td>
-        <td align="right"><b style="color: red">{{($gross_profit = $net_sales - $available_inv)." /="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($gross_profit = $net_sales - $available_inv)." /="}}</b></td>
     </tr>
     <tr>
         <td><b>Indirect Income</b></td>
         <td></td>
         <td></td>
         <td></td>
-        <td align="right"><b style="color: red">{{$indirect." /="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($indirect)." /="}}</b></td>
+    </tr>
+    <tr>
+        <td colspan="4"></td>
+        <td>
+            <hr id="1">
+        </td>
     </tr>
     <tr>
         <td><b>Total Revenue</b></td>
         <td></td>
         <td></td>
         <td></td>
-        <td align="right"><b style="color: red">{{($net = $gross_profit + $indirect)." /="}}</b></td>
+        <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($net = $gross_profit + $indirect)." /="}}</b></td>
     </tr>
     <tr>
         <td colspan="4"><b>Expenses:</b></td>
@@ -159,18 +163,29 @@
         <tr>
             <td><b>{{$expense->Name}}</b></td>
             <td></td>
-            <td align="right"><b style="color: red">{{$expense->Value." /="}}</b></td>
+            <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($expense->Value)." /="}}</b></td>
             <td></td>@endforeach
-            <td align="right"><b style="color: red">{{$expenses_sum." /="}}</b></td>
+            <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($expenses_sum)." /="}}</b></td>
             {{--$expense->sum('Value')--}}
         </tr>
-
+        <tr>
+            <td colspan="4"></td>
+            <td>
+                <hr id="1">
+            </td>
+        </tr>
         <tr>
             <td><b>Net Income/Profit</b></td>
             <td></td>
             <td></td>
             <td></td>
-            <td align="right"><b style="color: red">{{$net + $expenses_sum." /="}}</b></td>
+            <td align="right"><b style="color: red">{{App\Helpers\General::moneyFormat($net - $expenses_sum)." /="}}</b></td>
+        </tr>
+        <tr>
+            <td colspan="4"></td>
+            <td>
+                <hr id="1">
+            </td>
         </tr>
 </table>
 

@@ -66,6 +66,12 @@
                                             <div class="count">{{$Std7}}</div>
                                             <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{round(($Std7*100)/$totalStudents)}}%</i>Of Total Students</span>
                                         </div>
+                                        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                                            <span><i class="fa fa-user" ></i>Total No of Students</span>
+                                            <div class="count">{{($nursery+$Std1+$Std2+$Std3+$Std4+$Std5+$Std6+$Std7)}}</div>
+                                            {{--<span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{round(($Std7*100)/$totalStudents)}}%</i>Of Total Students</span>--}}
+                                        </div>
+                                    </div>
                                     </div>
                                     </div>
 

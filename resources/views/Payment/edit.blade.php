@@ -1,57 +1,27 @@
+<div class="form-group row">
+    <input type="hidden" name="Payment_id" value="{{$Payment->id}}">
+    <div class="col-lg-12">
+        <label for="student_Id" class="control-label">Pupil Name</label>
+        <select class="form-control dd_select" id="student_Id" name="student_Id" required
+                style="width: 100%">
+            <option value="">----</option>
+            @foreach($students as $student)
+                <option value="{{$student->id}}" {{$student->id==$Payment->student_Id ? 'selected' : ''}}>{{$student->first_name." ".$student->last_name}}</option>
+            @endforeach
+        </select>
+        <div class="col-lg-14">
+            <label class="control-label" for="total_amount">Total_amount</label>
+            <input class="form-control input-sm" id="total_amount" name="total_amount" value="{{$Payment->total_amount}}"
+                   type="text" required>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <label class="control-label" for="paid_amount">Paid_amount</label>
+        <input class="form-control input-sm" id="paid_amount" name="paid_amount" value="{{$Payment->paid_amount}}"
+               type="text" required>
+        <label class="control-label" for="unpaid_amount">Unpaid_amount</label>
+        <input class="form-control input-sm" id="unpaid_amount" name="unpaid_amount" value="{{$Payment->unpaid_amount}}"
+               type="text" required>
+    </div>
 
-            <form action="{{url('students/store')}}" method="post">
-                @csrf
-                <div class="modal-header modal-header-color">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">×</span>
-                    </button>
-                    <h4 class="modal-title"><strong>Create Student Payment Record</strong></h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group row">
-                        <div class="col-lg-4 col-md-4">
-                            <label for="first_name" class="control-label">First Name</label>
-                            <input class="form-control input-sm" id="first_name" name="first_name"
-                                   type="text" required>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <label class="control-label" for="last_name">Last Name</label>
-                            <input class="form-control input-sm" id="last_name" name="last_name"
-                                   type="text" required>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <label class="control-label" for="surname">Surname</label>
-                            <input class="form-control input-sm" id="surname" name="surname"
-                                   type="text" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <div class="col-lg-4 col-md-4">
-                            <label class="control-label" for="Total_amount">Total_amount</label>
-                            <input class="form-control input-sm" id="Total_amount" name="Total_amount" type="text" required>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <label class="control-label" for="Paid_amount">Paid_amount</label>
-                            <input class="form-control input-sm" id="Paid_amount" name="Paid_amount" type="text" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-lg-4 col-md-4">
-                            <label class="control-label" for="Unpaid_amount">Unpaid_amount</label>
-                            <input class="form-control input-sm" id="Unpaid_amount" name="Unpaid_amount" type="text" required>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <label class="control-label" for="Year_id">Year_id</label>
-                            <input class="form-control input-sm" id="Year_id" name="Year_id" type="text" required>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>
-                        Close
-                    </button>
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
-                </div>
-            </form>
+    </div>

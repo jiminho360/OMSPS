@@ -31,11 +31,11 @@
                     <tbody>
                     @foreach($items as $key=>$item)
                         <tr>
-                            <td>{{$key+1}}</td>
+                            <td style="width: 2%">{{$key+1}}</td>
                             <td class="desc_name">{{$item->name}}</td>
                             <td>{{$item->value}}</td>
                             <td>{{$item->date}}</td>
-                            <td>
+                            <td style="width: 12%">
                                 <a href="{{url('CurrentAssets/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('CurrentAssets/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 

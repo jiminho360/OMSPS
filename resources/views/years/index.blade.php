@@ -19,7 +19,7 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Year</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -160,7 +160,7 @@
                 showCancelButton: true,
                 confirmButtonText: 'Yes, activate it!',
                 cancelButtonText: 'No leave it',
-                confirmButtonColor: "#dd6b55"
+                confirmButtonColor: "#02a60a"
             }).then((result) => {
                 if (result.value) {
 

@@ -24,6 +24,8 @@
                 <img src="{{asset('asset/images/new.png')}}" style="margin-left: 21.5%; margin-top: -3%"><br>
                 <center><h1 style="margin: 0;padding: 0">Income Statement Report</h1></center>
                 <hr style="border: 1px solid black">
+                <span id="date"><b style="color:black">Income Statement for the Year Ended as at: <span style="color: red">31 June {{date('Y')}}</span></b></span>
+
                 {{--<hr id="1" style="position: absolute;width: 9%;top: 35%;left: 91%;color: black;">--}}
                 {{--<hr id="2" style="position: absolute;width: 9%;top: 55%;left: 71%;color: black;">--}}
                 {{--<hr id="3" style="position: absolute;width: 9%;top: 60%;left: 90%;color: black;">--}}
