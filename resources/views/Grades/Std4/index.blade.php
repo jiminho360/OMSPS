@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Standard 4 Grades</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -46,8 +48,10 @@
                             {{--<td>{{$item->Social_Studies}}</td>--}}
                             {{--<td>{{$item->Vocational_Skills}}</td>--}}
                             <td>
+                                @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                                 <a href="{{url('Std4/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Std4/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
+                                @endif
                                 <a href="{{url('Std4/show/'.$item->id)}}" class="btn-white"> View</a>
 
                             </td>

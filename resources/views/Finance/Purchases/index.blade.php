@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Purchases List</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -27,7 +29,9 @@
                         <th>Purchases Value</th>
                         <th>Purchases Return Date</th>
                         <th>Purchases Return Value</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                         <th>Actions</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -39,12 +43,14 @@
                             <td>{{$item->purchases_value}}</td>
                             <td>{{$item->purchase_return_date}}</td>
                             <td>{{$item->purchase_return_value}}</td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                             <td>
                                 <a href="{{url('Purchases/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Purchases/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

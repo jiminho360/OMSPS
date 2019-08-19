@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Fees List</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -23,7 +25,9 @@
                     <tr>
                         <th>Grade</th>
                         <th>Amount</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                         <th>Actions</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -32,12 +36,14 @@
                             <td>{{$key+1}}</td>
                             <td class="desc_name">{{$Fee->grade}}</td>
                             <td>{{$Fee->amount}}</td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                             <td style="width: 8%">
                                 <a href="{{url('Fees/edit/'.$Fee->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Fees/delete/'.$Fee->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2019 at 07:19 AM
+-- Generation Time: Aug 19, 2019 at 09:28 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `omsps_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `capital`
+--
+
+CREATE TABLE `capital` (
+  `id` int(11) NOT NULL,
+  `value` int(15) NOT NULL,
+  `date` date NOT NULL,
+  `year_id` int(10) UNSIGNED NOT NULL DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `capital`
+--
+
+INSERT INTO `capital` (`id`, `value`, `date`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 138066, '2019-08-06', 1, '2019-08-16 12:05:54', '2019-08-16 09:05:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -71,8 +94,9 @@ CREATE TABLE `current_assets` (
 --
 
 INSERT INTO `current_assets` (`id`, `name`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Life Insurance', 50000, '2019-07-01', '2019-07-09 12:32:41', '2019-07-09 09:32:26', NULL),
-(2, 'Account Recievable', 300000, '2019-07-05', '2019-07-09 12:35:43', '2019-07-09 09:35:43', NULL);
+(1, 'Cash in Hand', 342, '2019-07-01', '2019-08-16 08:36:56', '2019-08-16 05:36:56', NULL),
+(2, 'Cash at Bank', 16519, '2019-07-05', '2019-08-16 08:37:20', '2019-08-16 05:37:20', NULL),
+(3, 'Accout Receivable', 26740, '2019-08-04', '2019-08-16 05:37:47', '2019-08-16 05:37:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,8 +119,8 @@ CREATE TABLE `current_liabilities` (
 --
 
 INSERT INTO `current_liabilities` (`id`, `name`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Accounts Payable', 50000, '2019-06-05', '2019-07-09 13:25:26', '2019-07-09 10:25:08', NULL),
-(2, 'Notes Payable', 2000, '2019-07-01', '2019-07-10 10:54:03', '2019-07-10 07:52:36', NULL);
+(1, 'Accounts Payable', 16524, '2019-06-05', '2019-08-16 10:13:46', '2019-08-16 07:13:46', NULL),
+(4, 'jiwe', 3455, '2019-07-31', '2019-08-18 10:30:31', '2019-08-18 07:30:31', '2019-08-18 07:30:31');
 
 -- --------------------------------------------------------
 
@@ -119,8 +143,8 @@ CREATE TABLE `drawings` (
 --
 
 INSERT INTO `drawings` (`id`, `name`, `value`, `date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Vacation', 100000, '2019-05-06', '2019-07-10 11:01:58', '2019-07-10 08:01:58', NULL),
-(2, 'Withdraw Cash for house rent', 200000, '2019-07-07', '2019-07-25 11:14:48', '2019-07-25 08:14:48', NULL);
+(1, 'Vacation', 4548, '2019-05-06', '2019-08-16 12:18:40', '2019-08-16 09:18:40', NULL),
+(2, 'Withdraw Cash for house rent', 3877, '2019-07-07', '2019-08-16 12:18:49', '2019-08-16 09:18:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -154,7 +178,6 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`id`, `first_name`, `middle_name`, `surname`, `gender`, `birth_date`, `Address`, `phone`, `Email`, `profile_picture`, `user_type`, `nationality_id`, `religion_id`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 'Hamidu', 'Khamisi', 'Kobelo', 'Male', '1990-11-13', 'Kimara', 987654267, 'Hamidu23@gmail.com', '0000/00001', 2, 1, 2, 1, '2019-06-02 14:41:52', '2019-06-02 14:41:52', NULL),
-(2, 'Paul', 'Pascal', 'Kilenga', 'Male', '1965-07-07', 'Changanyikeni', 715243526, 'Paul360@gmail.com', '0000/00001', 1, 1, 1, 1, '2019-06-03 01:30:30', '2019-06-03 01:30:30', NULL),
 (3, 'Emmanuel', 'John', 'Hamili', 'Male', '2000-11-15', 'Mwenge', 765432323, 'Emma@gmail.com', '0000/00001', 2, 3, 1, 1, '2019-06-03 01:32:38', '2019-06-03 01:32:38', NULL);
 
 -- --------------------------------------------------------
@@ -202,10 +225,11 @@ CREATE TABLE `expenses` (
 --
 
 INSERT INTO `expenses` (`id`, `Name`, `Value`, `Date`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Water Bill', 30000, '2019-01-16', '2019-07-25 11:19:04', '2019-07-25 08:19:04', NULL),
-(2, 'Electricity Bill', 15000, '2019-07-08', '2019-07-25 08:19:17', '2019-07-25 08:19:17', NULL),
-(3, 'Salary', 500000, '2019-06-11', '2019-07-25 08:20:19', '2019-07-25 08:20:19', NULL),
-(4, 'Bus Fee', 100, '2019-08-14', '2019-08-14 22:00:09', '2019-08-14 17:41:39', NULL);
+(1, 'Water Bill', 372, '2019-01-16', '2019-08-18 15:30:46', '2019-08-18 12:30:46', NULL),
+(2, 'Electricity Bill', 1894, '2019-07-08', '2019-08-18 15:30:29', '2019-08-18 12:30:29', NULL),
+(3, 'Salaries', 56527, '2019-06-11', '2019-08-18 15:29:27', '2019-08-18 12:29:27', NULL),
+(4, 'Motor Expenses', 2416, '2019-08-14', '2019-08-18 15:29:58', '2019-08-18 12:29:58', NULL),
+(5, 'General Exp', 85, '2019-08-11', '2019-08-18 12:31:07', '2019-08-18 12:31:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -217,12 +241,18 @@ CREATE TABLE `fees` (
   `id` int(10) UNSIGNED NOT NULL,
   `grade` varchar(20) NOT NULL,
   `amount` int(15) NOT NULL,
-  `status` varchar(4) NOT NULL,
-  `year_id` int(10) UNSIGNED NOT NULL,
+  `year_id` int(10) UNSIGNED NOT NULL DEFAULT '1',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fees`
+--
+
+INSERT INTO `fees` (`id`, `grade`, `amount`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Nursery', 200000, 1, '2019-08-18 16:05:31', '2019-08-18 16:24:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -246,8 +276,8 @@ CREATE TABLE `indirect_incomes` (
 --
 
 INSERT INTO `indirect_incomes` (`id`, `event`, `value`, `date`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Graduation', 700000, '2018-11-06', 1, '2019-07-11 13:14:10', '2019-07-11 10:13:56', NULL),
-(2, 'Discount Received', 50000, '2019-06-10', 1, '2019-07-25 08:20:43', '2019-07-25 08:20:43', NULL);
+(1, 'Graduation', 700000, '2018-11-06', 1, '2019-08-18 15:27:37', '2019-08-18 12:27:37', '2019-08-18 12:27:37'),
+(2, 'Discount Received', 50000, '2019-06-10', 1, '2019-08-18 15:27:41', '2019-08-18 12:27:41', '2019-08-18 12:27:41');
 
 -- --------------------------------------------------------
 
@@ -476,7 +506,7 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'manager', '2019-05-08 18:18:38', '0000-00-00 00:00:00'),
 (2, 'admin', '2019-05-08 18:18:38', '0000-00-00 00:00:00'),
-(3, 'academic_teacher', '2019-05-08 18:19:10', '0000-00-00 00:00:00'),
+(3, 'academic_teacher', '2019-08-18 20:02:22', '0000-00-00 00:00:00'),
 (4, 'cashier', '2019-05-08 18:19:10', '0000-00-00 00:00:00'),
 (5, 'head_teacher', '2019-05-08 18:19:34', '0000-00-00 00:00:00');
 
@@ -497,8 +527,11 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`id`, `user_id`, `role_id`) VALUES
-(1, 1, 4),
-(2, 2, 2);
+(2, 2, 2),
+(3, 5, 1),
+(4, 6, 5),
+(5, 7, 3),
+(6, 8, 4);
 
 -- --------------------------------------------------------
 
@@ -933,7 +966,8 @@ CREATE TABLE `students_payment_records` (
 --
 
 INSERT INTO `students_payment_records` (`id`, `student_Id`, `total_amount`, `paid_amount`, `unpaid_amount`, `year_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 100000, 80000, 20000, 1, '2019-07-25 07:27:39', '2019-07-25 07:27:39', NULL);
+(1, 1, 200000, 80000, 20000, 1, '2019-07-25 07:27:39', '2019-08-18 18:24:00', NULL),
+(2, 2, 200000, 80000, 20000, 1, '2019-08-18 18:26:32', '2019-08-18 18:26:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -970,10 +1004,11 @@ CREATE TABLE `tbl_user_types` (
 --
 
 INSERT INTO `tbl_user_types` (`id`, `name`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Teacher', '2019-04-14 14:49:54', '0000-00-00 00:00:00', NULL),
+(1, 'Teacher', '2019-08-18 20:06:42', '2019-08-18 17:06:42', '2019-08-18 17:06:42'),
 (2, 'Cashier', '2019-06-03 05:49:25', '0000-00-00 00:00:00', NULL),
-(3, 'Cooker', '2019-06-03 05:49:42', '0000-00-00 00:00:00', NULL),
-(4, 'Head Teacher', '2019-06-03 03:01:07', '2019-06-03 03:01:07', NULL);
+(4, 'Head Teacher', '2019-06-03 03:01:07', '2019-06-03 03:01:07', NULL),
+(6, 'Academic Teacher', '2019-08-18 17:06:32', '2019-08-18 17:06:32', NULL),
+(7, 'Manager', '2019-08-18 17:06:59', '2019-08-18 17:06:59', NULL);
 
 -- --------------------------------------------------------
 
@@ -990,7 +1025,7 @@ CREATE TABLE `users` (
   `birth_date` date NOT NULL,
   `address` varchar(50) NOT NULL,
   `email` varchar(40) NOT NULL,
-  `phone` int(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `password` varchar(64) NOT NULL,
   `profile_picture` varchar(150) NOT NULL,
   `user_type` int(10) UNSIGNED NOT NULL,
@@ -1008,9 +1043,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `middle_name`, `surname`, `gender`, `birth_date`, `address`, `email`, `phone`, `password`, `profile_picture`, `user_type`, `nationality_id`, `religion_id`, `year_id`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Onest', 'Paul', 'Kilenga', 'Male', '1994-03-31', 'Changanyikeni', 'onestpaul8@gmail.com', 714451236, '$2y$10$rDyEYnmhKoxnMpklx8Htz.jZji.T2cWZ5xY9vojiNNK.CGJkeKh6C', '0000/00001', 1, 1, 1, 1, NULL, '2019-04-14 12:33:01', '2019-04-14 12:33:01', NULL),
-(2, 'James', 'Paul', 'Kilenga', 'Male', '1999-02-04', 'Sinza', 'jimmy@gmail.com', 714235689, '$2y$10$Fxsh.Al17yUAW7bIyfnlk.LeAniNHXab3X.Yns/aFpNEGqAAU5ndC', '0000/00001', 2, 1, 1, 1, '4hh1gEiNWfzDOCOT9d7ciaZNnIDt4eX61Bc2nkDpTwZHUOWBypvh16Fmn2zp', '2019-08-16 04:54:14', '2019-04-18 00:50:55', NULL),
-(3, 'Muhili', 'Chacha', 'Ngutunyi', 'Female', '1989-06-07', 'ubungo', 'Muhili@gmail.com', 768532367, '$2y$10$tI9o2tIUUrofJ0k3Fo6duOoajoaup3CQm7sUYVeoz/DyVKgWO3sTe', '0000/00001', 1, 1, 1, 1, NULL, '2019-05-16 10:26:11', '2019-05-16 10:26:11', NULL);
+(2, 'James', 'Paul', 'Kilenga', 'Male', '1997-02-04', 'Sinza', 'jimmy@gmail.com', '0714235689', '$2y$10$Fxsh.Al17yUAW7bIyfnlk.LeAniNHXab3X.Yns/aFpNEGqAAU5ndC', '0000/00001', 2, 1, 1, 1, 'H7MY788xXJWuHO7Oprt2HqVj9iPeR3xWGiEjTwNOUT0AXKQAPYM46vnCcfqQ', '2019-08-19 18:22:21', '2019-04-18 00:50:55', NULL),
+(5, 'Peter', 'Audiphace', 'Kibala', 'Male', '1994-10-11', 'Sinza', 'peter@gmail.com', '0789635445', '$2y$10$I4Y7OXEvKFNB93anV5dy/.3Zgh8A0s3Go.yf0rdiRjL8APODMzjnO', '0000/00001', 7, 1, 2, 1, '6An9feUAiM7OayeSaHPmsJeWtLNDHoxYzWoJMRQqXIipUoATExpOWF9oCjWV', '2019-08-19 19:00:36', '2019-08-18 17:28:53', NULL),
+(6, 'Happy', 'Boniphace', 'Mbunda', 'Female', '1998-06-16', 'Msewe', 'happy@gmail.com', '0786547631', '$2y$10$/5vB4LUDkfWI.61.pHxJOOWRft04rX/mDwu245yPFiKckjDg9bAWq', '0000/00001', 4, 3, 2, 1, 'qN5z4nuhLgwVPPyOjYuRqjqhRb2qOUy3GfcPBRNEwbtd97TkU3cJWj8So8ZA', '2019-08-19 19:15:35', '2019-08-18 17:28:37', NULL),
+(7, 'Muhili', 'John', 'Ngutunyi', 'Female', '1991-10-17', 'Kitunda', 'muhili@gmail.com', '0674531900', '$2y$10$VO2eULAyB5fTN8azRydSceQVF1rtGzArEDt8m5ZN7VFrtIjsRV5WO', '0000/00001', 6, 2, 1, 1, NULL, '2019-08-18 17:27:54', '2019-08-18 17:27:54', NULL),
+(8, 'Aboubakary', 'Lenius', 'Lubuva', 'Male', '1995-07-24', 'Keko', 'abu@gmail.com', '0687542964', '$2y$10$8CDY2Cl6MeMlk54JwDzSC.sBq0UOWxgYC7Ze9mPs4TxaDxSmh5jRC', '0000/00001', 2, 2, 2, 1, '9W6wXZMJ32Knm8nE42yjAPwCFpxWiymkBUrJ4wdatZlIFKD6xJTMw2WwEvAK', '2019-08-19 17:17:04', '2019-08-18 17:32:16', NULL);
 
 -- --------------------------------------------------------
 
@@ -1032,13 +1069,20 @@ CREATE TABLE `years` (
 --
 
 INSERT INTO `years` (`id`, `name`, `status`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, '2019', 1, '2019-04-14 15:27:45', '2019-05-16 11:07:11', NULL),
-(2, '2020', 0, '2019-04-22 19:25:28', '2019-05-16 11:07:11', NULL),
+(1, '2019', 1, '2019-04-14 15:27:45', '2019-08-18 15:21:12', NULL),
+(2, '2020', 0, '2019-04-22 19:25:28', '2019-08-18 15:21:12', NULL),
 (3, '2021', 0, '2019-05-14 14:56:51', '2019-05-14 14:56:51', NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `capital`
+--
+ALTER TABLE `capital`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `year_id` (`year_id`);
 
 --
 -- Indexes for table `carriages`
@@ -1247,7 +1291,9 @@ ALTER TABLE `students`
 -- Indexes for table `students_payment_records`
 --
 ALTER TABLE `students_payment_records`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `student_Id` (`student_Id`),
+  ADD KEY `year_id` (`year_id`);
 
 --
 -- Indexes for table `subject`
@@ -1282,6 +1328,12 @@ ALTER TABLE `years`
 --
 
 --
+-- AUTO_INCREMENT for table `capital`
+--
+ALTER TABLE `capital`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `carriages`
 --
 ALTER TABLE `carriages`
@@ -1291,13 +1343,13 @@ ALTER TABLE `carriages`
 -- AUTO_INCREMENT for table `current_assets`
 --
 ALTER TABLE `current_assets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `current_liabilities`
 --
 ALTER TABLE `current_liabilities`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `drawings`
@@ -1321,13 +1373,13 @@ ALTER TABLE `equities`
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `fees`
 --
 ALTER TABLE `fees`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `indirect_incomes`
@@ -1399,7 +1451,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `sales`
@@ -1459,7 +1511,7 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `students_payment_records`
 --
 ALTER TABLE `students_payment_records`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subject`
@@ -1471,13 +1523,13 @@ ALTER TABLE `subject`
 -- AUTO_INCREMENT for table `tbl_user_types`
 --
 ALTER TABLE `tbl_user_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `years`
@@ -1488,6 +1540,12 @@ ALTER TABLE `years`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `capital`
+--
+ALTER TABLE `capital`
+  ADD CONSTRAINT `capital_ibfk_1` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
 
 --
 -- Constraints for table `carriages`
@@ -1592,6 +1650,13 @@ ALTER TABLE `students`
   ADD CONSTRAINT `students_ibfk_1` FOREIGN KEY (`religion_id`) REFERENCES `religions` (`id`),
   ADD CONSTRAINT `students_ibfk_2` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`),
   ADD CONSTRAINT `students_ibfk_3` FOREIGN KEY (`nationality_id`) REFERENCES `nationalities` (`id`);
+
+--
+-- Constraints for table `students_payment_records`
+--
+ALTER TABLE `students_payment_records`
+  ADD CONSTRAINT `students_payment_records_ibfk_1` FOREIGN KEY (`student_Id`) REFERENCES `students` (`id`),
+  ADD CONSTRAINT `students_payment_records_ibfk_2` FOREIGN KEY (`year_id`) REFERENCES `years` (`id`);
 
 --
 -- Constraints for table `users`

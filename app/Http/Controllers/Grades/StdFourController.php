@@ -93,7 +93,13 @@ class StdFourController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $item = Std4::find($id);
+        $item->delete();
 
+        return Redirect::back()->with('success','Grades Successfully Deleted');
+    }
     public function getMarks(Request $request){
 
         $mark = Std4::where('id',$request->d_Std4)->pluck($request->d_lesson);

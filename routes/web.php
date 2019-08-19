@@ -85,47 +85,55 @@ Route::middleware('auth')->group(function () {
     Route::post('nursery/store', 'Grades\NurseryController@store');
     Route::get('nursery/edit/{id}', 'Grades\NurseryController@edit');
     Route::post('nursery/update', 'Grades\NurseryController@update');
+    Route::get('nursery/delete/{id}', 'Grades\NurseryController@destroy');
 
 //Grades/Std1
     Route::get('Std1', 'Grades\StdOneController@index');
     Route::post('Std1/store', 'Grades\StdOneController@store');
     Route::get('Std1/edit/{id}', 'Grades\StdOneController@edit');
+    Route::get('Std1/delete/{id}', 'Grades\StdOneController@destroy');
     Route::post('Std1/update', 'Grades\StdOneController@update');
 
 //Grades/Std2
     Route::get('Std2', 'Grades\StdTwoController@index');
     Route::post('Std2/store', 'Grades\StdTwoController@store');
     Route::get('Std2/edit/{id}', 'Grades\StdTwoController@edit');
+    Route::get('Std2/delete/{id}', 'Grades\StdTwoController@destroy');
     Route::post('Std2/update', 'Grades\StdTwoController@update');
 //Grades/Std3
 
     Route::get('Std3', 'Grades\StdThreeController@index');
     Route::post('Std3/store', 'Grades\StdThreeController@store');
     Route::get('Std3/edit/{id}', 'Grades\StdThreeController@edit');
+    Route::get('Std3/delete/{id}', 'Grades\StdThreeController@destroy');
     Route::get('Std3/show/{id}', 'Grades\StdThreeController@show');
     Route::post('Std3/update', 'Grades\StdThreeController@update');
 //Grades/Std4
     Route::get('Std4', 'Grades\StdFourController@index');
     Route::post('Std4/store', 'Grades\StdFourController@store');
     Route::get('Std4/edit/{id}', 'Grades\StdFourController@edit');
+    Route::get('Std4/delete/{id}', 'Grades\StdFourController@destroy');
     Route::get('Std4/show/{id}', 'Grades\StdFourController@show');
     Route::post('Std4/update', 'Grades\StdFourController@update');
 //Grades/Std5
     Route::get('Std5', 'Grades\StdFiveController@index');
     Route::post('Std5/store', 'Grades\StdFiveController@store');
     Route::get('Std5/edit/{id}', 'Grades\StdFiveController@edit');
+    Route::get('Std5/delete/{id}', 'Grades\StdFiveController@destroy');
     Route::get('Std5/show/{id}', 'Grades\StdFiveController@show');
     Route::post('Std5/update', 'Grades\StdFiveController@update');
 //Grades/Std6
     Route::get('Std6', 'Grades\StdSixController@index');
     Route::post('Std6/store', 'Grades\StdSixController@store');
     Route::get('Std6/edit/{id}', 'Grades\StdSixController@edit');
+    Route::get('Std6/delete/{id}', 'Grades\StdSixController@destroy');
     Route::get('Std6/show/{id}', 'Grades\StdSixController@show');
     Route::post('Std6/update', 'Grades\StdSixController@update');
 //Grades/Std7
     Route::get('Std7', 'Grades\StdSevenController@index');
     Route::post('Std7/store', 'Grades\StdSevenController@store');
     Route::get('Std7/edit/{id}', 'Grades\StdSevenController@edit');
+    Route::get('Std7/delete/{id}', 'Grades\StdSevenController@destroy');
     Route::get('Std7/show/{id}', 'Grades\StdSevenController@show');
     Route::post('Std7/update', 'Grades\StdSevenController@update');
 

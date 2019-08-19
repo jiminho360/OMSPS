@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Pupils Payments Records</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -25,7 +27,9 @@
                         <th>Total Amount</th>
                         <th>Paid Amount</th>
                         <th>Unpaid Amount</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                         <th>Action</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -35,12 +39,13 @@
                             <td>{{$payment->total_amount}}</td>
                             <td>{{$payment->paid_amount}}</td>
                             <td>{{$payment->unpaid_amount}}</td>
-
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                             <td>
                                 <a href="{{url('Payment/edit/'.$payment->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Payment/delete/'.$payment->id)}}" class="delete-btn"> Delete</a>
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

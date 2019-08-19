@@ -66,13 +66,21 @@
                         <ul class="nav side-menu">
                             <li><a href="{{url('Dashboard')}}"><i class="fa fa-home"></i> Dashboard</a>
                             </li>
-
-                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher') || \Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher')
+                                || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                                || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
+                                || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                                 <li><a><i class="fa fa-group"></i>Employees<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{url('RegEmployee')}}">Register Employee</a></li>
                                     </ul>
                                 </li>
+                            @endif
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                                 <li><a><i class="fa fa-graduation-cap"></i> Pupils <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -81,7 +89,12 @@
                                     </ul>
                                 </li>
                             @endif
-                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('teacher')|| \Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher')
+                           || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                           || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher')
+
+                           )
                                 <li><a><i class="fa fa-star"></i> Grades <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -124,7 +137,11 @@
                                 </li>
                             @endif
 
-                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier')|| \Illuminate\Support\Facades\Auth::user()->hasRole('admin'))
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                            || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
+
+                            )
                                 <li><a><i class="fa fa-money"></i> Finance <span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">

@@ -10,6 +10,7 @@
             <div class="x_title">
                 <h2>Nursery Report</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                     <form action="{{url('nursery/download_p')}}" method="post">
                         @csrf
                         <div class="row" style="width: 100%">
@@ -32,6 +33,7 @@
                             </div>
                         </div>
                     </form>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>

@@ -4,12 +4,13 @@ namespace App\Models\Grades;
 
 use App\models\Student;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Std1 extends Model
 {
     protected $table = 'standard_1';
-
+use SoftDeletes;
     public function person()
     {
         return $this->belongsTo(Student::class,'student_id');

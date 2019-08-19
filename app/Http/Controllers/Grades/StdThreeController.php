@@ -93,7 +93,13 @@ class StdThreeController extends Controller
             return Redirect::back()->with('errors', 'Duplicate Records');
         }
     }
+    public function destroy($id)
+    {
+        $item = Std3::find($id);
+        $item->delete();
 
+        return Redirect::back()->with('success','Grades Successfully Deleted');
+    }
     public function getMarks(Request $request){
 
         $mark = Std3::where('id',$request->d_Std3)->pluck($request->d_lesson);

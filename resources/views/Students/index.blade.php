@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Pupils List</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher') || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -28,7 +30,9 @@
                         <th>Nationality</th>
                         <th>Physical_Address</th>
                         <th>Admission_year</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher') || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                         <th>Action</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -43,11 +47,13 @@
                             <td>{{$student->nationality->name}}</td>
                             <td>{{$student->address}}</td>
                             <td align="right">{{$student->admission_year}}</td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher') || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                             <td>
                                 <a href="{{url('Students/edit/'.$student->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Students/delete/'.$student->id)}}" class="delete-btn"> Delete</a>
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

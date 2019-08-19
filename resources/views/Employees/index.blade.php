@@ -8,9 +8,11 @@
             <div class="x_title">
                 <h2>Employees List</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -28,7 +30,9 @@
                         <th>Gender</th>
                         <th>Nationality</th>
                         <th>Religion</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                         <th>Action</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -45,11 +49,12 @@
                             <td>{{$Employee->gender}}</td>
                             <td>{{$Employee->nationality->name}}</td>
                             <td>{{$Employee->religion->name}}</td>
-
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                             <td>
                                 <a href="{{url('Employees/edit/'.$Employee->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Employees/delete/'.$Employee->id)}}" class="delete-btn"> Delete</a>
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

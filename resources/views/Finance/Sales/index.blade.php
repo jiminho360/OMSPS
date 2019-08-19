@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Sales List</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -27,7 +29,9 @@
                         <th>Sales Date</th>
                         <th>Returns Date</th>
                         <th>Value Of Returns</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                         <th>Actions</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -39,12 +43,14 @@
                             <td>{{$item->sales_date}}</td>
                             <td>{{$item->returns_date}}</td>
                             <td>{{$item->value_of_returns}}</td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                             <td style="width: 10%">
                                 <a href="{{url('Sales/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Sales/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

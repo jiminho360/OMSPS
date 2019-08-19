@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Capital List</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -24,7 +26,9 @@
                         <th>S/N</th>
                         <th>Value</th>
                         <th>Date</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                         <th>Actions</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -33,12 +37,14 @@
                             <td style="width: 2%">{{$key+1}}</td>
                             <td class="desc_name">{{$item->value}}</td>
                             <td>{{$item->date}}</td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                             <td style="width: 10%">
                                 <a href="{{url('Capital/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Capital/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

@@ -4,12 +4,13 @@ namespace App\Models\Grades;
 
 use App\models\Student;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Nursery extends Model
 {
     protected $table = 'nursery';
-
+use SoftDeletes;
     protected $guarded = ['nursery_id'];
 
     public function student()

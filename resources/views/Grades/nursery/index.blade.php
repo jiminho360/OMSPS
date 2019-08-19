@@ -10,9 +10,11 @@
             <div class="x_title">
                 <h2>Nursery Grades</h2>
                 <ul class="nav navbar-right panel_toolbox">
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
                                 class="fa fa-plus-circle"></i> Add New
                     </button>
+                        @endif
                 </ul>
                 <div class="clearfix"></div>
             </div>
@@ -27,7 +29,9 @@
                         <th>Reading&Writing</th>
                         <th>English</th>
                         <th>Art&Craft</th>
+                        @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                         <th>Action</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -39,11 +43,13 @@
                             <td>{{$item->reading_and_writing}}</td>
                             <td>{{$item->english}}</td>
                             <td>{{$item->art_and_craft}}</td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                             <td>
                                 <a href="{{url('nursery/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('nursery/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

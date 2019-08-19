@@ -13,10 +13,12 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Income Statement Report</h2>
+                @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                 <ul class="nav navbar-right panel_toolbox">
                     <a href="{{url('IncomeStatement/download_p')}}" class="btn btn-info btn-sm" ><i class="fa fa-plus-circle"></i> Print
                     </a>
                 </ul>
+                @endif
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">

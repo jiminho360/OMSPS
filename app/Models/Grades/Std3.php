@@ -4,10 +4,12 @@ namespace App\Models\Grades;
 
 use App\models\Student;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Std3 extends Model
 {
+    use SoftDeletes;
     protected $table = 'standard_3';
 
     public function student(){

@@ -96,7 +96,13 @@ class StdSixController extends Controller
             return Redirect::back()->with('errors', 'Duplicate Records');
         }
     }
+    public function destroy($id)
+    {
+        $item = Std6::find($id);
+        $item->delete();
 
+        return Redirect::back()->with('success','Grades Successfully Deleted');
+    }
     public function getMarks(Request $request)
     {
 

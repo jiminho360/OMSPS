@@ -85,7 +85,13 @@ class StdTwoController extends Controller
             return Redirect::back()->with('errors', 'Duplicate Records');
         }
     }
+    public function destroy($id)
+    {
+        $item = Std2::find($id);
+        $item->delete();
 
+        return Redirect::back()->with('success','Grades Successfully Deleted');
+    }
     public function getMarks(Request $request){
 
         $mark = Std2::where('id',$request->d_Std2)->pluck($request->d_lesson);

@@ -4,10 +4,12 @@ namespace App\Models\Grades;
 
 use App\models\Student;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Std4 extends Model
 {
+    use SoftDeletes;
     protected $table = 'standard_4';
     protected $fillable = ['student_id'];
 
