@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 class Std1 extends Model
 {
     protected $table = 'standard_1';
+    protected $guarded = [];
 use SoftDeletes;
     public function person()
     {

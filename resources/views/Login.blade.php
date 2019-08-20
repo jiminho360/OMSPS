@@ -33,7 +33,7 @@
             <h3>LOGIN FORM</h3>
             <div class="form-holder">
                 <span class="lnr lnr-user"></span>
-                <input type="email" class="form-control" placeholder="Username" name="email" required>
+                <input type="email" class="form-control" placeholder="Email" name="email" required>
             </div>
             <div class="form-holder">
                 <span class="lnr lnr-lock"></span>

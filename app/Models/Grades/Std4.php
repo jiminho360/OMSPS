@@ -12,7 +12,7 @@ class Std4 extends Model
     use SoftDeletes;
     protected $table = 'standard_4';
     protected $fillable = ['student_id'];
-
+    protected $guarded = [];
     public function student(){
         return $this->belongsTo(Student::class,'student_id');
     }

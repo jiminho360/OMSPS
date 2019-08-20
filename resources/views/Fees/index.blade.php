@@ -54,7 +54,7 @@
 
     <!-- Create Modal -->
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <form action="{{url('Fees/store')}}" method="post">
                     @csrf
@@ -92,7 +92,7 @@
     <!---End of Create Modal-->
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <form action="{{url('Fees/update')}}" method="post">
                     @csrf

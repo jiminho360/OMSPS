@@ -47,6 +47,11 @@ class EmployeeController extends Controller
         return view('Employees.edit', compact('Employee', 'religions', 'nationalities', 'user_types'));
 
     }
+    public function show($id)
+    {
+        $Employee = Employee::find($id);
+        return view('Employees.show', compact('Employee'));
+    }
 
 
     public function update()

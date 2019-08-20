@@ -46,22 +46,28 @@ Route::middleware('auth')->group(function () {
     Route::get('UserTypes', 'UserTypesController@index');
     Route::post('UserTypes/store', 'UserTypesController@store');
     Route::get('UserTypes/delete/{id}', 'UserTypesController@destroy');
+    Route::get('UserTypes/edit/{id}', 'UserTypesController@edit');
 
 //religions
     Route::get('Religions', 'ReligionsController@index');
     Route::get('Religions/edit/{id}', 'ReligionsController@edit');
+    Route::post('Religions/store', 'ReligionsController@store');
     Route::post('Religions/update', 'ReligionsController@update');
+    Route::get('Religions/delete/{id}', 'ReligionsController@destroy');
 
 //nationalities
     Route::get('nationalities', 'nationalitiesController@index');
     Route::get('nationalities/edit/{id}', 'nationalitiesController@edit');
+    Route::post('nationalities/update', 'nationalitiesController@update');
+    Route::get('nationalities/delete/{id}', 'nationalitiesController@destroy');
+    Route::post('nationalities/store', 'nationalitiesController@store');
 
 //Students Payment Records
     Route::get('Payment', 'PaymentsController@index');
     Route::post('Payment/store', 'PaymentsController@store');
     Route::get('Payment/edit/{id}', 'PaymentsController@edit');
     Route::post('Payment/update', 'PaymentsController@update');
-    Route::post('Payment/delete/{id}', 'PaymentsController@destroy');
+    Route::get('Payment/delete/{id}', 'PaymentsController@destroy');
 
 //Students
     Route::get('Students', 'StudentsController@index');
@@ -78,6 +84,8 @@ Route::middleware('auth')->group(function () {
     Route::get('RegEmployee', 'EmployeeController@Index');
     Route::post('Employees/store', 'EmployeeController@store');
     Route::get('Employees/edit/{id}', 'EmployeeController@edit');
+    Route::get('Employees/delete/{id}', 'EmployeeController@destroy');
+    Route::get('Employees/show/{id}', 'EmployeeController@show');
     Route::post('Employees/update', 'EmployeeController@update');
 
 //Grades/Nursery

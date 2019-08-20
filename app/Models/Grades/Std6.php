@@ -11,6 +11,7 @@ class Std6 extends Model
 {
     use SoftDeletes;
     protected $table = 'standard_6';
+    protected $guarded = [];
     public function student(){
         return $this->belongsTo(Student::class,'student_id');
     }

@@ -25,9 +25,9 @@
                     <tr>
                         <th>S/N</th>
                         <th>Name</th>
-                        <th>Cost</th>
+                        <th>Value</th>
                         <th>Depreciation Value</th>
-                        <th>date</th>
+                        <th>Date</th>
                         @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
                         <th>Actions</th>
                             @endif

@@ -27,6 +27,12 @@ public function store(){
         }
 
 }
+    public function edit($id)
+    {
+        $UserType = UserType::find($id);
+
+        return view('UserTypes.edit', compact('UserType'));
+    }
 
 public function destroy($id){
         $UserType = UserType::find($id);

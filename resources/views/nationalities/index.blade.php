@@ -44,7 +44,7 @@
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <form action="{{url('Nationalities/store')}}" method="post">
+                <form action="{{url('nationalities/store')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -77,7 +77,7 @@
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <form action="{{url('Nationalities/update')}}" method="post">
+                <form action="{{url('nationalities/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button"  class="close" data-dismiss="modal" aria-label="Close"><span

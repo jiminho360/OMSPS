@@ -23,4 +23,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Nationality::class,'nationality_id');
     }
+    public function usertype()
+    {
+        return $this->belongsTo(UserType::class,'user_type');
+    }
 }

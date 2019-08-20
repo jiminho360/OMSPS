@@ -43,7 +43,7 @@
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <form action="{{url('religions/store')}}" method="post">
+                <form action="{{url('Religions/store')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -71,42 +71,10 @@
             </div>
         </div>
     </div>
-
-    <!-- Edit Modal -->
-    {{--<div class="modal fade" role="dialog" id="edit" aria-hidden="true">--}}
-        {{--<div class="modal-dialog modal-md">--}}
-            {{--<div class="modal-content">--}}
-                {{--<form action="{{url('users/update')}}" method="post">--}}
-                    {{--@csrf--}}
-                    {{--<div class="modal-header modal-header-color">--}}
-                        {{--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span--}}
-                                    {{--aria-hidden="true">×</span>--}}
-                        {{--</button>--}}
-                        {{--<h4 class="modal-title"><strong> Edit Religion</strong></h4>--}}
-                    {{--</div>--}}
-                    {{--<div class="modal-body">--}}
-                        {{--<div class="form-group row">--}}
-                            {{--<div class="col-md-12">--}}
-                                {{--<label for="name" class="control-label">Name</label>--}}
-                                {{--<input class="form-control input-sm" id="name" name="name"--}}
-                                       {{--type="text" value="{{$religion->name}}" required>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="modal-footer">--}}
-                        {{--<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>--}}
-                            {{--Close--}}
-                        {{--</button>--}}
-                        {{--<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>--}}
-                    {{--</div>--}}
-                {{--</form>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
-                <form action="{{url('users/update')}}" method="post">
+                <form action="{{url('Religions/update')}}" method="post">
                     @csrf
                     <div class="modal-header modal-header-color">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span

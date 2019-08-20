@@ -27,9 +27,9 @@
                         <th>Phone</th>
                         <th>Physical Address</th>
                         <th>Employee Type</th>
-                        <th>Gender</th>
-                        <th>Nationality</th>
-                        <th>Religion</th>
+                        {{--<th>Gender</th>--}}
+                        {{--<th>Nationality</th>--}}
+                        {{--<th>Religion</th>--}}
                         @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                         <th>Action</th>
                             @endif
@@ -45,16 +45,17 @@
                             <td>{{$Employee->Email}}</td>
                             <td>{{$Employee->phone}}</td>
                             <td>{{$Employee->Address}}</td>
-                            <td>{{$Employee->userType->name}}</td>
-                            <td>{{$Employee->gender}}</td>
-                            <td>{{$Employee->nationality->name}}</td>
-                            <td>{{$Employee->religion->name}}</td>
-                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
+                            <td>{{$Employee->employee_type}}</td>
+                            {{--<td>{{$Employee->gender}}</td>--}}
+                            {{--<td>{{$Employee->nationality->name}}</td>--}}
+                            {{--<td>{{$Employee->religion->name}}</td>--}}
                             <td>
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                                 <a href="{{url('Employees/edit/'.$Employee->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Employees/delete/'.$Employee->id)}}" class="delete-btn"> Delete</a>
-                            </td>
                                 @endif
+                                <a href="{{url('Employees/show/'.$Employee->id)}}" class="btn-white"> View</a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -120,14 +121,16 @@
                             </div>
 
                             <div class="col-lg-4 col-md-4">
-                                <label for="user_type" class="control-label">User Type</label>
-                                <select class="form-control dd_select" id="user_type" name="user_type" required
-                                        style="width: 100%">
-                                    <option value="">----</option>
-                                    @foreach($user_types as $user_type)
-                                        <option value="{{$user_type->id}}">{{$user_type->name}}</option>
-                                    @endforeach
-                                </select>
+                                {{--<label for="user_type" class="control-label">User Type</label>--}}
+                                {{--<select class="form-control dd_select" id="user_type" name="user_type" required--}}
+                                        {{--style="width: 100%">--}}
+                                    {{--<option value="">----</option>--}}
+                                    {{--@foreach($user_types as $user_type)--}}
+                                        {{--<option value="{{$user_type->id}}">{{$user_type->name}}</option>--}}
+                                    {{--@endforeach--}}
+                                {{--</select>--}}
+                                <label class="control-label" for="employee_type">Employee Type</label>
+                                <input class="form-control input-sm" id="employee_type" name="employee_type" type="text" required>
                             </div>
 
                             <div class="col-lg-4 col-md-4">
@@ -198,6 +201,27 @@
             </div>
         </div>
     </div>
+    <!-- Show Modal -->
+    <div class="modal fade" role="dialog" id="show" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header modal-header-color">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">×</span>
+                    </button>
+                    <h4 class="modal-title"><strong>Employees Details</strong></h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection
 
@@ -211,6 +235,13 @@
             });
         });
 
+        $('.btn-white').on('click', function (e) {
+            e.preventDefault();
+            var dataURL = $(this).attr('href');
+            $('.modal-body').load(dataURL, function () {
+                $('#show').modal({show: true});
+            });
+        });
 
         //Date Picker
         $(document).ready(function () {

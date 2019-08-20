@@ -27,7 +27,7 @@
                         <th>Phone</th>
                         <th>Physical Address</th>
                         <th>Nationality</th>
-                        <th>Religion</th>
+                        <th>User Type</th>
                         <th>Action</th>
                     </tr>
 
@@ -43,7 +43,7 @@
                             <td>{{$user->phone}}</td>
                             <td>{{$user->address}}</td>
                             <td>{{$user->nationality->name}}</td>
-                            <td>{{$user->religion->name}}</td>
+                            <td>{{$user->usertype->name}}</td>
 
                             <td>
                                 <a href="{{url('users/edit/'.$user->id)}}" class="edit-btn"> Edit</a> |

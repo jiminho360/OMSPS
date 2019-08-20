@@ -20,8 +20,8 @@ class Employee extends Model
         return $this->belongsTo(religion::class, 'religion_id');
     }
 
-    public function userType()
-    {
-        return $this->belongsTo(UserType::class, 'user_type');
-    }
+//    public function userType()
+//    {
+//        return $this->belongsTo(UserType::class, 'user_type');
+//    }
 }
