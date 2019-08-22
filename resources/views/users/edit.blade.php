@@ -3,32 +3,32 @@
     <div class="col-lg-4 col-md-4">
         <label for="first_name" class="control-label">First Name</label>
         <input class="form-control input-sm" id="first_name" name="first_name" value="{{$user->first_name}}"
-               type="text" required>
+               type="text" autocomplete="off" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="middle_name">Middle Name</label>
         <input class="form-control input-sm" id="middle_name" name="middle_name" value="{{$user->middle_name}}"
-               type="text" required>
+               type="text" autocomplete="off" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="surname">Last Name</label>
         <input class="form-control input-sm" id="surname" name="surname" value="{{$user->surname}}"
-               type="text" required>
+               type="text" autocomplete="off" required>
     </div>
 </div>
 
 <div class="form-group row">
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="email">Email</label>
-        <input class="form-control input-sm" id="email" name="email" type="email" value="{{$user->email}}" required>
+        <input class="form-control input-sm" id="email" autocomplete="off" name="email" type="email" value="{{$user->email}}" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="phone">Phone Number</label>
-        <input class="form-control input-sm" id="phone" name="phone" type="text" value="{{$user->phone}}" required>
+        <input class="form-control input-sm" id="phone" autocomplete="off" name="phone" type="text" value="{{$user->phone}}" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="address">Physical Address</label>
-        <input class="form-control input-sm" id="address" name="address" type="text" value="{{$user->address}}" required>
+        <input class="form-control input-sm" id="address" autocomplete="off" name="address" type="text" value="{{$user->address}}" required>
     </div>
 </div>
 
@@ -56,7 +56,7 @@
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="birth_date">Birth Date</label>
         <input class="form-control input-sm datePicker" id="birth_date" name="birth_date" value="{{$user->birth_date}}" type="text"
-               required>
+               autocomplete="off" required>
     </div>
 </div>
 

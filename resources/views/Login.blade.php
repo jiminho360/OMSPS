@@ -32,12 +32,12 @@
             <img src="{{asset('asset/images/omsps.png')}}" alt="" class="csms"><br><br><br>
             <h3>LOGIN FORM</h3>
             <div class="form-holder">
-                <span class="lnr lnr-user"></span>
+                <span class="lnr lnr-envelope"></span>
                 <input type="email" class="form-control" placeholder="Email" name="email" required>
             </div>
             <div class="form-holder">
                 <span class="lnr lnr-lock"></span>
-                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off" required>
             </div>
             <button>
                 <span>Log In</span>

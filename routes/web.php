@@ -10,14 +10,13 @@ use Illuminate\Support\Facades\Route;
 //
 //Route::get('/','');
 
-//Dashboard
-Route::get('Dashboard', 'AuthenticationController@homepage');
-
 //Authentication
 Route::get('/', 'AuthenticationController@loginIndex')->name('login');
 Route::post('login', 'AuthenticationController@login');
 Route::get('logout', 'AuthenticationController@logout');
-
+Route::group(['middleware'=>['preventbackbutton','auth']],function () {
+    //Dashboard
+    Route::get('Dashboard', 'AuthenticationController@homepage');
 Route::middleware('auth')->group(function () {
     Route::get('welcome', 'AuthenticationController@homepage');
 
@@ -280,4 +279,5 @@ Route::middleware('auth')->group(function () {
     Route::get('grades/ajax/6', 'Grades\StdSixController@getMarks');
     Route::get('grades/ajax/7', 'Grades\StdSevenController@getMarks');
 
+});
 });

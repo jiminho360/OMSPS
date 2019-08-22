@@ -23,6 +23,7 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
+                        {{--<th>S/N</th>--}}
                         <th>Grade</th>
                         <th>Amount</th>
                         @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
@@ -33,7 +34,7 @@
                     <tbody>
                     @foreach($Fees as $key=>$Fee)
                         <tr>
-                            <td>{{$key+1}}</td>
+                            {{--<td width="10%">{{$key+1}}</td>--}}
                             <td class="desc_name">{{$Fee->grade}}</td>
                             <td>{{$Fee->amount}}</td>
                             @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
@@ -69,12 +70,12 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="grade" class="control-label">Grade</label>
                                 <input class="form-control input-sm" id="grade" name="grade"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="amount">Amount</label>
                                 <input class="form-control input-sm" id="amount" name="amount"
-                                       type="text" >
+                                       type="text" autocomplete="off" required>
                             </div>
                         </div>
                     </div>

@@ -51,7 +51,7 @@
 
     <!-- Create Modal -->
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
-        <div class="modal-dialog modal-md">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <form action="{{url('years/store')}}" method="post">
                     @csrf
@@ -67,7 +67,7 @@
                             <div class="col-md-12">
                                 <label for="name" class="control-label">Name</label>
                                 <input class="form-control input-sm" id="name" name="name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                         </div>
 
@@ -85,7 +85,7 @@
 
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <form action="{{url('years/update')}}" method="post">
                     @csrf
@@ -100,12 +100,12 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="first_name" class="control-label">Name</label>
                                 <input class="form-control input-sm" id="first_name" name="first_name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="middle_name">Status</label>
                                 <input class="form-control input-sm" id="middle_name" name="middle_name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                         </div>
                     </div>

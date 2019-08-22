@@ -76,27 +76,27 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="name" class="control-label">Name</label>
                                 <input class="form-control input-sm" id="name" name="name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="value_of_sales">Value Of Sales</label>
                                 <input class="form-control input-sm" id="value_of_sales" name="value_of_sales"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="sales_date">Sales Date</label>
                                 <input class="form-control input-sm datePicker" id="sales_date" name="sales_date" type="text"
-                                       required>
+                                       autocomplete="off"  required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="returns_date">Returns Date</label>
                                 <input class="form-control input-sm datePicker" id="returns_date" name="returns_date" type="text"
-                                       >
+                                       autocomplete="off" >
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="value_of_returns">Value Of Returns</label>
                                 <input class="form-control input-sm" id="value_of_returns" name="value_of_returns"
-                                       type="text" >
+                                       type="text" autocomplete="off">
                             </div>
                         </div>
                     </div>

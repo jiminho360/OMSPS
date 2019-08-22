@@ -76,27 +76,27 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="name" class="control-label">Name</label>
                                 <input class="form-control input-sm" id="name" name="name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="purchases_date">Purchases Date</label>
                                 <input class="form-control input-sm datePicker" id="purchases_date" name="purchases_date"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="purchases_value">Purchases Value</label>
                                 <input class="form-control input-sm" id="purchases_value" name="purchases_value" type="text"
-                                       required>
+                                       autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="purchase_return_date">Purchases Return Date</label>
                                 <input class="form-control input-sm datePicker" id="purchase_return_date" name="purchase_return_date" type="text"
-                                >
+                                       autocomplete="off" >
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="purchase_return_value">Purchases Return Value</label>
                                 <input class="form-control input-sm" id="purchase_return_value" name="purchase_return_value"
-                                       type="text" >
+                                       type="text" autocomplete="off">
                             </div>
                         </div>
                     </div>

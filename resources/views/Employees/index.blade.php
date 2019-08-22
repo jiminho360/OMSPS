@@ -81,32 +81,32 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="first_name" class="control-label">First Name</label>
                                 <input class="form-control input-sm" id="first_name" name="first_name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="middle_name">Middle Name</label>
                                 <input class="form-control input-sm" id="middle_name" name="middle_name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="surname">Last Name</label>
                                 <input class="form-control input-sm" id="surname" name="surname"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="Email">Email</label>
-                                <input class="form-control input-sm" id="Email" name="Email" type="Email" required>
+                                <input class="form-control input-sm" id="Email" name="Email" type="Email" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="phone">Phone Number</label>
-                                <input class="form-control input-sm" id="phone" name="phone" type="text" required>
+                                <input class="form-control input-sm" id="phone" name="phone" type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="Address">Physical Address</label>
-                                <input class="form-control input-sm" id="Address" name="Address" type="text" required>
+                                <input class="form-control input-sm" id="Address" name="Address" type="text" autocomplete="off" required>
                             </div>
                         </div>
 
@@ -130,13 +130,13 @@
                                     {{--@endforeach--}}
                                 {{--</select>--}}
                                 <label class="control-label" for="employee_type">Employee Type</label>
-                                <input class="form-control input-sm" id="employee_type" name="employee_type" type="text" required>
+                                <input class="form-control input-sm" id="employee_type" name="employee_type" type="text" autocomplete="off" required>
                             </div>
 
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="birth_date">Birth Date</label>
                                 <input class="form-control input-sm datePicker" id="birth_date" name="birth_date" type="text"
-                                       required>
+                                       autocomplete="off" required>
                             </div>
                         </div>
 

@@ -43,7 +43,6 @@
             </div>
         </div>
     </div>
-
     <!-- Create Modal -->
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
         <div class="modal-dialog modal-sm">
@@ -61,7 +60,7 @@
                             <div class="col-md-12">
                                 <label for="name" class="control-label">Name</label>
                                 <input class="form-control input-sm" id="name" name="name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                         </div>
 
@@ -76,10 +75,9 @@
             </div>
         </div>
     </div>
-
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <form action="{{url('UserTypes/update')}}" method="post">
                     @csrf
@@ -90,19 +88,13 @@
                         <h4 class="modal-title"><strong> Edit User Type</strong></h4>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group row">
-                            <div class="col-lg-12">
-                                <label for="first_name" class="control-label">Name</label>
-                                <input class="form-control input-sm" id="first_name" name="first_name"
-                                       type="text" required>
-                            </div>
+6
                     </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>
-                                Close
-                            </button>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
-                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
                     </div>
                 </form>
             </div>
@@ -110,7 +102,6 @@
     </div>
 
 @endsection
-
 @section('Scripts')
     <script>
         $('.edit-btn').on('click', function (e) {
@@ -136,7 +127,6 @@
                 format: "yyyy-mm-dd"
             });
         });
-
         //For Deleting
         $(".delete-btn").click(function (e) {
             e.preventDefault();
@@ -161,4 +151,5 @@
         });
 
     </script>
-@stop
+@endsection
+

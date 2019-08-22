@@ -55,6 +55,8 @@
                     <div class="profile_info">
                         <span>Welcome,</span>
                         <h2>{{Auth::user()->first_name." ".Auth::user()->surname}}</h2>
+                        <span>{{" ".Auth::user()->usertype->name}}</span>
+
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -64,12 +66,10 @@
                     <div class="menu_section">
                         <h3>General</h3>
                         <ul class="nav side-menu">
-                            <li><a href="{{url('Dashboard')}}"><i class="fa fa-home"></i> Dashboard</a>
+                            <li><a href="{{url('Dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a>
                             </li>
-                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher')
-                                || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
-                                || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
-                                || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
+                            @if(\Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                                || \Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                                 <li><a><i class="fa fa-group"></i>Employees<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{url('RegEmployee')}}">Register Employee</a></li>
@@ -95,7 +95,7 @@
                             || \Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher')
 
                            )
-                                <li><a><i class="fa fa-star"></i> Grades <span
+                                <li><a><i class="fa fa-star"></i>Pupils Marks<span
                                                 class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{url('Nursery')}}">Nursery</a></li>
@@ -239,8 +239,7 @@
                                 {{--<span>Settings</span>--}}
                                 {{--</a>--}}
                                 {{--</li>--}}
-                                <li><a href="{{url('logout')}}"><i
-                                                class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                <li><a href="{{url('logout')}}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                             </ul>
                         </li>
                     </ul>

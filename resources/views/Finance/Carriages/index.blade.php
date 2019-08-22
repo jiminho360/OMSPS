@@ -74,22 +74,22 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="name" class="control-label">Name</label>
                                 <input class="form-control input-sm" id="name" name="name"
-                                       type="text" required>
+                                       type="text" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="inward_value">Inward Value</label>
                                 <input class="form-control input-sm" id="inward_value" name="inward_value"
-                                       type="text" >
+                                       type="text" autocomplete="off">
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="outward_value">Outward Value</label>
                                 <input class="form-control input-sm" id="outward_value" name="outward_value"
-                                       type="text" >
+                                       type="text" autocomplete="off">
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="date">Date</label>
                                 <input class="form-control input-sm datePicker" id="date" name="date" type="text"
-                                       required>
+                                       autocomplete="off" required>
                             </div>
                         </div>
                     </div>

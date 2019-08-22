@@ -3,7 +3,7 @@
     <div class="col-lg-4 col-md-4">
         <label for="name" class="control-label">Name</label>
         <input class="form-control input-sm" id="name" name="name" value="{{$Sale->name}}"
-               type="text" required>
+               type="text" autocomplete="off" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="value_of_sales">Value</label>

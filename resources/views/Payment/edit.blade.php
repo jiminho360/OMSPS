@@ -11,16 +11,16 @@
         </select>
         <div class="col-lg-14">
             <label class="control-label" for="total_amount">Total_amount</label>
-            <input class="form-control input-sm" id="total_amount" name="total_amount" value="{{$Payment->total_amount}}"
+            <input class="form-control input-sm" id="total_amount" autocomplete="off" name="total_amount" value="{{$Payment->total_amount}}"
                    type="text" required>
         </div>
     </div>
     <div class="col-lg-12">
         <label class="control-label" for="paid_amount">Paid_amount</label>
-        <input class="form-control input-sm" id="paid_amount" name="paid_amount" value="{{$Payment->paid_amount}}"
+        <input class="form-control input-sm" id="paid_amount" autocomplete="off" name="paid_amount" value="{{$Payment->paid_amount}}"
                type="text" required>
         <label class="control-label" for="unpaid_amount">Unpaid_amount</label>
-        <input class="form-control input-sm" id="unpaid_amount" name="unpaid_amount" value="{{$Payment->unpaid_amount}}"
+        <input class="form-control input-sm" id="unpaid_amount" autocomplete="off" name="unpaid_amount" value="{{$Payment->unpaid_amount}}"
                type="text" required>
     </div>
 

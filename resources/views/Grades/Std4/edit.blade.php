@@ -34,6 +34,6 @@
 
     <div class="col-md-12">
         <label class="control-label" for="marks">Marks</label>
-        <input class="form-control input-sm marks" id="marks" name="marks" onkeypress="return isNumber(event)" type="text" required>
+        <input class="form-control input-sm marks" id="marks" autocomplete="off" name="marks" onkeypress="return isNumber(event)" type="text" required>
     </div>
 </div>

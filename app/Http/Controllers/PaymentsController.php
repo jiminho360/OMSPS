@@ -13,28 +13,25 @@ class PaymentsController extends Controller
     public function index(){
         $payments = StudentPaymentRecord::all();
         $students = Student::all();
-//dd($payments);
         return view('Payment.index', compact('payments','students'));
     }
-    public function store(){
+    public function store()
+    {
         $data = Input::all();
         $data['year_id'] = Year::where('status', 1)->first()->id;
         $results = StudentPaymentRecord::create($data);
+            if ($results) {
+                return Redirect::back()->with('success', 'Payment Successfully Created');
+            } else {
+                return Redirect::back()->with('error', 'Failed to create Payment');
+            }
 
-        if ($results) {
-            return Redirect::back()->with('success', 'Payment Successfully Created');
-        } else {
-            return Redirect::back()->with('error', 'Failed to create Payment');
         }
-
-    }
     public function edit($id)
     {
         $Payment = StudentPaymentRecord::find($id);
         $students = Student::all();
-//        dd($Payment->people->first_name);
         return view('Payment.edit', compact('Payment','students'));
-
     }
 
     public function update()
@@ -55,5 +52,3 @@ class PaymentsController extends Controller
         return Redirect::back()->with('success','Payment Successfully Deleted');
     }
 }
-
-

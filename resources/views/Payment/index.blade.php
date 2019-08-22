@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label" for="Total_amount">Total_amount</label>
-                                <input class="form-control input-sm" id="Total_amount" name="Total_amount" type="text" required>
+                                <input class="form-control input-sm" autocomplete="off" id="Total_amount" name="Total_amount" type="text" required>
                             </div>
                         </div>
 
@@ -88,11 +88,11 @@
 
                             <div class="col-md-6">
                                 <label class="control-label" for="Paid_amount">Paid_amount</label>
-                                <input class="form-control input-sm" id="Paid_amount" name="Paid_amount" type="text" required>
+                                <input class="form-control input-sm" autocomplete="off" id="Paid_amount" name="Paid_amount" type="text" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="control-label" for="Unpaid_amount">Unpaid_amount</label>
-                                <input class="form-control input-sm" id="Unpaid_amount" name="Unpaid_amount" type="text" required>
+                                <input class="form-control input-sm" autocomplete="off" id="Unpaid_amount" name="Unpaid_amount" type="text" required>
                             </div>
                         </div>
 

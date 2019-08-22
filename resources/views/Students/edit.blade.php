@@ -3,17 +3,17 @@
     <div class="col-lg-4 col-md-4">
         <label for="first_name" class="control-label">First Name</label>
         <input class="form-control input-sm" id="first_name" name="first_name"
-             value="{{$student->first_name}}"  type="text" required>
+             value="{{$student->first_name}}"  type="text" autocomplete="off" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="last_name">Last Name</label>
         <input class="form-control input-sm" id="last_name" name="last_name"
-               value="{{$student->last_name}}"  type="text" required>
+               value="{{$student->last_name}}"  type="text" autocomplete="off" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="surname">Surname</label>
         <input class="form-control input-sm" id="surname" name="surname"
-               value="{{$student->surname}}"  type="text" required>
+               value="{{$student->surname}}"  type="text" autocomplete="off" required>
     </div>
 </div>
 
@@ -39,7 +39,7 @@
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="address">Physical_address</label>
-        <input class="form-control input-sm" id="address" name="address" type="text" value="{{$student->address}}" required>
+        <input class="form-control input-sm" id="address" autocomplete="off" name="address" type="text" value="{{$student->address}}" required>
     </div>
 </div>
 
@@ -59,11 +59,11 @@
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="birth_date">Birth Date</label>
         <input class="form-control input-sm datePicker" id="birth_date" name="birth_date" type="text"
-               value="{{$student->birth_date}}"   required>
+               value="{{$student->birth_date}}"   autocomplete="off" required>
     </div>
     <div class="col-lg-4 col-md-4">
         <label class="control-label" for="admission_year">Admission_year</label>
-        <input class="form-control input-sm" id="admission_year" name="admission_year" type="text" value="{{$student->admission_year}}" required>
+        <input class="form-control input-sm" id="admission_year" name="admission_year" type="text" value="{{$student->admission_year}}" autocomplete="off" required>
     </div>
 
 </div>

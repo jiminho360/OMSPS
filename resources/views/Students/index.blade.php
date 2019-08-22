@@ -79,17 +79,17 @@
                             <div class="col-lg-4 col-md-4">
                                 <label for="first_name" class="control-label">First Name</label>
                                 <input class="form-control input-sm" id="first_name" name="first_name"
-                                       type="text" maxlength="20" required>
+                                       type="text" maxlength="20" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="last_name">Last Name</label>
                                 <input class="form-control input-sm" id="last_name" name="last_name"
-                                       type="text" maxlength="20" >
+                                       type="text" maxlength="20" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="surname">Surname</label>
                                 <input class="form-control input-sm" id="surname" name="surname"
-                                       type="text" maxlength="20" required>
+                                       type="text" maxlength="20" autocomplete="off" required>
                             </div>
                         </div>
 
@@ -115,7 +115,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="address">Physical_address</label>
-                                <input class="form-control input-sm" id="address" name="address" type="text" maxlength="40" required>
+                                <input class="form-control input-sm" id="address" name="address" type="text" maxlength="40" autocomplete="off" required>
                             </div>
                         </div>
 
@@ -135,11 +135,11 @@
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="birth_date">Birth Date</label>
                                 <input class="form-control input-sm datePicker" id="birth_date" name="birth_date" type="text"
-                                       required>
+                                       autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="admission_year">Admission_year</label>
-                                <input class="form-control input-sm" id="admission_year" name="admission_year" type="text" required>
+                                <input class="form-control input-sm" id="admission_year" name="admission_year" type="text" autocomplete="off" required>
                             </div>
                         </div>
 

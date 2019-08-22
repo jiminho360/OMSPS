@@ -8,7 +8,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Standard 5 Grades</h2>
+                <h2>Standard 5 Marks</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
@@ -110,7 +110,7 @@
 
                             <div class="col-md-12">
                                 <label class="control-label" for="marks">Marks</label>
-                                <input class="form-control input-sm" id="marks" name="marks"
+                                <input class="form-control input-sm" id="marks" name="marks" autocomplete="off"
                                        onkeypress="return isNumber(event)" type="text" required>
                             </div>
 
