@@ -23,7 +23,8 @@
 
 </head>
 <body>
-<img src="{{asset('asset/images/new.png')}}" style="margin-left: 10%; margin-top: -3%"><br>
+<img src="{{public_path('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br>
+{{--<img src="{{asset('asset/images/new.png')}}" style="margin-left: 10%; margin-top: -3%"><br>--}}
 <center><h1 style="margin: 0;padding: 0">Income Statement Report</h1></center>
 <span id="date"><b style="color:black">Income Statement for the Year Ended as at: <span style="color: red">31 June {{date('Y')}}</span></b></span>
 <hr>

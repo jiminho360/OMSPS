@@ -34,7 +34,7 @@
                     <td>{{$item->Reading}}</td>
                     <td>{{$item->Writing}}</td>
                     <td>{{$item->Science}}</td>
-                    <td>{{$item->average}}</td>
+                    <td style="color: red">{{round($item->average)}}</td>
                 </tr>
                 @endforeach
                 </tbody>

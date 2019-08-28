@@ -9,13 +9,17 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Financial Position Report</h2>
-                @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
+                @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier')
+                || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
+                )
                 <ul class="nav navbar-right panel_toolbox">
                     <a href="{{url('FinancialPosition/download_p')}}" class="btn btn-info btn-sm"><i
                                 class="fa fa-plus-circle"></i> Print
                     </a>
                 </ul>
                 @endif
+                {{--<button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>--}}
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">

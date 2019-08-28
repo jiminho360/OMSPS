@@ -56,7 +56,8 @@
 
 </head>
 <body>
-<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br>
+<img src="{{public_path('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br>
+{{--<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br>--}}
 <center><h1 style="margin: 0;padding: 0">Financial Position Report</h1></center>
 <span id="date"><b style="color:black">Statement of Financial Position as at: <span style="color: red">31 June {{date('Y')}}</span></b></span>
 <hr>

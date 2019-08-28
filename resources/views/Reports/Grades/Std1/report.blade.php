@@ -20,8 +20,8 @@
     }
 </style>
 
-<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">
-
+{{--<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">--}}
+<img src="{{public_path('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br><br>
 <table style="width: 103.2%; margin-top:-2%; border-collapse: collapse" border="1">
     <tr>
         <td>Type of Examination: <span style="color: red; font-weight: bolder">MID TERM EXAMINATION</span></td>
@@ -61,18 +61,18 @@
         <td class="centered">{{$max2 = \App\Models\Grades\Std1::maxRead($results->term)}}</td>
         <td class="centered">{{$max3 = \App\Models\Grades\Std1::maxWr($results->term)}}</td>
         <td class="centered">{{$max4 = \App\Models\Grades\Std1::maxSc($results->term)}}</td>
-        <td class="centered">{{$max5 = $max1 + $max2 + $max3 + $max4}}</td>
-        <td class="centered">{{$max5/4}}</td>
+        <td class="centered">{{round($max5 = $max1 + $max2 + $max3 + $max4)}}</td>
+        <td class="centered">{{round($max5/4)}}</td>
     </tr>
     <tr>
         <td><b>2</b></td>
         <td><b>Class average</b></td>
-        <td class="centered">{{$avg1 =\App\Models\Grades\Std1::avgMath($results->term)}}</td>
-        <td class="centered">{{$avg2 =\App\Models\Grades\Std1::avgRead($results->term)}}</td>
-        <td class="centered">{{$avg3 =\App\Models\Grades\Std1::avgWr($results->term)}}</td>
-        <td class="centered">{{$avg4 =\App\Models\Grades\Std1::avgSc($results->term)}}</td>
-        <td class="centered">{{$avg5 = $avg1 + $avg2 + $avg3 + $avg4}}</td>
-        <td class="centered">{{$avg5/4}}</td>
+        <td class="centered">{{round($avg1 =\App\Models\Grades\Std1::avgMath($results->term))}}</td>
+        <td class="centered">{{round($avg2 =\App\Models\Grades\Std1::avgRead($results->term))}}</td>
+        <td class="centered">{{round($avg3 =\App\Models\Grades\Std1::avgWr($results->term))}}</td>
+        <td class="centered">{{round($avg4 =\App\Models\Grades\Std1::avgSc($results->term))}}</td>
+        <td class="centered">{{round($avg5 = $avg1 + $avg2 + $avg3 + $avg4)}}</td>
+        <td class="centered">{{round($avg5/4)}}</td>
     </tr>
     <tr>
         <td><b>3</b></td>
@@ -84,8 +84,8 @@
         <td class="centered">{{$results->Reading}}</td>
         <td class="centered">{{$results->Writing}}</td>
         <td class="centered">{{$results->Science}}</td>
-        <td class="centered">{{$resultAll = $sub1+$sub2+$sub3+$sub4}}</td>
-        <td class="centered">{{$resultAll/4}}</td>
+        <td class="centered">{{round($resultAll = $sub1+$sub2+$sub3+$sub4)}}</td>
+        <td class="centered">{{round($resultAll/4)}}</td>
     </tr>
     <tr>
         <td><b>4</b></td>

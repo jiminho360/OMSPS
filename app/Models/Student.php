@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class Student extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
     public $guarded = ['student_id'];
 
     public function religion()

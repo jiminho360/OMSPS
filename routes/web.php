@@ -26,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Route::get('users/edit/{id}', 'UsersController@edit');
     Route::post('users/update', 'UsersController@update');
     Route::get('users/delete/{id}', 'UsersController@destroy');
+
+    //ChangePassword
+    Route::get('ChangePassword', 'UsersController@ChangePasswordIndex');
+    Route::post('ChangePassword/update', 'UsersController@ChangePassword');
 //years
     Route::get('years', 'YearsController@index');
     Route::post('years/store', 'YearsController@store');

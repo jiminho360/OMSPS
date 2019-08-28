@@ -14,7 +14,9 @@ use App\Models\Finance\non_current_assets;
 use App\Models\Finance\Purchase;
 use App\Models\Finance\sales;
 use App\Models\Year;
-use Barryvdh\DomPDF\facade as PDF;
+use Barryvdh\DomPDF\Facade as PDF;
+//use Barryvdh\DomPDF\facade as PDF;
+//use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

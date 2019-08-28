@@ -43,16 +43,8 @@
     </div>
 
     <div class="col-lg-4 col-md-4">
-        <label class="control-label" for="employee_type">Employee Type</label>
-        <input class="form-control input-sm" id="employee_type" name="employee_type" type="text" value="{{$Employee->employee_type}}" autocomplete="off" required>
-        {{--<label for="user_type" class="control-label">User Type</label>--}}
-        {{--<select class="form-control dd_select" id="user_type" name="user_type" required--}}
-                {{--style="width: 100%">--}}
-            {{--<option value="">----</option>--}}
-            {{--@foreach($user_types as $user_type)--}}
-                {{--<option value="{{$user_type->id}}" {{$user_type->id == $Employee->user_type ? 'selected':''}}>{{$user_type->name}}</option>--}}
-            {{--@endforeach--}}
-        {{--</select>--}}
+        <label class="control-label" for="Subject">Subject<span style="color:red;">*</span></label>
+        <input class="form-control input-sm" id="Subject" name="Subject" type="text" autocomplete="off" value="{{$Employee->Subject}}" required>
     </div>
 
     <div class="col-lg-4 col-md-4">

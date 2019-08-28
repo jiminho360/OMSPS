@@ -34,7 +34,7 @@ class AuthenticationController extends Controller
 //            dd(Auth::user()->first_name);
             return redirect()->action('AuthenticationController@homepage');
         } else {
-            $errorMsg = "Wrong UserName or Password";
+            $errorMsg = "Wrong Email or Password";
             return view('Login', compact('errorMsg'));
         }
 

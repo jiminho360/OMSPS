@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserType;
 use App\Models\Year;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
@@ -37,6 +38,26 @@ class UsersController extends Controller
         } else {
             return Redirect::back()->with('errors', 'Sorry An Error Occurred');
         }
+    }
+public function ChangePasswordIndex(){
+    return view('ChangePassword.index');
+}
+
+    public function ChangePassword()
+    {
+        $data = Input::all();
+
+        $user_id  = Auth::user()->id;
+
+        $user = User::find($user_id);
+
+       if($user->password = Hash::make($data['old_password'])){
+           $user->password = Hash::make($data['new_password']);
+           $user->update();
+           return Redirect::back()->with('success', 'Password Successfully Updated');
+       }
+        return Redirect::back()->with('errors', 'The old Password does not exist');
+
     }
 
     public function edit($id)
@@ -69,7 +90,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $user->delete();
 
-        return Redirect::back()->with('success','Successfully Deleted');
+        return Redirect::back()->with('success', 'Successfully Deleted');
     }
 
 }

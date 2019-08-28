@@ -10,12 +10,16 @@
             <div class="x_title">
                 <h2>Standard 7 Report</h2>
                 <ul class="nav navbar-right panel_toolbox">
-                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher'))
+                    @if(\Illuminate\Support\Facades\Auth::user()->hasRole('academic_teacher')
+                    || \Illuminate\Support\Facades\Auth::user()->hasRole('manager')
+                    || \Illuminate\Support\Facades\Auth::user()->hasRole('admin')
+                    || \Illuminate\Support\Facades\Auth::user()->hasRole('head_teacher')
+                    )
                     <form action="{{url('Std7/download_p')}}" method="post">
                         @csrf
                         <div class="row" style="width: 100%">
                             <div class="col-md-8">
-                                <label for="student_id" class="control-label">Student Name:</label>
+                                <label for="student_id" class="control-label">Pupil Name:</label>
                                 <select class="form-control" id="student_id" name="student_id"
                                         style="width: 100%" required>
                                     <option value="">Choose the name here! </option>

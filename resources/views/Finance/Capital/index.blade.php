@@ -38,7 +38,7 @@
                             <td class="desc_name">{{$item->value}}</td>
                             <td>{{$item->date}}</td>
                             @if(\Illuminate\Support\Facades\Auth::user()->hasRole('cashier'))
-                            <td style="width: 10%">
+                            <td style="width: 15%">
                                 <a href="{{url('Capital/edit/'.$item->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Capital/delete/'.$item->id)}}" class="delete-btn"> Delete</a>
 
@@ -55,7 +55,7 @@
 
     <!-- Create Modal -->
     <div class="modal fade" role="dialog" id="create" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <form action="{{url('Capital/store')}}" method="post">
                     @csrf
@@ -68,12 +68,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-6 col-md-6">
                                 <label class="control-label" for="value">Value</label>
                                 <input class="form-control input-sm" id="value" name="value"
                                        type="text" required>
                             </div>
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-6 col-md-6">
                                 <label class="control-label" for="date">Date</label>
                                 <input class="form-control input-sm datePicker" id="date" name="date" type="text"
                                        required>
@@ -95,7 +95,7 @@
 
     <!-- Edit Modal -->
     <div class="modal fade" role="dialog" id="edit" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <form action="{{url('Capital/update')}}" method="post">
                     @csrf

@@ -23,6 +23,7 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
+                        <th>S/N</th>
                         <th>Full Name</th>
                         <th>Gender</th>
                         <th>Age</th>
@@ -36,8 +37,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($students as $student)
+                    @foreach($students as $key =>$student)
                         <tr>
+                            <td>{{$key+1}}</td>
                             <td class="desc_name">{{$student->first_name." ".$student->middle_name." ".$student->surname}}</td>
                             <?php $Age_one = date('Y',strtotime($student->birth_date));
                             $Age_two = date('Y')?>

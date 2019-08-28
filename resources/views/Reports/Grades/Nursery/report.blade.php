@@ -7,7 +7,8 @@
     }
 </style>
 
-<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">
+{{--<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">--}}
+<img src="{{public_path('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br>
 
 <table style="width: 105%;border-collapse: collapse" border="1">
     <tr>
@@ -48,18 +49,18 @@
         <td class="centered">{{$max2 = \App\Models\Grades\Nursery::maxRW($results->term)}}</td>
         <td class="centered">{{$max3 = \App\Models\Grades\Nursery::maxEng($results->term)}}</td>
         <td class="centered">{{$max4 = \App\Models\Grades\Nursery::maxAC($results->term)}}</td>
-        <td class="centered">{{$max5 = $max1 + $max2 + $max3 + $max4}}</td>
-        <td class="centered">{{$max5/4}}</td>
+        <td class="centered">{{round($max5 = $max1 + $max2 + $max3 + $max4)}}</td>
+        <td class="centered">{{round($max5/4)}}</td>
     </tr>
     <tr>
         <td><b>2</b></td>
         <td><b>Class average</b></td>
-        <td class="centered">{{$avg1 =\App\Models\Grades\Nursery::avgMath($results->term)}}</td>
-        <td class="centered">{{$avg2 =\App\Models\Grades\Nursery::avgRW($results->term)}}</td>
-        <td class="centered">{{$avg3 =\App\Models\Grades\Nursery::avgEng($results->term)}}</td>
-        <td class="centered">{{$avg4 =\App\Models\Grades\Nursery::avgAC($results->term)}}</td>
-        <td class="centered">{{$avg5 = $avg1 + $avg2 + $avg3 + $avg4}}</td>
-        <td class="centered">{{$avg5/4}}</td>
+        <td class="centered">{{round($avg1 =\App\Models\Grades\Nursery::avgMath($results->term))}}</td>
+        <td class="centered">{{round($avg2 =\App\Models\Grades\Nursery::avgRW($results->term))}}</td>
+        <td class="centered">{{round($avg3 =\App\Models\Grades\Nursery::avgEng($results->term))}}</td>
+        <td class="centered">{{round($avg4 =\App\Models\Grades\Nursery::avgAC($results->term))}}</td>
+        <td class="centered">{{round($avg5 = $avg1 + $avg2 + $avg3 + $avg4)}}</td>
+        <td class="centered">{{round($avg5/4)}}</td>
     </tr>
     <tr>
         <td><b>3</b></td>
@@ -71,8 +72,8 @@
         <td class="centered">{{$results->reading_and_writing}}</td>
         <td class="centered">{{$results->english}}</td>
         <td class="centered">{{$results->art_and_craft}}</td>
-        <td class="centered">{{$resultAll = $sub1+$sub2+$sub3+$sub4}}</td>
-        <td class="centered">{{$resultAll/4}}</td>
+        <td class="centered">{{round($resultAll = $sub1+$sub2+$sub3+$sub4)}}</td>
+        <td class="centered">{{round($resultAll/4)}}</td>
     </tr>
     <br/><br/>
     <tr>

@@ -17,8 +17,8 @@
     <tr>
         <th>Physical Address</th>
         <td>{{$Employee->Address}}</td>
-        <th>Employee Type</th>
-        <td>{{$Employee->employee_type}}</td>
+        <th>Subject</th>
+        <td>{{$Employee->Subject}}</td>
     </tr>
 
     <tr>

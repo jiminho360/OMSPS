@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title','Register Employees')
+@section('title','Register Teachers')
 
 @section('content')
 
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Employees List</h2>
+                <h2>Teachers List</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
                     <button type="button" class="btn btn-info btn-sm" data-target="#create" data-toggle="modal"><i
@@ -21,12 +21,13 @@
                        cellspacing="0" width="100%">
                     <thead>
                     <tr>
+                        <th>S/N</th>
                         <th>Full Name</th>
                         <th>Age</th>
                         <th>Email</th>
                         <th>Phone</th>
-                        <th>Physical Address</th>
-                        <th>Employee Type</th>
+                        <th>Address</th>
+                        <th>Subject</th>
                         {{--<th>Gender</th>--}}
                         {{--<th>Nationality</th>--}}
                         {{--<th>Religion</th>--}}
@@ -36,16 +37,17 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($Employees as $Employee)
+                    @foreach($Employees as $key=>$Employee)
                         <tr>
+                            <td>{{$key+1}}</td>
                             <td class="desc_name">{{$Employee->first_name." ".$Employee->middle_name." ".$Employee->surname}}</td>
                             <?php $Age_one = date('Y',strtotime($Employee->birth_date));
                             $Age_two = date('Y')?>
-                            <td>{{$Age_two - $Age_one." Years"}}</td>
+                            <td style="width:8%">{{$Age_two - $Age_one." Years"}}</td>
                             <td>{{$Employee->Email}}</td>
                             <td>{{$Employee->phone}}</td>
                             <td>{{$Employee->Address}}</td>
-                            <td>{{$Employee->employee_type}}</td>
+                            <td>{{$Employee->Subject}}</td>
                             {{--<td>{{$Employee->gender}}</td>--}}
                             {{--<td>{{$Employee->nationality->name}}</td>--}}
                             {{--<td>{{$Employee->religion->name}}</td>--}}
@@ -79,40 +81,41 @@
                     <div class="modal-body">
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
-                                <label for="first_name" class="control-label">First Name</label>
+                                <label for="first_name" class="control-label">First Name<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="first_name" name="first_name"
-                                       type="text" autocomplete="off" required>
+                                       type="text" autocomplete="off" onkeypress="return a(event);" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="middle_name">Middle Name</label>
+                                <label class="control-label" for="middle_name">Middle Name<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="middle_name" name="middle_name"
-                                       type="text" autocomplete="off" required>
+                                       type="text" autocomplete="off" onkeypress="return a(event);" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="surname">Last Name</label>
+                                <label class="control-label" for="surname">Last Name<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="surname" name="surname"
-                                       type="text" autocomplete="off" required>
+                                       type="text" autocomplete="off" onkeypress="return a(event);" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="Email">Email</label>
+                                <label class="control-label" for="Email">Email<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="Email" name="Email" type="Email" autocomplete="off" required>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="phone">Phone Number</label>
-                                <input class="form-control input-sm" id="phone" name="phone" type="text" autocomplete="off" required>
+                                <label class="control-label" for="phone">Phone Number<span style="color:red;">*</span></label>
+                                <input class="form-control input-sm" id="phone" name="phone" type="text" autocomplete="off" onkeypress="return isNumber(event)" required>
+
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="Address">Physical Address</label>
+                                <label class="control-label" for="Address">Physical Address<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="Address" name="Address" type="text" autocomplete="off" required>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
-                                <label for="gender" class="control-label">Gender</label>
+                                <label for="gender" class="control-label">Gender<span style="color:red;">*</span></label>
                                 <select class="form-control dd_select" id="gender" name="gender" required style="width: 100%">
                                     <option value="">---</option>
                                     <option value="Male">Male</option>
@@ -121,20 +124,12 @@
                             </div>
 
                             <div class="col-lg-4 col-md-4">
-                                {{--<label for="user_type" class="control-label">User Type</label>--}}
-                                {{--<select class="form-control dd_select" id="user_type" name="user_type" required--}}
-                                        {{--style="width: 100%">--}}
-                                    {{--<option value="">----</option>--}}
-                                    {{--@foreach($user_types as $user_type)--}}
-                                        {{--<option value="{{$user_type->id}}">{{$user_type->name}}</option>--}}
-                                    {{--@endforeach--}}
-                                {{--</select>--}}
-                                <label class="control-label" for="employee_type">Employee Type</label>
-                                <input class="form-control input-sm" id="employee_type" name="employee_type" type="text" autocomplete="off" required>
+                                <label class="control-label" for="Subject">Subject<span style="color:red;">*</span></label>
+                                <input class="form-control input-sm" id="Subject" name="Subject" type="text" autocomplete="off" required>
                             </div>
 
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="birth_date">Birth Date</label>
+                                <label class="control-label" for="birth_date">Birth Date<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm datePicker" id="birth_date" name="birth_date" type="text"
                                        autocomplete="off" required>
                             </div>
@@ -142,7 +137,7 @@
 
                         <div class="form-group row">
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="nationality_id">Nationalities</label>
+                                <label class="control-label" for="nationality_id">Nationalities<span style="color:red;">*</span></label>
                                 <select class="form-control dd_select" id="nationality_id" name="nationality_id"
                                         required
                                         style="width: 100%">
@@ -153,7 +148,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-4 col-md-4">
-                                <label class="control-label" for="religion_id">Religion</label>
+                                <label class="control-label" for="religion_id">Religion<span style="color:red;">*</span></label>
                                 <select class="form-control dd_select" id="religion_id" name="religion_id" required
                                         style="width: 100%">
                                     <option value="">----</option>
@@ -163,7 +158,6 @@
                                 </select>
                             </div>
                         </div>
-
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-close"></i>
@@ -242,6 +236,14 @@
                 $('#show').modal({show: true});
             });
         });
+        //Lock Numbers in keyboard
+function a(event){
+    var char = event.which;
+    if(char >31 && char != 32 && (char<65 || char>90) && (char<97 || char > 122)){
+        return false;
+    }
+}
+//1 to 100
 
         //Date Picker
         $(document).ready(function () {

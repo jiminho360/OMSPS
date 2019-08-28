@@ -159,8 +159,6 @@
                 $('#edit').modal({show: true});
             });
         });
-
-
         //Date Picker
         $(document).ready(function () {
             var DateToday = new Date();

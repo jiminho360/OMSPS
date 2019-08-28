@@ -20,8 +20,8 @@
     }
 </style>
 
-<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">
-
+{{--<img src="{{asset('asset/images/logo.png')}}" style="margin-left: 22%; font-size: large">--}}
+<img src="{{public_path('asset/images/logo.png')}}" style="margin-left: 22.5%; margin-top:-5%"><br><br>
 <table style="width: 102.5%; margin-top:-2%; border-collapse: collapse" border="1">
     <tr>
         <td>Type of Examination: <span style="color: red; font-weight: bolder">MID TERM EXAMINATION</span></td>
@@ -47,7 +47,7 @@
     <tr >
         <th class="rotate" width="10%"><div style="margin-top:10%"><span>S/N</span></div></th>
         <th class="rotate"><div style="margin-top: 10%"><span>ITEM</span></div></th>
-        <th class="rotate" style="width: 2%"><div style="margin-top: 10%"><span>Math</span></div></th>
+        <th class="rotate" style="width: 2%"><div style="margin-top: 10%"><span>Mathe</span></div></th>
         <th class="rotate"><div style="margin-top: 10%"><span>English</span></div></th>
         <th class="rotate"><div style="margin-top: 10%"><span>Kiswahili</span></div></th>
         <th class="rotate"><div style="margin-top: 10%"><span>Science</span></div></th>
@@ -63,7 +63,7 @@
     <tr>
         <td><b>1</b></td>
         <td><b>Subject top score %</b></td>
-        <td>{{$max1 = \App\Models\Grades\Std7::maxMath($results->term)}}</td>
+        <td class="centered">{{$max1 = \App\Models\Grades\Std7::maxMath($results->term)}}</td>
         <td class="centered">{{$max2 = \App\Models\Grades\Std7::maxEng($results->term)}}</td>
         <td class="centered">{{$max3 = \App\Models\Grades\Std7::maxKis($results->term)}}</td>
         <td class="centered">{{$max4 = \App\Models\Grades\Std7::maxSc($results->term)}}</td>
@@ -73,24 +73,24 @@
         <td class="centered">{{$max8 = \App\Models\Grades\Std7::maxGeog($results->term)}}</td>
         <td class="centered">{{$max9 = \App\Models\Grades\Std7::maxCiv($results->term)}}</td>
         <td class="centered">{{$max10 = \App\Models\Grades\Std7::maxVS($results->term)}}</td>
-        <td class="centered">{{$max11 = $max1 + $max2 + $max3 + $max4 + $max5 + $max6 + $max7 + $max8 + $max9 + $max10}}</td>
-        <td class="centered">{{$max11/10}}</td>
+        <td class="centered">{{round($max11 = $max1 + $max2 + $max3 + $max4 + $max5 + $max6 + $max7 + $max8 + $max9 + $max10)}}</td>
+        <td class="centered">{{round($max11/10)}}</td>
     </tr>
     <tr>
         <td><b>2</b></td>
         <td><b>Class average</b></td>
-        <td>{{$avg1 = \App\Models\Grades\Std7::avgMath($results->term)}}</td>
-        <td class="centered">{{$avg2 = \App\Models\Grades\Std7::avgEng($results->term)}}</td>
-        <td class="centered">{{$avg3 = \App\Models\Grades\Std7::avgKis($results->term)}}</td>
-        <td class="centered">{{$avg4 = \App\Models\Grades\Std7::avgSc($results->term)}}</td>
-        <td class="centered">{{$avg5 = \App\Models\Grades\Std7::avgICT($results->term)}}</td>
-        <td class="centered">{{$avg6 = \App\Models\Grades\Std7::avgPDS($results->term)}}</td>
-        <td class="centered">{{$avg7 = \App\Models\Grades\Std7::avgHis($results->term)}}</td>
-        <td class="centered">{{$avg8 = \App\Models\Grades\Std7::avgGeog($results->term)}}</td>
-        <td class="centered">{{$avg9 = \App\Models\Grades\Std7::avgCiv($results->term)}}</td>
-        <td class="centered">{{$avg10 = \App\Models\Grades\Std7::avgVS($results->term)}}</td>
-        <td class="centered">{{$avg11 = $avg1 + $avg2 + $avg3 + $avg4 + $avg5 + $avg6 + $avg7 + $avg8 + $avg9 + $avg10}}</td>
-        <td class="centered">{{$avg11/10}}</td>
+        <td class="centered">{{round($avg1 = \App\Models\Grades\Std7::avgMath($results->term))}}</td>
+        <td class="centered">{{round($avg2 = \App\Models\Grades\Std7::avgEng($results->term))}}</td>
+        <td class="centered">{{round($avg3 = \App\Models\Grades\Std7::avgKis($results->term))}}</td>
+        <td class="centered">{{round($avg4 = \App\Models\Grades\Std7::avgSc($results->term))}}</td>
+        <td class="centered">{{round($avg5 = \App\Models\Grades\Std7::avgICT($results->term))}}</td>
+        <td class="centered">{{round($avg6 = \App\Models\Grades\Std7::avgPDS($results->term))}}</td>
+        <td class="centered">{{round($avg7 = \App\Models\Grades\Std7::avgHis($results->term))}}</td>
+        <td class="centered">{{round($avg8 = \App\Models\Grades\Std7::avgGeog($results->term))}}</td>
+        <td class="centered">{{round($avg9 = \App\Models\Grades\Std7::avgCiv($results->term))}}</td>
+        <td class="centered">{{round($avg10 = \App\Models\Grades\Std7::avgVS($results->term))}}</td>
+        <td class="centered">{{round($avg11 = $avg1 + $avg2 + $avg3 + $avg4 + $avg5 + $avg6 + $avg7 + $avg8 + $avg9 + $avg10)}}</td>
+        <td class="centered">{{round($avg11/10)}}</td>
     </tr>
     <tr>
         <td><b>3</b></td>
@@ -110,8 +110,8 @@
         <td class="centered">{{$results->Geography}}</td>
         <td class="centered">{{$results->Civics}}</td>
         <td class="centered">{{$results->Vocational_Skills}}</td>
-        <td class="centered">{{$resultAll = $sub1+$sub2+$sub3+$sub4+$sub5+$sub6+$sub7+$sub8+$sub9+$sub10}}</td>
-        <td class="centered">{{$resultAll/10}}</td>
+        <td class="centered">{{round($resultAll = $sub1+$sub2+$sub3+$sub4+$sub5+$sub6+$sub7+$sub8+$sub9+$sub10)}}</td>
+        <td class="centered">{{round($resultAll/10)}}</td>
     </tr>
 
 </table>

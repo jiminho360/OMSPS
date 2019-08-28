@@ -38,7 +38,7 @@
                             <td class="desc_name">{{$Fee->grade}}</td>
                             <td>{{$Fee->amount}}</td>
                             @if(\Illuminate\Support\Facades\Auth::user()->hasRole('manager'))
-                            <td style="width: 8%">
+                            <td style="width:15%">
                                 <a href="{{url('Fees/edit/'.$Fee->id)}}" class="edit-btn"> Edit</a> |
                                 <a href="{{url('Fees/delete/'.$Fee->id)}}" class="delete-btn"> Delete</a>
 
@@ -67,12 +67,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group row">
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-6 col-md-6">
                                 <label for="grade" class="control-label">Grade</label>
                                 <input class="form-control input-sm" id="grade" name="grade"
                                        type="text" autocomplete="off" required>
                             </div>
-                            <div class="col-lg-4 col-md-4">
+                            <div class="col-lg-6 col-md-6">
                                 <label class="control-label" for="amount">Amount</label>
                                 <input class="form-control input-sm" id="amount" name="amount"
                                        type="text" autocomplete="off" required>
