@@ -26,9 +26,7 @@ class AuthenticationController extends Controller
 
     public function Login()
     {
-
         $data = Input::all();
-//        dd($data);
 
         if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
 //            dd(Auth::user()->first_name);
@@ -39,7 +37,6 @@ class AuthenticationController extends Controller
         }
 
     }
-
     public function logout()
     {
         Auth::logout();

@@ -125,7 +125,7 @@
 
                             <div class="col-lg-4 col-md-4">
                                 <label class="control-label" for="Subject">Subject<span style="color:red;">*</span></label>
-                                <input class="form-control input-sm" id="Subject" name="Subject" type="text" autocomplete="off" required>
+                                <input class="form-control input-sm" id="Subject" name="Subject" type="text" onkeypress="return a(event);" autocomplete="off" required>
                             </div>
 
                             <div class="col-lg-4 col-md-4">

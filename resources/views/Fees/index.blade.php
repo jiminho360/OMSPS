@@ -68,14 +68,14 @@
                     <div class="modal-body">
                         <div class="form-group row">
                             <div class="col-lg-6 col-md-6">
-                                <label for="grade" class="control-label">Grade</label>
+                                <label for="grade" class="control-label">Grade<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="grade" name="grade"
-                                       type="text" autocomplete="off" required>
+                                       type="text" autocomplete="off" onkeypress="return a(event);" required>
                             </div>
                             <div class="col-lg-6 col-md-6">
-                                <label class="control-label" for="amount">Amount</label>
+                                <label class="control-label" for="amount">Amount<span style="color:red;">*</span></label>
                                 <input class="form-control input-sm" id="amount" name="amount"
-                                       type="text" autocomplete="off" required>
+                                       type="text" autocomplete="off" onkeypress="return isNumber(event)" required>
                             </div>
                         </div>
                     </div>
@@ -129,6 +129,12 @@
             });
         });
 
+        function a(event){
+            var char = event.which;
+            if(char >31 && char != 32 && (char<65 || char>90) && (char<97 || char > 122)){
+                return false;
+            }
+        }
 
         //Date Picker
         $(document).ready(function () {

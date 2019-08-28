@@ -111,9 +111,9 @@
 
                             <div class="col-md-12">
                                 <label class="control-label" for="marks">Marks</label>
-                                <input class="form-control input-sm" id="marks" autocomplete="off" name="marks" onkeypress="return isNumber(event)" type="text" required>
+                                <input class="form-control input-sm" id="marks" name="marks"
+                                       onkeypress="return isNumber(event)" type="number" autocomplete="off" step="10" min="0" max="100" required>
                             </div>
-
 
                         </div>
 
